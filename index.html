@@ -325,6 +325,22 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 @media(max-width:1150px){.tnav-hide-sm{display:none}}
 @media(max-width:1280px){.tnav-hide-md{display:none}}
 
+/* ===== TABLET (641px–900px) ===== */
+@media(min-width:641px) and (max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .sidebar{display:none;position:fixed;left:0;top:60px;bottom:0;z-index:200;width:280px;box-shadow:4px 0 24px rgba(0,0,0,.22)}
+  .sidebar.open{display:flex}
+  .menu-btn{display:flex}
+  .topbar-nav-wrap{display:block}
+  .page{padding:28px 32px}
+  .stats-row,.pub-metrics{grid-template-columns:repeat(4,1fr)}
+  .card-grid.col2{grid-template-columns:repeat(2,1fr)}
+  .card-grid.col3{grid-template-columns:repeat(2,1fr)}
+  .home-hero{gap:24px}
+  .bottom-nav{display:none}
+  .tnav-hide-sm,.tnav-hide-md{display:none}
+}
+
 /* ===== AGNICYCLE PAGE ===== */
 .agni-hero{background:linear-gradient(135deg,#051a0e 0%,#0a2a18 40%,#0d1829 100%);border:1px solid rgba(34,197,94,.2);border-radius:16px;padding:40px 36px;margin-bottom:28px;position:relative;overflow:hidden}
 .agni-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(34,197,94,.12) 0%,transparent 70%);pointer-events:none}
@@ -374,7 +390,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 .bnav-agni.active{color:#22c55e}
 .bnav-agni.active::before{background:#22c55e}
 [data-theme="dark"] .bottom-nav{box-shadow:0 -2px 18px rgba(0,0,0,.4)}
-@media(max-width:800px){
+@media(max-width:640px){
   .shell{grid-template-columns:1fr}
   .topbar-brand{width:auto}
   .topbar-nav-wrap{display:none}
