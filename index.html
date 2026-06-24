@@ -1233,6 +1233,8 @@ function goTo(id){
   slinks.forEach(b=>b.classList.toggle('active',b.dataset.page===id));
   const pg=document.getElementById('page-'+id);
   if(pg){pg.classList.add('active');window.scrollTo(0,0);}
+  if(id==='home'){if(location.hash)history.pushState(null,'',location.pathname);}
+  else if(location.hash!=='#'+id)history.pushState(null,'','#'+id);
 }
 
 homebtns.forEach(b=>b.addEventListener('click',()=>goTo(b.dataset.page)));
@@ -1479,6 +1481,20 @@ setTimeout(function(){
   goTo=function(id){_gt(id);syncBnav(id);};
   syncBnav('home');
 },0);
+
+// Hash routing: back/forward button + direct links
+window.addEventListener('popstate',function(){
+  const h=location.hash.slice(1)||'home';
+  const pg=document.getElementById('page-'+h);
+  if(!pg)return;
+  pages.forEach(p=>p.classList.remove('active'));
+  tnavs.forEach(b=>b.classList.toggle('active',b.dataset.page===h));
+  slinks.forEach(b=>b.classList.toggle('active',b.dataset.page===h));
+  pg.classList.add('active');
+  window.scrollTo(0,0);
+});
+// On initial load, honour the hash in the URL
+(function(){const h=location.hash.slice(1);if(h&&document.getElementById('page-'+h))goTo(h);})();
 </script>
 
 <!-- Bottom navigation bar (mobile only) -->
