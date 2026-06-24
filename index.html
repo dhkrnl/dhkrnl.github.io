@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dhananjay Kumar · Postdoctoral Researcher</title>
+<meta name="description" content="Dhananjay Kumar — Postdoctoral Research Associate at the Engine Research Center, UW–Madison. Research in hydrogen combustion, alternative fuels, and Li-ion battery safety."/>
+<!-- Favicon -->
+<link rel="icon" href="images/profile.jpg" type="image/jpeg"/>
+<!-- Open Graph (LinkedIn, WhatsApp, Twitter previews) -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Dhananjay Kumar, PhD — Postdoctoral Researcher"/>
+<meta property="og:description" content="Postdoctoral Research Associate at the Engine Research Center, UW–Madison. Research in hydrogen combustion, alternative fuels, and Li-ion battery thermal runaway."/>
+<meta property="og:image" content="images/profile.jpg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dhananjay Kumar, PhD"/>
+<meta name="twitter:description" content="Postdoctoral Research Associate · Engine Research Center, UW–Madison."/>
+<meta name="twitter:image" content="images/profile.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+<style>
+:root{
+  --bg:#eef0eb;--surface:#ffffff;--surface2:#f5f7f3;
+  --border:rgba(0,0,0,.08);--border2:rgba(0,0,0,.14);
+  --text:#0e1510;--muted:#536159;--faint:#92a49c;
+  --accent:#1a8a60;--accent-bg:rgba(26,138,96,.09);--accent-dark:#136648;
+  --blue:#1a5faa;--amber:#a06820;
+  --sidebar:256px;--radius:12px;
+  --shadow-xs:0 1px 2px rgba(0,0,0,.06);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.05);
+  --shadow:0 2px 8px rgba(0,0,0,.08),0 8px 28px rgba(0,0,0,.06);
+  --shadow-hover:0 4px 16px rgba(0,0,0,.1),0 16px 40px rgba(0,0,0,.07);
+}
+[data-theme="dark"]{
+  --bg:#070c18;--surface:#0d1829;--surface2:#091225;
+  --border:rgba(59,130,246,.1);--border2:rgba(59,130,246,.22);
+  --text:#c8dff5;--muted:#5d82a8;--faint:#1e3550;
+  --accent:#3b82f6;--accent-bg:rgba(59,130,246,.1);--accent-dark:#1d4ed8;
+  --blue:#60a5fa;--amber:#f59e0b;
+  --shadow-xs:0 1px 2px rgba(0,0,0,.5);
+  --shadow-sm:0 2px 6px rgba(0,0,0,.5),0 6px 18px rgba(0,0,0,.3);
+  --shadow:0 4px 14px rgba(0,0,0,.55),0 14px 36px rgba(0,0,0,.35);
+  --shadow-hover:0 6px 22px rgba(0,0,0,.6),0 22px 52px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+b{font-weight:600}
+
+/* ===== LAYOUT ===== */
+.shell{display:grid;grid-template-columns:var(--sidebar) 1fr;grid-template-rows:auto 1fr;min-height:100vh}
+
+/* ===== TOP BAR ===== */
+.topbar{grid-column:1/-1;display:flex;align-items:center;gap:0;height:60px;border-bottom:1px solid var(--border);background:var(--surface);position:sticky;top:0;z-index:100;box-shadow:var(--shadow-xs)}
+.topbar-brand{width:var(--sidebar);flex-shrink:0;display:flex;align-items:center;gap:10px;padding:0 22px;border-right:1px solid var(--border)}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);display:grid;place-items:center;font-family:'Sora';font-size:13px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(26,138,96,.35)}
+.brand-name{font-family:'Sora';font-size:14px;font-weight:700;color:var(--text);letter-spacing:-.02em;white-space:nowrap}
+.topbar-nav{display:flex;align-items:center;gap:1px;padding:0 12px;flex:1;overflow-x:auto}
+.topbar-nav::-webkit-scrollbar{display:none}
+.tnav{display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:500;color:var(--muted);padding:6px 9px;border-radius:8px;cursor:pointer;white-space:nowrap;border:none;background:none;transition:.18s;position:relative}
+.tnav i{font-size:14px}
+.tnav:hover{color:var(--text);background:var(--surface2)}
+.tnav.active{color:var(--accent);font-weight:600}
+.tnav.active::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:18px;height:2.5px;border-radius:2px;background:var(--accent)}
+.topbar-right{display:flex;align-items:center;gap:6px;padding:0 16px;margin-left:auto;flex-shrink:0;border-left:1px solid var(--border)}
+.icon-btn{width:36px;height:36px;border-radius:9px;border:1.5px solid var(--border2);background:var(--surface2);cursor:pointer;color:var(--text);display:grid;place-items:center;font-size:18px;transition:.18s;flex-shrink:0;box-shadow:var(--shadow-xs)}
+.icon-btn svg{width:17px;height:17px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none;display:block}
+.icon-btn:hover{background:var(--accent-bg);border-color:var(--accent);color:var(--accent);box-shadow:0 2px 8px rgba(26,138,96,.2)}
+.menu-btn{display:none}
+.topbar-nav-wrap{position:relative;flex:1;min-width:0;display:flex;align-items:center}
+.topbar-nav-wrap::after{content:'';position:absolute;right:0;top:0;bottom:0;width:48px;background:linear-gradient(to right,transparent,var(--surface));pointer-events:none}
+
+/* ===== SIDEBAR ===== */
+.sidebar{width:var(--sidebar);border-right:1px solid var(--border);background:var(--surface);padding:0 0 24px;display:flex;flex-direction:column;gap:0;position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.profile-card{text-align:center;background:linear-gradient(170deg,rgba(26,138,96,.13) 0%,rgba(26,138,96,.04) 60%,transparent 100%);padding:28px 20px 22px;border-bottom:1px solid var(--border)}
+.av{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);display:grid;place-items:center;font-family:'Sora';font-size:26px;font-weight:700;color:#fff;margin:0 auto 14px;box-shadow:0 0 0 4px rgba(26,138,96,.15),0 4px 20px rgba(26,138,96,.3);object-fit:cover;filter:brightness(1.18) contrast(1.05)}
+.profile-card h2{font-family:'Sora';font-size:15px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+.profile-card .role{font-size:11px;color:var(--accent);font-weight:600;margin-bottom:4px;padding:2px 10px;display:inline-block;background:var(--accent-bg);border-radius:20px}
+.profile-card .inst{font-size:11px;color:var(--muted);line-height:1.6;margin-top:6px}
+.divider{height:1px;background:var(--border);margin:0 20px}
+.sidebar-section{padding:16px 14px 4px}
+.sidebar-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:8px;padding:0 6px}
+.slink{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);padding:8px 10px;border-radius:9px;cursor:pointer;border:none;background:none;width:100%;text-align:left;transition:.15s}
+.slink i{font-size:15px;flex-shrink:0;width:18px;text-align:center}
+.slink:hover{color:var(--text);background:var(--surface2)}
+.slink.active{color:var(--accent);background:var(--accent-bg);font-weight:600;box-shadow:inset 2px 0 0 var(--accent)}
+.socials-row{display:flex;gap:7px;flex-wrap:wrap;padding:0 6px}
+.soc-btn{width:34px;height:34px;border-radius:9px;border:1px solid var(--border);background:var(--surface2);display:grid;place-items:center;font-size:16px;color:var(--muted);cursor:pointer;transition:.15s;position:relative}
+.soc-btn:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-bg);transform:translateY(-2px);box-shadow:0 2px 8px rgba(26,138,96,.15)}
+.soc-btn::after{content:attr(title);position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);background:var(--text);color:var(--surface);font-size:11px;font-weight:500;padding:4px 8px;border-radius:6px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10}
+.soc-btn:hover::after{opacity:1}
+.contact-mini{display:flex;flex-direction:column;gap:8px;padding:0 6px}
+.cmi{display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:var(--muted);line-height:1.5}
+.cmi i{font-size:14px;color:var(--accent);flex-shrink:0;margin-top:1px}
+.cmi a{color:var(--muted)}
+.cmi a:hover{color:var(--accent)}
+
+/* ===== MAIN CONTENT ===== */
+.main{min-height:calc(100vh - 60px);background:var(--bg)}
+.site-footer{text-align:center;padding:28px 24px 24px;border-top:1px solid var(--border);color:var(--faint);font-size:12px;line-height:1.8;margin-top:8px}
+.site-footer a{color:var(--muted);text-decoration:none;transition:.15s}
+.site-footer a:hover{color:var(--accent)}
+.page{display:none;padding:36px 40px;max-width:880px;animation:fadeIn .28s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ===== PAGE HEADER ===== */
+.page-hd{margin-bottom:30px;padding-bottom:22px;border-bottom:1px solid var(--border)}
+.page-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:8px;display:inline-flex;align-items:center;gap:6px}
+.page-tag::before{content:'';width:16px;height:2px;background:var(--accent);border-radius:2px;display:inline-block}
+.page-hd h1{font-family:'Sora';font-size:28px;font-weight:700;letter-spacing:-.03em;margin-bottom:8px}
+.page-hd p{color:var(--muted);font-size:14px;max-width:580px;line-height:1.75}
+
+/* ===== CARDS ===== */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;transition:.22s;box-shadow:var(--shadow-sm)}
+.card:hover{border-color:var(--border2);box-shadow:var(--shadow);transform:translateY(-1px)}
+.card-grid{display:grid;gap:16px}
+.card-grid.col2{grid-template-columns:1fr 1fr}
+.card-grid.col3{grid-template-columns:1fr 1fr 1fr}
+.card h3{font-size:15px;font-weight:600;margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.card h3 i{font-size:18px;color:var(--accent)}
+.card p{font-size:13px;color:var(--muted);line-height:1.75}
+
+/* ===== HOME PAGE ===== */
+.home-hero{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:20px;display:flex;gap:28px;align-items:flex-start;box-shadow:var(--shadow-sm);border-top:3px solid var(--accent)}
+.home-hero-text h1{font-family:'Sora';font-size:25px;font-weight:700;letter-spacing:-.03em;margin-bottom:4px}
+.home-hero-text .role{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em}
+.home-hero-text .inst{font-size:13px;color:var(--muted);margin-bottom:16px}
+.home-hero-text p{font-size:14px;color:var(--muted);line-height:1.8;max-width:520px;text-align:justify;hyphens:auto}
+.av-lg{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);display:grid;place-items:center;font-family:'Sora';font-size:30px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 0 0 4px rgba(26,138,96,.15),0 6px 20px rgba(26,138,96,.3);object-fit:cover;filter:brightness(1.18) contrast(1.05)}
+.chip-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+.chip{font-size:12px;padding:4px 12px;border-radius:20px;border:1px solid var(--border);color:var(--muted);background:var(--surface2)}
+.chip.green{background:var(--accent-bg);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 30%,transparent);font-weight:500}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 14px;text-align:center;box-shadow:var(--shadow-sm);transition:.2s;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
+.stat:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.stat .n{font-family:'Sora';font-size:26px;font-weight:700;color:var(--accent)}
+.stat .l{font-size:11px;color:var(--muted);margin-top:4px;font-weight:500}
+.section-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin:0 0 12px}
+.home-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:9px 18px;border-radius:8px;cursor:pointer;border:1px solid var(--border);background:none;color:var(--text);transition:.18s}
+.btn:hover{border-color:var(--border2);background:var(--surface2)}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+
+/* ===== PROJECTS ===== */
+.proj{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:22px 24px;margin-bottom:16px;transition:.22s;box-shadow:var(--shadow-sm)}
+.proj:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateX(2px)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+.proj h3{font-size:16px;font-weight:600}
+.proj-badge{font-size:11px;font-weight:700;white-space:nowrap;padding:4px 12px;border-radius:20px;background:var(--accent-bg);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent)}
+.proj-meta{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.proj-meta span{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}
+.proj-meta i{color:var(--accent);font-size:14px}
+.proj p{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:14px}
+.chip-sm{font-size:11px;padding:3px 10px;border-radius:6px;background:var(--surface2);border:1px solid var(--border);color:var(--muted)}
+
+/* ===== TIMELINE ===== */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:1.5px;background:var(--border2)}
+.tl-item{position:relative;padding-bottom:26px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-26px;top:4px;width:13px;height:13px;border-radius:50%;background:var(--surface);border:2.5px solid var(--accent)}
+.tl-item.dim::before{border-color:var(--faint)}
+.tl-date{font-size:11px;font-weight:600;color:var(--accent);margin-bottom:3px}
+.tl-item.dim .tl-date{color:var(--faint)}
+.tl-item h3{font-size:15px;font-weight:600;margin-bottom:2px}
+.tl-item p{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* ===== SKILLS ===== */
+.skill-block{margin-bottom:22px}
+.skill-block h4{font-size:13px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px;color:var(--text)}
+.skill-block h4 i{font-size:16px;color:var(--accent)}
+.skill-tags{display:flex;gap:7px;flex-wrap:wrap}
+.stag{font-size:12px;padding:5px 12px;border-radius:7px;border:1px solid var(--border);color:var(--muted);background:var(--surface)}
+.stag.pro{background:var(--accent-bg);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+.stag.beg{background:var(--surface2)}
+
+/* ===== PUBLICATIONS ===== */
+.pub-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px}
+.pub-metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.pub-metric::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
+.pub-metric .n{font-family:'Sora';font-size:24px;font-weight:700;color:var(--accent)}
+.pub-metric .l{font-size:11px;color:var(--muted);margin-top:3px;font-weight:500}
+.pub-cat-hd{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin:28px 0 12px;display:flex;align-items:center;gap:10px}
+.pub-cat-hd::after{content:"";flex:1;height:1px;background:var(--border)}
+.pub-item{display:flex;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:8px;transition:.2s;box-shadow:var(--shadow-xs)}
+.pub-item:hover{border-color:var(--accent);box-shadow:var(--shadow-sm);transform:translateX(2px)}
+a.pub-item:hover .pub-title{color:var(--accent)}
+.pub-ico{width:38px;height:38px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;font-size:18px}
+.pub-ico.j{background:var(--accent-bg);color:var(--accent)}
+.pub-ico.p{background:rgba(26,95,170,.1);color:var(--blue)}
+.pub-ico.b{background:rgba(160,104,32,.1);color:var(--amber)}
+.pub-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:3px;line-height:1.5;transition:.15s}
+.pub-meta{font-size:12px;color:var(--muted)}
+.pub-arr{margin-left:auto;font-size:16px;color:var(--faint);flex-shrink:0;align-self:center;transition:.15s}
+a.pub-item:hover .pub-arr{color:var(--accent)}
+.pub-link-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+
+/* ===== AWARDS ===== */
+.award-item{display:flex;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;transition:.22s;box-shadow:var(--shadow-sm)}
+.award-item:hover{border-color:var(--border2);box-shadow:var(--shadow);transform:translateY(-1px)}
+.award-ico{width:44px;height:44px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;font-size:22px}
+.ai-gold{background:rgba(160,104,32,.12);color:var(--amber);box-shadow:0 2px 8px rgba(160,104,32,.15)}
+.ai-green{background:var(--accent-bg);color:var(--accent);box-shadow:0 2px 8px rgba(26,138,96,.15)}
+.ai-blue{background:rgba(26,95,170,.1);color:var(--blue);box-shadow:0 2px 8px rgba(26,95,170,.12)}
+.award-date{font-size:11px;font-weight:600;color:var(--faint);margin-bottom:4px}
+.award-item h3{font-size:14px;font-weight:600;margin-bottom:3px}
+.award-item p{font-size:12px;color:var(--muted);line-height:1.65}
+.award-photo{margin-top:12px;border-radius:10px;overflow:hidden;max-height:240px;box-shadow:var(--shadow-sm)}
+.award-photo img{width:100%;height:240px;object-fit:cover;object-position:top;display:block}
+
+/* ===== TEACHING ===== */
+.teach-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow-sm);transition:.2s}
+.teach-item:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
+.teach-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}
+.teach-item h3{font-size:15px;font-weight:600}
+.teach-date{font-size:11px;font-weight:700;color:var(--accent);white-space:nowrap;padding:3px 10px;background:var(--accent-bg);border-radius:20px}
+.teach-item .inst{font-size:12px;font-weight:500;color:var(--text);margin-bottom:8px}
+.teach-item p{font-size:13px;color:var(--muted);line-height:1.7}
+.teach-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tlink{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);background:var(--accent-bg);padding:5px 13px;border-radius:20px;transition:.15s}
+.tlink:hover{background:var(--accent);color:#fff}
+.tlink i{font-size:14px}
+.praise{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-bg);padding:3px 10px;border-radius:20px;border:1px solid color-mix(in srgb,var(--accent) 20%,transparent)}
+
+/* ===== PHD GALLERY ===== */
+.phd-gallery{display:flex;flex-direction:column;gap:22px}
+.phd-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.22s;box-shadow:var(--shadow-sm)}
+.phd-card:hover{box-shadow:var(--shadow);transform:translateY(-2px);border-color:var(--border2)}
+.phd-img{width:100%;display:block;border-bottom:1px solid var(--border);object-fit:contain;background:#0a0a0a;max-height:340px}
+.phd-info{padding:18px 22px}
+.phd-journal{font-size:11px;font-weight:700;color:var(--accent);margin-bottom:7px;text-transform:uppercase;letter-spacing:.06em}
+.phd-info h3{font-size:15px;font-weight:600;line-height:1.55}
+
+/* ===== MISC ===== */
+.link-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:4px}
+.lcard{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px 15px;font-size:13px;font-weight:500;color:var(--text);transition:.18s;box-shadow:var(--shadow-xs)}
+.lcard:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+.lcard i:first-child{font-size:18px;color:var(--accent);flex-shrink:0}
+.lcard span{flex:1}
+.lcard .arr{font-size:14px;color:var(--faint)}
+.lcard:hover .arr{color:var(--accent)}
+.lcard.dim{opacity:.55;cursor:default}
+.music-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.music-card{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;transition:.2s;color:var(--text);box-shadow:var(--shadow-sm)}
+.music-card:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:var(--shadow)}
+.music-art{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;flex-shrink:0}
+.mc-calm{background:var(--accent-bg);color:var(--accent)}
+.mc-energy{background:rgba(160,104,32,.1);color:var(--amber)}
+.music-card h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.music-card p{font-size:12px;color:var(--muted)}
+.music-card .arr{margin-left:auto;font-size:20px;color:var(--faint)}
+.music-card:hover .arr{color:var(--accent)}
+
+/* ===== CONTACT PAGE ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.contact-item{display:flex;gap:13px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow-sm);transition:.2s}
+.contact-item:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
+.contact-item i{font-size:22px;color:var(--accent);flex-shrink:0;margin-top:1px}
+.contact-item h4{font-size:13px;font-weight:600;margin-bottom:4px}
+.contact-item p,.contact-item a{font-size:13px;color:var(--muted);line-height:1.65}
+.contact-item a:hover{color:var(--accent)}
+.service-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ===== APP SHOWCASE ===== */
+.app-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:28px}
+.app-card{background:var(--surface);border:2px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:.25s;box-shadow:var(--shadow-sm)}
+.app-card:hover{border-color:var(--accent);box-shadow:var(--shadow-hover);transform:translateY(-4px)}
+.app-card.active{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-bg),var(--shadow)}
+.app-preview{height:170px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.agni-preview{background:linear-gradient(135deg,#080e0b 0%,#0f2018 50%,#1a3a28 100%)}
+.spray-preview{background:linear-gradient(135deg,#080d18 0%,#0d1a30 50%,#0d2848 100%)}
+.app-preview-icon{display:flex;flex-direction:column;align-items:center;gap:12px;z-index:1}
+.app-preview-icon i{font-size:52px;color:rgba(255,255,255,.18)}
+.app-preview-icon span{font-family:'Sora';font-size:20px;font-weight:700;color:rgba(255,255,255,.25);letter-spacing:-.02em}
+.app-preview-glow{position:absolute;width:180px;height:180px;border-radius:50%;filter:blur(48px);opacity:.25}
+.agni-preview .app-preview-glow{background:#2dd48a}
+.spray-preview .app-preview-glow{background:#5ba8f5}
+.app-card-body{padding:22px 24px}
+.app-card-meta{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.app-card-meta h3{font-family:'Sora';font-size:17px;font-weight:700;letter-spacing:-.02em}
+.app-badge{font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-bg);padding:3px 10px;border-radius:20px;border:1px solid color-mix(in srgb,var(--accent) 25%,transparent)}
+.app-card p{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:18px}
+.app-launch{pointer-events:none}
+.app-card:hover .app-launch{background:var(--accent);color:#fff;border-color:var(--accent)}
+.app-card.active .app-launch{background:var(--accent);color:#fff;border-color:var(--accent)}
+.app-viewer{border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);animation:fadeIn .22s ease}
+.app-viewer-bar{display:flex;align-items:center;gap:10px;padding:10px 18px;background:var(--surface2);border-bottom:1px solid var(--border)}
+.app-viewer-title{font-weight:600;font-size:14px;flex:1;display:flex;align-items:center;gap:8px}
+.app-viewer-title i{color:var(--accent);font-size:16px}
+.app-viewer-frame{width:100%;height:calc(100vh - 330px);min-height:520px;border:none;display:block;background:var(--bg)}
+
+/* ===== DARK MODE OVERRIDES ===== */
+[data-theme="dark"] .profile-card{background:linear-gradient(160deg,rgba(59,130,246,.1) 0%,rgba(59,130,246,.04) 55%,transparent 100%)}
+[data-theme="dark"] .av{box-shadow:0 0 0 4px rgba(59,130,246,.18),0 4px 20px rgba(59,130,246,.2)}
+[data-theme="dark"] .av-lg{box-shadow:0 0 0 4px rgba(59,130,246,.18),0 6px 20px rgba(59,130,246,.2)}
+[data-theme="dark"] .brand-mark{background:linear-gradient(135deg,#1d4ed8 0%,#1e3a8a 100%);box-shadow:0 2px 8px rgba(59,130,246,.3)}
+[data-theme="dark"] .home-hero{box-shadow:var(--shadow-sm),0 0 0 1px rgba(59,130,246,.08)}
+[data-theme="dark"] .soc-btn:hover{box-shadow:0 2px 8px rgba(59,130,246,.2)}
+[data-theme="dark"] .stat::before,[data-theme="dark"] .pub-metric::before{background:linear-gradient(90deg,#3b82f6,#1d4ed8)}
+[data-theme="dark"] .icon-btn:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 2px 8px rgba(59,130,246,.2)}
+
+/* ===== SIDEBAR METRICS ===== */
+.stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 6px}
+.stat-mini{background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:10px 6px;text-align:center;transition:.18s;box-shadow:var(--shadow-xs)}
+.stat-mini:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+.stat-n{font-family:'Sora';font-size:17px;font-weight:700;color:var(--accent);display:block}
+.stat-l{font-size:9.5px;color:var(--muted);text-transform:uppercase;font-weight:600;letter-spacing:.04em}
+
+/* ===== RESEARCH NODE GRAPH ===== */
+.home-hero-text{flex:1;min-width:0}
+.hero-graph-wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.graph-info{font-size:11.5px;color:var(--muted);text-align:center;min-height:34px;width:240px;line-height:1.6;padding:2px 4px;transition:opacity .2s}
+.gnode{cursor:pointer}
+.gnode-circle,.gnode-ring,.gline{transition:all .22s ease}
+.center-pulse{animation:centerpulse 3s ease-in-out infinite}
+@keyframes centerpulse{0%,100%{opacity:.2}50%{opacity:.55}}
+
+@media(max-width:1150px){.tnav-hide-sm{display:none}}
+@media(max-width:1280px){.tnav-hide-md{display:none}}
+
+/* ===== AGNICYCLE PAGE ===== */
+.agni-hero{background:linear-gradient(135deg,#051a0e 0%,#0a2a18 40%,#0d1829 100%);border:1px solid rgba(34,197,94,.2);border-radius:16px;padding:40px 36px;margin-bottom:28px;position:relative;overflow:hidden}
+.agni-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(34,197,94,.12) 0%,transparent 70%);pointer-events:none}
+.agni-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#22c55e;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);padding:4px 12px;border-radius:20px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.06em}
+.agni-logo{display:inline-flex;align-items:center;gap:14px;margin-bottom:12px}
+.agni-logo-mark{width:52px;height:52px;background:linear-gradient(135deg,#22c55e,#15803d);border-radius:14px;display:grid;place-items:center;font-size:24px;color:#fff;box-shadow:0 4px 20px rgba(34,197,94,.35);flex-shrink:0}
+.agni-hero h1{font-family:'Sora';font-size:34px;font-weight:700;color:#f0fdf4;letter-spacing:-.03em}
+.agni-tagline{font-size:16px;color:#86efac;font-weight:500;margin:6px 0 14px}
+.agni-desc{font-size:14px;color:#6b8a79;line-height:1.8;max-width:560px;margin-bottom:22px}
+.agni-cta-row{display:flex;gap:10px;flex-wrap:wrap}
+.agni-launch{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700;padding:11px 24px;border-radius:10px;cursor:pointer;border:none;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;box-shadow:0 4px 16px rgba(34,197,94,.35);transition:.2s}
+.agni-launch:hover{box-shadow:0 6px 24px rgba(34,197,94,.5);transform:translateY(-1px)}
+.agni-launch i{font-size:17px}
+.agni-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.agni-feat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;transition:.2s}
+.agni-feat:hover{border-color:rgba(34,197,94,.3);box-shadow:0 4px 16px rgba(34,197,94,.08);transform:translateY(-1px)}
+.agni-feat-icon{width:40px;height:40px;background:rgba(34,197,94,.1);border-radius:10px;display:grid;place-items:center;font-size:20px;color:#22c55e;margin-bottom:12px}
+.agni-feat h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.agni-feat p{font-size:13px;color:var(--muted);line-height:1.7}
+.agni-hero .btn{border-color:rgba(240,253,244,.28);color:#a7f3d0;background:rgba(240,253,244,.07);transition:.2s}
+.agni-hero .btn:hover{border-color:rgba(240,253,244,.55);color:#f0fdf4;background:rgba(240,253,244,.14)}
+.agni-tech{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.agni-tech-tag{font-size:12px;font-weight:500;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 12px}
+.tnav-agni{color:#22c55e !important;border:1px solid rgba(34,197,94,.25) !important;border-radius:8px !important;font-weight:600 !important}
+.tnav-agni.active,.tnav-agni:hover{background:rgba(34,197,94,.1) !important;color:#22c55e !important}
+.slink-agni{color:#22c55e !important;background:rgba(34,197,94,.08) !important;border-left:2px solid #22c55e !important;font-weight:600 !important}
+.slink-agni:hover,.slink-agni.active{background:rgba(34,197,94,.15) !important;color:#22c55e !important}
+
+/* ===== ANIMATIONS ===== */
+.agni-launch{animation:agni-glow 2.2s ease-in-out infinite}
+@keyframes agni-glow{0%,100%{box-shadow:0 4px 16px rgba(34,197,94,.4),0 0 0 0 rgba(34,197,94,0)}55%{box-shadow:0 6px 36px rgba(34,197,94,.75),0 0 70px rgba(34,197,94,.25),0 0 0 6px rgba(34,197,94,.08)}}
+[data-theme="dark"] .stat-mini:hover,[data-theme="dark"] .stat:hover{box-shadow:0 0 0 1px var(--accent),var(--shadow-sm)}
+
+/* ===== RESPONSIVE ===== */
+/* Bottom nav — mobile only */
+.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:60px;background:var(--surface);border-top:1px solid var(--border);z-index:150;box-shadow:0 -2px 18px rgba(0,0,0,.13)}
+.bnav{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:var(--muted);font-size:10px;font-weight:500;border:none;background:none;padding:0 2px;transition:color .18s,transform .15s;-webkit-tap-highlight-color:transparent;line-height:1.2;position:relative}
+.bnav i{font-size:19px;display:block;transition:transform .15s}
+.bnav span{transition:font-weight .15s}
+/* Active indicator — pill at top + colour + scale */
+.bnav.active{color:var(--accent)}
+.bnav.active i{transform:scale(1.15)}
+.bnav.active span{font-weight:700}
+.bnav.active::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:28px;height:3px;background:var(--accent);border-radius:0 0 3px 3px}
+/* AgniCycle — always tinted green, brighter + indicator when active */
+.bnav-agni{color:rgba(34,197,94,.55)}
+.bnav-agni.active{color:#22c55e}
+.bnav-agni.active::before{background:#22c55e}
+[data-theme="dark"] .bottom-nav{box-shadow:0 -2px 18px rgba(0,0,0,.4)}
+@media(max-width:800px){
+  .shell{grid-template-columns:1fr}
+  .topbar-brand{width:auto}
+  .topbar-nav-wrap{display:none}
+  .sidebar{display:none;position:fixed;left:0;top:60px;bottom:0;z-index:200;width:260px;box-shadow:4px 0 24px rgba(0,0,0,.18)}
+  .sidebar.open{display:flex}
+  .menu-btn{display:none}
+  .stats-row,.pub-metrics{grid-template-columns:1fr 1fr}
+  .card-grid.col2,.card-grid.col3,.contact-grid,.service-row,.music-row,.app-cards{grid-template-columns:1fr}
+  .page{padding:20px 18px;padding-bottom:calc(18px + 68px)}
+  .home-hero{flex-direction:column;gap:16px}
+  .proj-top{flex-direction:column}
+  .bottom-nav{display:flex}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">
+    <div class="brand-mark">DK</div>
+    <span class="brand-name">Dhananjay Kumar</span>
+  </div>
+  <div class="topbar-nav-wrap">
+    <nav class="topbar-nav">
+      <button class="tnav active" data-page="home">Home</button>
+      <button class="tnav" data-page="projects">Projects</button>
+      <button class="tnav" data-page="experience">Experience</button>
+      <button class="tnav" data-page="skills">Skills</button>
+      <button class="tnav" data-page="publications">Publications</button>
+      <button class="tnav" data-page="awards">Awards</button>
+      <button class="tnav tnav-agni" data-page="agnicycle">⚡ AgniCycle</button>
+      <button class="tnav tnav-hide-md" data-page="teaching">Teaching</button>
+      <button class="tnav tnav-hide-md" data-page="tools">Tools</button>
+      <button class="tnav tnav-hide-md" data-page="phd">PhD Work</button>
+      <button class="tnav tnav-hide-sm" data-page="collaborate">Collaborate</button>
+      <button class="tnav tnav-hide-sm" data-page="misc">Misc</button>
+      <button class="tnav" data-page="contact">Contact</button>
+    </nav>
+  </div>
+  <div class="topbar-right">
+    <button class="icon-btn" id="theme" title="Toggle dark mode">
+      <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn" id="fs-btn" title="Fullscreen (F)">
+      <svg id="fs-icon-enter" viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      <svg id="fs-icon-exit" viewBox="0 0 24 24" style="display:none"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/></svg>
+    </button>
+    <button class="icon-btn menu-btn" id="menu" title="Navigation menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="shell">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="profile-card">
+    <img src="images/profile.jpg" class="av" alt="Dhananjay Kumar">
+    <h2>Dhananjay Kumar</h2>
+    <div class="role">Postdoctoral Research Associate</div>
+    <div class="inst">Engine Research Center<br>University of Wisconsin–Madison</div>
+  </div>
+  <div class="divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Navigation</div>
+    <button class="slink active" data-page="home"><i class="ti ti-home"></i> Home</button>
+    <button class="slink" data-page="projects"><i class="ti ti-flask"></i> Current projects</button>
+    <button class="slink" data-page="experience"><i class="ti ti-briefcase"></i> Experience</button>
+    <button class="slink" data-page="skills"><i class="ti ti-tool"></i> Skills</button>
+    <button class="slink" data-page="publications"><i class="ti ti-file-text"></i> Publications</button>
+    <button class="slink" data-page="awards"><i class="ti ti-trophy"></i> Awards &amp; honors</button>
+    <button class="slink slink-agni" data-page="agnicycle"><i class="ti ti-engine"></i> AgniCycle <span style="font-size:9px;font-weight:700;background:#22c55e;color:#fff;padding:1px 6px;border-radius:10px;margin-left:auto">App</span></button>
+    <button class="slink" data-page="teaching"><i class="ti ti-chalkboard"></i> Teaching</button>
+    <button class="slink" data-page="tools"><i class="ti ti-cpu"></i> Research tools</button>
+    <button class="slink" data-page="phd"><i class="ti ti-microscope"></i> PhD work</button>
+    <button class="slink" data-page="collaborate"><i class="ti ti-users"></i> Collaborate</button>
+    <button class="slink" data-page="misc"><i class="ti ti-link"></i> Miscellaneous</button>
+    <button class="slink" data-page="contact"><i class="ti ti-mail"></i> Contact</button>
+  </div>
+  <div class="divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Profiles</div>
+    <div class="socials-row">
+      <a class="soc-btn" href="https://scholar.google.com/citations?user=kYDGsMAAAAAJ" title="Google Scholar"><i class="ti ti-school"></i></a>
+      <a class="soc-btn" href="https://www.researchgate.net/profile/Dhananjay-Kumar-10" title="ResearchGate"><i class="ti ti-atom"></i></a>
+      <a class="soc-btn" href="https://www.scopus.com/authid/detail.uri?authorId=57218117181" title="Scopus"><i class="ti ti-file-text"></i></a>
+      <a class="soc-btn" href="https://orcid.org/0000-0003-1167-9672" title="ORCID"><i class="ti ti-fingerprint"></i></a>
+      <a class="soc-btn" href="https://www.linkedin.com/in/dhkrnl" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+      <a class="soc-btn" href="https://erc.wisc.edu/staff/kumar-dhananjay/" title="ERC profile"><i class="ti ti-building-bank"></i></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Contact</div>
+    <div class="contact-mini">
+      <div class="cmi"><i class="ti ti-mail"></i><a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div>
+      <div class="cmi"><i class="ti ti-map-pin"></i><span>ERC Rm 1008, 1500 Engineering Drive, Madison WI 53706</span></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">Research metrics</div>
+    <div class="stats-mini">
+      <div class="stat-mini"><span class="stat-n">403</span><span class="stat-l">Citations</span></div>
+      <div class="stat-mini"><span class="stat-n">11</span><span class="stat-l">h-index</span></div>
+      <div class="stat-mini"><span class="stat-n">12</span><span class="stat-l">i10</span></div>
+      <div class="stat-mini"><span class="stat-n">40+</span><span class="stat-l">Papers</span></div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="home-hero">
+    <div class="home-hero-text">
+      <h1>Dhananjay Kumar, PhD</h1>
+      <div class="role">Postdoctoral Research Associate</div>
+      <div class="inst" style="font-size:13px;color:var(--muted);margin-bottom:14px">Engine Research Center, Dept. of Mechanical Engineering · University of Wisconsin–Madison</div>
+      <p>Engines run the world, and I work to make them cleaner. I research <b>hydrogen combustion</b> and <b>alternative fuels</b> for IC engines, and study <b>Li-ion battery thermal runaway</b> to make electric vehicles safer. My goal: push the boundary of sustainable propulsion, one experiment at a time.</p>
+      <div class="chip-row">
+        <span class="chip green">Hydrogen combustion</span>
+        <span class="chip green">IC engines</span>
+        <span class="chip green">Battery thermal runaway</span>
+        <span class="chip">Alternative fuels</span>
+        <span class="chip">CONVERGE CFD</span>
+      </div>
+      <div class="home-btns">
+        <button class="btn btn-primary" data-page="projects"><i class="ti ti-flask"></i> Current projects</button>
+        <button class="btn" data-page="publications"><i class="ti ti-file-text"></i> Publications</button>
+        <button class="btn" data-page="contact"><i class="ti ti-mail"></i> Contact</button>
+      </div>
+    </div>
+    <div class="hero-graph-wrap">
+      <svg id="research-graph" viewBox="0 0 240 220" width="240" height="220" style="display:block;overflow:visible">
+        <defs>
+          <filter id="dot-glow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <line class="gline" data-node="h2"      x1="120" y1="110" x2="156" y2="48"  stroke="rgba(59,130,246,.15)" stroke-width="1.2"/>
+        <line class="gline" data-node="spray"   x1="120" y1="110" x2="84"  y2="48"  stroke="rgba(59,130,246,.15)" stroke-width="1.2"/>
+        <line class="gline" data-node="cfd"     x1="120" y1="110" x2="192" y2="110" stroke="rgba(59,130,246,.15)" stroke-width="1.2"/>
+        <line class="gline" data-node="battery" x1="120" y1="110" x2="48"  y2="110" stroke="rgba(59,130,246,.15)" stroke-width="1.2"/>
+        <line class="gline" data-node="laser"   x1="120" y1="110" x2="84"  y2="172" stroke="rgba(59,130,246,.15)" stroke-width="1.2"/>
+        <line class="gline" data-node="altfuel" x1="120" y1="110" x2="156" y2="172" stroke="rgba(59,130,246,.15)" stroke-width="1.2"/>
+        <!-- Animated data-flow dots: travel from DK center outward to each research node -->
+        <circle r="4" fill="#22c55e" opacity="0.9" filter="url(#dot-glow)"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" calcMode="linear" path="M120,110 L156,48"/></circle>
+        <circle r="4" fill="#38bdf8" opacity="0.9" filter="url(#dot-glow)"><animateMotion dur="2.7s" begin="0.9s" repeatCount="indefinite" calcMode="linear" path="M120,110 L84,48"/></circle>
+        <circle r="4" fill="#a78bfa" opacity="0.9" filter="url(#dot-glow)"><animateMotion dur="2.2s" begin="1.8s" repeatCount="indefinite" calcMode="linear" path="M120,110 L192,110"/></circle>
+        <circle r="4" fill="#f59e0b" opacity="0.9" filter="url(#dot-glow)"><animateMotion dur="2.5s" begin="0.45s" repeatCount="indefinite" calcMode="linear" path="M120,110 L48,110"/></circle>
+        <circle r="4" fill="#f472b6" opacity="0.9" filter="url(#dot-glow)"><animateMotion dur="2.9s" begin="1.35s" repeatCount="indefinite" calcMode="linear" path="M120,110 L84,172"/></circle>
+        <circle r="4" fill="#34d399" opacity="0.9" filter="url(#dot-glow)"><animateMotion dur="2.6s" begin="2.25s" repeatCount="indefinite" calcMode="linear" path="M120,110 L156,172"/></circle>
+        <g class="gnode" data-id="h2" data-name="H₂ Combustion" data-color="#22c55e" data-desc="HCNG blends, laser &amp; spark ignition, flame kernel propagation in CVCCs">
+          <circle class="gnode-ring" cx="156" cy="48" r="22" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.35"/>
+          <circle class="gnode-circle" cx="156" cy="48" r="16" fill="var(--surface)" stroke="#22c55e" stroke-width="1.8"/>
+          <text x="156" y="52" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#22c55e" font-weight="600">H₂</text>
+        </g>
+        <g class="gnode" data-id="spray" data-name="Spray Physics" data-color="#38bdf8" data-desc="Macroscopic spray characterisation via Schlieren &amp; Mie-scattering imaging">
+          <circle class="gnode-ring" cx="84" cy="48" r="22" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.35"/>
+          <circle class="gnode-circle" cx="84" cy="48" r="16" fill="var(--surface)" stroke="#38bdf8" stroke-width="1.8"/>
+          <text x="84" y="52" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#38bdf8" font-weight="600">Spray</text>
+        </g>
+        <g class="gnode" data-id="cfd" data-name="CFD Simulation" data-color="#a78bfa" data-desc="CONVERGE CFD — 3D combustion, spray &amp; thermal runaway numerical modelling">
+          <circle class="gnode-ring" cx="192" cy="110" r="22" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.35"/>
+          <circle class="gnode-circle" cx="192" cy="110" r="16" fill="var(--surface)" stroke="#a78bfa" stroke-width="1.8"/>
+          <text x="192" y="114" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#a78bfa" font-weight="600">CFD</text>
+        </g>
+        <g class="gnode" data-id="battery" data-name="Battery Safety" data-color="#f59e0b" data-desc="Li-ion cell thermal runaway modelling for EV &amp; hybrid vehicle powertrains">
+          <circle class="gnode-ring" cx="48" cy="110" r="22" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.35"/>
+          <circle class="gnode-circle" cx="48" cy="110" r="16" fill="var(--surface)" stroke="#f59e0b" stroke-width="1.8"/>
+          <text x="48" y="114" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="#f59e0b" font-weight="600">Battery</text>
+        </g>
+        <g class="gnode" data-id="laser" data-name="Laser Diagnostics" data-color="#f472b6" data-desc="Laser ignition, LIBS spectroscopy, high-speed optical engine diagnostics">
+          <circle class="gnode-ring" cx="84" cy="172" r="22" fill="none" stroke="#f472b6" stroke-width="1" opacity="0.35"/>
+          <circle class="gnode-circle" cx="84" cy="172" r="16" fill="var(--surface)" stroke="#f472b6" stroke-width="1.8"/>
+          <text x="84" y="176" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="#f472b6" font-weight="600">Laser</text>
+        </g>
+        <g class="gnode" data-id="altfuel" data-name="Alternative Fuels" data-color="#34d399" data-desc="DME, biodiesel, HCNG — combustion characterisation of low-carbon IC engine fuels">
+          <circle class="gnode-ring" cx="156" cy="172" r="22" fill="none" stroke="#34d399" stroke-width="1" opacity="0.35"/>
+          <circle class="gnode-circle" cx="156" cy="172" r="16" fill="var(--surface)" stroke="#34d399" stroke-width="1.8"/>
+          <text x="156" y="170" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="#34d399" font-weight="600">Alt.</text>
+          <text x="156" y="180" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="#34d399" font-weight="600">Fuel</text>
+        </g>
+        <circle class="center-pulse" cx="120" cy="110" r="30" fill="none" stroke="#3b82f6" stroke-width="1" stroke-dasharray="5 3"/>
+        <circle cx="120" cy="110" r="22" fill="var(--surface)" stroke="#3b82f6" stroke-width="2.5"/>
+        <text x="120" y="115" text-anchor="middle" font-family="Sora,Inter,sans-serif" font-size="12" fill="#60a5fa" font-weight="700">DK</text>
+      </svg>
+      <div id="graph-info" class="graph-info">
+        <span style="opacity:.4;font-style:italic;font-size:10.5px">hover a node to explore</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><div class="n">403</div><div class="l">Citations</div></div>
+    <div class="stat"><div class="n">11</div><div class="l">h-index</div></div>
+    <div class="stat"><div class="n">12</div><div class="l">i10-index</div></div>
+    <div class="stat"><div class="n">40+</div><div class="l">Publications</div></div>
+  </div>
+
+  <div class="section-title">Research areas</div>
+  <div class="card-grid col3">
+    <div class="card">
+      <h3><i class="ti ti-flame"></i>Hydrogen combustion</h3>
+      <p>Advanced combustion strategies for H₂ in IC engines — efficiency, emissions, and knock control.</p>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-battery-charging"></i>Battery safety</h3>
+      <p>Thermal runaway in Li-ion cells for EV and hybrid vehicle applications.</p>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-leaf"></i>Alternative fuels</h3>
+      <p>Combustion characterization of low-carbon fuels for sustainable transport.</p>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;margin:28px 0 14px">
+    <div class="section-title" style="margin:0">Recent publications</div>
+    <button class="btn" data-page="publications" style="font-size:12px;padding:5px 14px">View all <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+  </div>
+  <div id="home-pubs-list">
+    <a href="https://doi.org/10.1016/j.fuel.2025.138144" class="pub-item" target="_blank"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Numerical modeling of macroscopic and dynamic jet characteristics of H₂, CNG, and blends in DISI engine-like conditions</div><div class="pub-meta">Q Pham, <b>D Kumar</b>, A K Agarwal, S Park · <em>Fuel</em> · 2026</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="https://doi.org/10.1016/j.applthermaleng.2024.123988" class="pub-item" target="_blank"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Laser ignition versus conventional spark ignition for HCNG–air mixtures in a constant volume combustion chamber</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · <em>Applied Thermal Engineering</em> · 2024</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="https://doi.org/10.1016/j.enconman.2024.118654" class="pub-item" target="_blank"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Effects of initial chamber pressure, temperature and mixture strength on combustion and flame kernel propagation in H₂ and natural gas–air mixtures</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · <em>Energy Conversion and Management</em> · 2024</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="page" id="page-projects">
+  <div class="page-hd">
+    <div class="page-tag">Current work</div>
+    <h1>Active research projects</h1>
+    <p>Ongoing funded projects at the Engine Research Center, University of Wisconsin–Madison.</p>
+  </div>
+
+  <div class="proj">
+    <div class="proj-top">
+      <h3>Modeling engine and hybrid system powertrain</h3>
+      <span class="proj-badge">Project 01</span>
+    </div>
+    <div class="proj-meta">
+      <span><i class="ti ti-building"></i>Funded by Ford Motor Company, USA</span>
+      <span><i class="ti ti-user"></i>PI: Prof. Sage Kokjohn (UW–Madison) · Ben Petersen (Ford Motor Company)</span>
+    </div>
+    <p>Thermal runaway modelling of Li-ion batteries in hybrid powertrains using CONVERGE CFD with user-defined functions (UDF) and the Auto-Lion electrochemical submodel.</p>
+    <div class="chip-row">
+      <span class="chip-sm">Thermal runaway</span>
+      <span class="chip-sm">Li-ion battery</span>
+      <span class="chip-sm">CONVERGE CFD</span>
+      <span class="chip-sm">UDF</span>
+      <span class="chip-sm">Auto-Lion</span>
+    </div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-top">
+      <h3>Hydrogen leak detection technique development</h3>
+      <span class="proj-badge">Project 02</span>
+    </div>
+    <div class="proj-meta">
+      <span><i class="ti ti-building"></i>Funded by ARPA-E, US Department of Energy</span>
+      <span><i class="ti ti-user"></i>PI: Prof. Sage Kokjohn &amp; Prof. Scott Sanders (UW–Madison)</span>
+    </div>
+    <p>Simulation of hydrogen leak scenarios and development of the iBAGi optical technique for real-time H₂ leak detection using CONVERGE CFD.</p>
+    <div class="chip-row">
+      <span class="chip-sm">H₂ leak simulation</span>
+      <span class="chip-sm">CONVERGE CFD</span>
+      <span class="chip-sm">iBAGi technique</span>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="page" id="page-experience">
+  <div class="page-hd">
+    <div class="page-tag">Research experience</div>
+    <h1>Academic &amp; research journey</h1>
+  </div>
+
+  <div class="section-title">Positions</div>
+  <div class="tl" style="margin-bottom:28px">
+    <div class="tl-item">
+      <div class="tl-date">Oct 2024 — Present</div>
+      <h3>Postdoctoral Research Associate</h3>
+      <p>Engine Research Center, University of Wisconsin–Madison · Advisor: Prof. Sage Kokjohn</p>
+    </div>
+    <div class="tl-item dim">
+      <div class="tl-date">Aug 2017 — Sep 2024</div>
+      <h3>PhD Researcher (M.Tech + PhD)</h3>
+      <p>Engine Research Laboratory, IIT Kanpur · Advisors: Prof. Avinash Kumar Agarwal &amp; Dr. P. A. Lakshminarayanan<br><br>
+      <b>Thesis:</b> Spray, Laser Ignition, Combustion and Engine Investigations of Low Carbon Fuels. Flame kernel propagation of H₂ and H₂-enriched CNG; spray characterization of hydrogen, CNG, methanol, ethanol, and gasoline; laser ignition of gaseous and liquid fuels; engine modification, ECU calibration; performance, combustion, emission, and particulate characterization.</p>
+    </div>
+    <div class="tl-item dim">
+      <div class="tl-date">2021</div>
+      <h3>M.Tech Dissertation</h3>
+      <p>IIT Kanpur · Advisor: Prof. Avinash Kumar Agarwal<br><br>
+      <b>Thesis:</b> Simulation of High-Pressure Co-Axial Injection System for Methanol Adaptation in a Locomotive Engine. 1D modelling in GT-Power, validation for diesel, feasibility for methanol, spray modelling in CONVERGE CFD.</p>
+    </div>
+  </div>
+
+  <div class="section-title">International exposure</div>
+  <div class="card-grid col2">
+    <div class="card">
+      <h3><i class="ti ti-world"></i>South Korea · Nov–Dec 2021</h3>
+      <p>Two-week collaborative project at Konkuk University &amp; Hanyang University on CNG-fueled DISI engine. Schlieren imaging of CNG spray and CONVERGE case setup. Advisors: Prof. Suhan Park &amp; Prof. Sungwook Park.</p>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-world"></i>United Kingdom · Aug 2023</h3>
+      <p>Paper presentation at SET-2023, University of Nottingham (spray characteristics of H₂ &amp; CNG via Schlieren imaging). Group visit to the Engine Lab at the University of Oxford with Prof. Richard Stone &amp; Prof. Gautam Kalghatgi.</p>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:24px">Education</div>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-date">2017 — 2024</div>
+      <h3>M.Tech + PhD, Mechanical Engineering</h3>
+      <p>Indian Institute of Technology Kanpur, India</p>
+    </div>
+    <div class="tl-item dim">
+      <div class="tl-date">2013 — 2017</div>
+      <h3>B.Tech, Mechanical Engineering</h3>
+      <p>NIT Mizoram, India · BTP advisor: Prof. Bachu Deb</p>
+    </div>
+    <div class="tl-item dim">
+      <div class="tl-date">2010 — 2012</div>
+      <h3>Intermediate</h3>
+      <p>Mahatma Buddha Hiraman College, Patuana, Nalanda</p>
+    </div>
+    <div class="tl-item dim">
+      <div class="tl-date">2010</div>
+      <h3>High School</h3>
+      <p>Sardar Vallabh Bhai Patel High School, Gangti, Nalanda · Board exam topper</p>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="page" id="page-skills">
+  <div class="page-hd">
+    <div class="page-tag">Technical skills</div>
+    <h1>Toolkit</h1>
+  </div>
+  <div class="card-grid col2">
+    <div class="card">
+      <h3><i class="ti ti-device-desktop"></i>Simulation software</h3>
+      <div style="margin-top:10px">
+        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600">PROFICIENT</div>
+        <div class="skill-tags" style="margin-bottom:12px">
+          <span class="stag pro">CONVERGE CFD</span><span class="stag pro">GT-Power</span><span class="stag pro">Tecplot</span><span class="stag pro">Origin</span><span class="stag pro">SolidWorks</span>
+        </div>
+        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600">BEGINNER</div>
+        <div class="skill-tags">
+          <span class="stag beg">Ansys</span><span class="stag beg">Cantera</span><span class="stag beg">Chemkin</span><span class="stag beg">Auto-Lion</span><span class="stag beg">EnSight</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-code"></i>Programming</h3>
+      <div style="margin-top:10px">
+        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600">PROFICIENT</div>
+        <div class="skill-tags" style="margin-bottom:12px">
+          <span class="stag pro">MATLAB</span><span class="stag pro">LabVIEW</span><span class="stag pro">C++</span><span class="stag pro">HTML / CSS / JS</span><span class="stag pro">LaTeX</span>
+        </div>
+        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600">BEGINNER</div>
+        <div class="skill-tags">
+          <span class="stag beg">Python</span><span class="stag beg">Google Cloud Run</span><span class="stag beg">Git</span>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="grid-column:span 2">
+      <h3><i class="ti ti-flask"></i>Experimental &amp; instrumentation</h3>
+      <div class="skill-tags" style="margin-top:10px">
+        <span class="stag">Constant volume chamber setup</span><span class="stag">Shadowgraphy</span><span class="stag">Mie-scattering</span><span class="stag">Schlieren imaging</span><span class="stag">Engine test-rig &amp; wiring harness</span><span class="stag">ECU calibration</span><span class="stag">In-cylinder combustion diagnostics</span><span class="stag">Spray analysis (micro/macro)</span><span class="stag">DAQ (Synergy, AVL)</span><span class="stag">Emission analyzer (AVL, Horiba)</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-microscope"></i>Research interests</h3>
+      <div class="skill-tags" style="margin-top:10px">
+        <span class="stag pro">Hydrogen combustion</span><span class="stag pro">H₂/CNG/HCNG engine prototyping</span><span class="stag pro">Methanol/ethanol engines</span><span class="stag pro">Optical diagnostics</span><span class="stag pro">Battery thermal management</span><span class="stag pro">Turbulent combustion modelling</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-users"></i>Soft skills</h3>
+      <div class="skill-tags" style="margin-top:10px">
+        <span class="stag">Interpersonal communication</span><span class="stag">Research proposal writing</span><span class="stag">Event organisation</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PUBLICATIONS -->
+<div class="page" id="page-publications">
+  <div class="page-hd">
+    <div class="page-tag">Research output</div>
+    <h1>Publications</h1>
+    <p>40+ peer-reviewed journals, conference papers, book chapters, and patents.</p>
+  </div>
+  <div class="pub-metrics">
+    <div class="pub-metric"><div class="n">403</div><div class="l">Citations</div></div>
+    <div class="pub-metric"><div class="n">11</div><div class="l">h-index</div></div>
+    <div class="pub-metric"><div class="n">12</div><div class="l">i10-index</div></div>
+    <div class="pub-metric"><div class="n">40+</div><div class="l">Publications</div></div>
+  </div>
+
+  <div class="pub-cat-hd">Refereed international journals</div>
+  <div id="intl-journals-list">
+    <a href="https://doi.org/10.1016/j.fuel.2025.138144" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Numerical modeling of macroscopic and dynamic jet characteristics of low-carbon fuels: H₂, CNG, and blends in DISI engine-like conditions</div><div class="pub-meta">Q Pham, <b>D Kumar</b>, A K Agarwal, S Park · Fuel · 2026</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="https://doi.org/10.1016/j.applthermaleng.2024.123988" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Laser ignition versus conventional spark ignition for hydrogen-enriched natural gas–air mixtures in a constant volume combustion chamber</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · Applied Thermal Engineering · 2024</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="https://doi.org/10.1016/j.enconman.2024.118654" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Effects of initial chamber pressure, temperature and mixture strength on combustion and flame kernel propagation in H₂ and natural gas–air mixtures</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · Energy Conversion and Management · 2024</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="https://doi.org/10.1016/j.ijhydene.2024.07.026" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Macroscopic jet characteristics of hydrogen and natural gas in direct injection spark ignition engine-like conditions</div><div class="pub-meta"><b>D Kumar</b>, P Pradeep, A K Agarwal · Int. Journal of Hydrogen Energy · 2024</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="http://dx.doi.org/10.1615/AtomizSpr.2023046258" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Macroscopic spray characteristics of gasoline, methanol, and ethanol in DISI engine-like conditions</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · Atomization and Sprays · 2023</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="https://doi.org/10.1177/14680874231187954" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">The future of ship engines: renewable fuels and enabling technologies for decarbonisation</div><div class="pub-meta">S Curran, … <b>D Kumar</b>, et al. · Int. Journal of Engine Research · 2023</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="https://doi.org/10.1016/j.jclepro.2022.131452" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Evaluating the effect of variable methanol injection timings in a novel co-axial fuel injection system equipped locomotive engine</div><div class="pub-meta">H Valera, <b>D Kumar</b>, A K Agarwal · Journal of Cleaner Production · 2022</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="https://doi.org/10.1016/j.fuel.2022.124340" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Experimental investigations of methanol fumigation via port fuel injection in a single cylinder dual-fuel diesel engine</div><div class="pub-meta"><b>D Kumar</b>, U Sonawane, K Chandra, A K Agarwal · Fuel · 2022</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="https://doi.org/10.1016/j.fuel.2021.120231" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Simulations of methanol-fueled locomotive engines using a high-pressure co-axial direct injection system</div><div class="pub-meta"><b>D Kumar</b>, H Valera, A Gautam, A K Agarwal · Fuel · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+    <a href="https://doi.org/10.1016/j.ijhydene.2020.05.005" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Particulate characteristics of laser ignited hydrogen-enriched compressed natural gas engine</div><div class="pub-meta">A P Singh, <b>D Kumar</b>, A K Agarwal · Int. Journal of Hydrogen Energy · 2020</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  </div>
+
+  <div class="pub-cat-hd">Refereed national journals</div>
+  <a href="https://doi.org/10.1007/s41403-020-00138-2" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Design and development of a portable disinfectant device</div><div class="pub-meta"><b>D Kumar</b>, U Sonawane, et al. · Trans. INAE 5(2):299–303 · 2020</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  <a href="https://doi.org/10.1007/s41403-020-00141-7" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Development of autonomous advanced disinfection tunnel for COVID-19 surface disinfection in public places</div><div class="pub-meta">D Maurya, …, <b>D Kumar</b>, et al. · Trans. INAE 5(2):281–287 · 2020</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+
+  <div class="pub-cat-hd">Patents</div>
+  <div class="pub-item"><div class="pub-ico p"><i class="ti ti-bulb"></i></div><div><div class="pub-title">A supplementary fuel intake assembly for an engine</div><div class="pub-meta">A K Agarwal, <b>D Kumar</b>, U Sonawane · Indian Patent (under review) App. 202411037965 · filed 14-05-2024</div></div></div>
+  <div class="pub-item"><div class="pub-ico p"><i class="ti ti-bulb"></i></div><div><div class="pub-title">High-pressure coaxial direct injection system for an internal combustion engine</div><div class="pub-meta">A K Agarwal, H Valera, <b>D Kumar</b> · Indian Patent 589697, App. 202411037969 · granted 2026</div></div></div>
+
+  <div class="pub-cat-hd">International conference publications</div>
+  <a href="https://www.sae.org/publications/technical-papers" class="pub-item"><div class="pub-ico j"><i class="ti ti-presentation"></i></div><div><div class="pub-title">Numerical predictions of in-cylinder phenomena in methanol-fueled locomotive engine using high-pressure DI technique</div><div class="pub-meta"><b>D Kumar</b>, H Valera, A K Agarwal · SAE Technical Paper · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  <a href="https://doi.org/10.4271/2021-01-0382" class="pub-item"><div class="pub-ico j"><i class="ti ti-presentation"></i></div><div><div class="pub-title">Feasibility assessment of methanol fueling in two-wheeler engine using 1-D simulations</div><div class="pub-meta">H Valera, <b>D Kumar</b>, A K Agarwal · SAE Technical Paper 2021-01-0382 · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  <div class="pub-item"><div class="pub-ico j"><i class="ti ti-microphone-2"></i></div><div><div class="pub-title">Experimental assessment of spray characteristics of hydrogen and CNG using Schlieren imaging</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · SET-2023, University of Nottingham, UK · 2023</div></div></div>
+  <div class="pub-item"><div class="pub-ico j"><i class="ti ti-microphone-2"></i></div><div><div class="pub-title">Comparative assessment of macroscopic spray characteristics of gasoline, methanol, and ethanol in SI engine-like conditions</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · ILASS Asia-2022, IIT Indore · 2022</div></div></div>
+
+  <div class="pub-cat-hd">Book chapters</div>
+  <a href="https://doi.org/10.1007/978-981-16-8618-4_9" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Fundamentals, evolution, and modeling of ignition systems for spark ignition engines</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · Engine Modeling and Simulation, Springer · 2022</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  <a href="https://doi.org/10.1007/978-981-16-1280-0_2" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Technology options for methanol utilization in large bore diesel engines of railroad sector</div><div class="pub-meta"><b>D Kumar</b>, H Valera, A K Agarwal · Methanol, Springer · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  <a href="https://doi.org/10.1007/978-981-15-0335-1_10" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Laser ignition technology for gaseous fuelled automotive engines</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · Simulations and Optical Diagnostics for IC Engines, Springer · 2020</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  <a href="https://doi.org/10.1007/978-981-99-1392-3_11" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Feasibility study of laser plasma-assisted stratified combustion and spray investigations in a constant volume chamber</div><div class="pub-meta">A Ashirbad, <b>D Kumar</b>, A K Agarwal · Renewable Fuels for Sustainable Mobility, Springer · 2023</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  <a href="https://doi.org/10.1007/978-981-16-1582-5_4" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Dimethyl ether spray characteristics for compression ignition engines</div><div class="pub-meta">A Rai, <b>D Kumar</b>, U Sonawane, A K Agarwal · Novel IC Engine Technologies, Springer · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  <a href="https://doi.org/10.1007/978-981-16-1582-5_5" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Spray chamber designs and optical techniques for fundamental spray investigations</div><div class="pub-meta">S J Chintagunti, A Kalwar, <b>D Kumar</b>, A K Agarwal · Novel IC Engine Technologies, Springer · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  <a href="https://doi.org/10.1007/978-981-15-0335-1_2" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Modelling aspects for adaptation of alternative fuels in IC engines</div><div class="pub-meta">H Valera, <b>D Kumar</b>, A P Singh, A K Agarwal · Simulations and Optical Diagnostics, Springer · 2020</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+
+  <div class="pub-cat-hd">Books / monographs edited</div>
+  <a href="https://doi.org/10.1007/978-981-16-8618-4" class="pub-item"><div class="pub-ico b"><i class="ti ti-books"></i></div><div><div class="pub-title">Engine Modeling and Simulation</div><div class="pub-meta">A K Agarwal, <b>D Kumar</b>, N Sharma, U Sonawane (eds.) · Springer · 2022</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+  <a href="https://doi.org/10.1007/978-981-16-1513-9" class="pub-item"><div class="pub-ico b"><i class="ti ti-books"></i></div><div><div class="pub-title">Alternative Fuels and Advanced Combustion Techniques as Sustainable Solutions for Internal Combustion Engines</div><div class="pub-meta">A P Singh, <b>D Kumar</b>, A K Agarwal (eds.) · Springer · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
+
+  <div class="pub-link-row">
+    <a href="https://scholar.google.com/citations?user=kYDGsMAAAAAJ" class="btn btn-primary"><i class="ti ti-school"></i> Google Scholar</a>
+    <a href="https://www.researchgate.net/profile/Dhananjay-Kumar-10" class="btn"><i class="ti ti-atom"></i> ResearchGate</a>
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=57218117181" class="btn"><i class="ti ti-file-text"></i> Scopus</a>
+    <a href="https://orcid.org/0000-0003-1167-9672" class="btn"><i class="ti ti-fingerprint"></i> ORCID</a>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<div class="page" id="page-awards">
+  <div class="page-hd">
+    <div class="page-tag">Recognition</div>
+    <h1>Awards &amp; honors</h1>
+  </div>
+  <div class="award-item" style="flex-direction:column;gap:0"><div style="display:flex;gap:14px"><div class="award-ico ai-gold"><i class="ti ti-trophy"></i></div><div><div class="award-date">December 2021</div><h3>Best M.Tech. Thesis Award</h3><p>International Society for Energy, Environment and Sustainability (ISEES) &nbsp;·&nbsp; <a href="https://www.youtube.com/watch?v=omR75tJR8Ac" target="_blank" style="color:var(--accent)">Watch video ↗</a></p></div></div><div class="award-photo"><img src="images/award-mtech.jpg" alt="Best M.Tech. Thesis Award ceremony — ISEES December 2021"></div></div>
+  <div class="award-item"><div class="award-ico ai-gold"><i class="ti ti-crown"></i></div><div><div class="award-date">2025–26 · NIT Mizoram</div><h3>President, Alumni Council</h3><p>National Institute of Technology Mizoram. &nbsp;·&nbsp; <a href="https://alumni.nitmz.ac.in/UserPanel/Council-Member.aspx" target="_blank" style="color:var(--accent)">View council ↗</a></p></div></div>
+  <div class="award-item"><div class="award-ico ai-gold"><i class="ti ti-star"></i></div><div><div class="award-date">Fall Semester 2024 · IIT Kanpur</div><h3>Best Tutor — ESO201A Thermodynamics</h3><p>Outstanding tutoring of the undergraduate Thermodynamics course, IIT Kanpur. <a href="https://drive.google.com/file/d/10tev5MY_7UDNufY1EZmz5F3iqPHLFZar/view" style="color:var(--accent)">View certificate ↗</a></p></div></div>
+  <div class="award-item"><div class="award-ico ai-blue"><i class="ti ti-presentation"></i></div><div><div class="award-date">December 2018 · IIT Roorkee</div><h3>Best Paper Presentation Award</h3><p>III-SEEC — International Conference on Sustainable Energy and Environmental Challenges, IIT Roorkee.</p></div></div>
+  <div class="award-item"><div class="award-ico ai-green"><i class="ti ti-school"></i></div><div><div class="award-date">2017 — 2022</div><h3>MHRD Fellowship — Direct PhD</h3><p>Ministry of Human Resource Development (Govt. of India) fellowship to pursue a direct PhD at IIT Kanpur.</p></div></div>
+  <div class="award-item"><div class="award-ico ai-green"><i class="ti ti-users-group"></i></div><div><div class="award-date">2019 — 2024</div><h3>Executive Committee Member — ISEES</h3><p>International Society for Energy, Environment and Sustainability.</p></div></div>
+  <div class="award-item"><div class="award-ico ai-blue"><i class="ti ti-calendar-event"></i></div><div><div class="award-date">2019 — 2023</div><h3>Organising Convener — V, VI, VII &amp; VIII SEEC</h3><p>Organised four consecutive editions of the International Conference on Sustainable Energy and Environmental Challenges.</p></div></div>
+  <div class="award-item"><div class="award-ico ai-green"><i class="ti ti-building-community"></i></div><div><div class="award-date">July 2016 · IIT Guwahati</div><h3>MHRD Ishan Vikas Internship</h3><p>Selected internship at IIT Guwahati under the Ishan Vikas Programme of MHRD.</p></div></div>
+  <div class="award-item"><div class="award-ico ai-gold"><i class="ti ti-award"></i></div><div><div class="award-date">2010 · Nalanda, Bihar</div><h3>High School Board Exam Topper</h3><p>Sardar Vallabh Bhai Patel High School, Gangti, Nalanda.</p></div></div>
+</div>
+
+<!-- TEACHING -->
+<div class="page" id="page-teaching">
+  <div class="page-hd">
+    <div class="page-tag">Teaching</div>
+    <h1>Teaching &amp; outreach</h1>
+    <p>Teaching is what I love the most — from tutoring juniors in my village to assisting courses at IIT Kanpur and translating NPTEL lectures into Hindi.</p>
+  </div>
+  <div class="teach-item">
+    <div class="teach-top"><h3>Teaching assistant — IIT Kanpur</h3><span class="teach-date">2017 — 2024</span></div>
+    <div class="inst">Dept. of Mechanical Engineering, IIT Kanpur</div>
+    <p>Assisted in UG and PG courses: IC Engines, Heat and Mass Transfer, Energy Storage Systems, Alternative Fuels, Advances in IC Engine, Combustion, and Air Pollution.</p>
+  </div>
+  <div class="teach-item">
+    <div class="teach-top"><h3>Tutor — Thermodynamics (UG)</h3><span class="teach-date">IIT Kanpur</span></div>
+    <div class="inst">Course ESO201A · IIT Kanpur</div>
+    <p>Conducted tutorials for the undergraduate Thermodynamics course. <span class="praise">★ Excellent feedback from students</span></p>
+    <div class="teach-links"><a href="https://drive.google.com/file/d/10tev5MY_7UDNufY1EZmz5F3iqPHLFZar/view" class="tlink"><i class="ti ti-certificate"></i> Certificate</a></div>
+  </div>
+  <div class="teach-item">
+    <div class="teach-top"><h3>NPTEL course assistant</h3><span class="teach-date">IIT Kanpur</span></div>
+    <div class="inst">National Programme on Technology Enhanced Learning (NPTEL)</div>
+    <p>Course assistant for two NPTEL MOOC courses by Prof. A. K. Agarwal.</p>
+    <div class="teach-links">
+      <a href="https://www.youtube.com/playlist?list=PL6kB4KeyhXc6GN3Gcvhl9YQEcMGD9M_Ym&si=sD_4ux9x8ibcgPNu" class="tlink" target="_blank"><i class="ti ti-brand-youtube"></i> Fundamentals of IC Engines</a>
+      <a href="https://www.youtube.com/watch?v=4Hp_SyUht4I" class="tlink" target="_blank"><i class="ti ti-brand-youtube"></i> Alternative Fuels</a>
+    </div>
+  </div>
+  <div class="teach-item">
+    <div class="teach-top"><h3>NPTEL Hindi translator</h3><span class="teach-date">IIT Kharagpur × IIT Kanpur</span></div>
+    <div class="inst">Thermodynamics course — IIT Kharagpur</div>
+    <p>Translated 11 lectures of the Thermodynamics course from English into Hindi for NPTEL, making engineering education accessible to Hindi-speaking students across India.</p>
+    <div class="teach-links">
+      <a href="https://drive.google.com/drive/folders/1Fnd_qJBHlSPgGdbL5jakEg_ggrszq9BO?usp=sharing" class="tlink" target="_blank"><i class="ti ti-file-text"></i> Original (English)</a>
+      <a href="https://drive.google.com/drive/folders/1y6XJJ1P5neYIYdeYHv5gelin8xysJzfE?usp=drive_link" class="tlink" target="_blank"><i class="ti ti-file-text"></i> Translated (Hindi)</a>
+      <a href="https://drive.google.com/file/d/1-sEV8eOTlQDc9TqYPXj5cTl85Hgxg-s6/view?usp=sharing" class="tlink" target="_blank"><i class="ti ti-certificate"></i> Certificate</a>
+    </div>
+  </div>
+  <div class="teach-item">
+    <div class="teach-top"><h3>Community outreach</h3><span class="teach-date">Nalanda, Bihar · ongoing</span></div>
+    <div class="inst">Village school, Gangti, Nalanda</div>
+    <p>Tutored juniors during high school. Whenever I visit my village, I set aside time to interact with school students — sharing a glimpse of science and research with the next generation.</p>
+  </div>
+</div>
+
+<!-- AGNICYCLE -->
+<div class="page" id="page-agnicycle">
+
+  <!-- Hero -->
+  <div class="agni-hero">
+    <div class="agni-badge"><i class="ti ti-rocket"></i> Startup · In Production</div>
+    <div class="agni-logo">
+      <div class="agni-logo-mark"><i class="ti ti-engine"></i></div>
+      <div>
+        <h1>AgniCycle</h1>
+        <div class="agni-tagline">Engine Cycle Simulation for Research</div>
+      </div>
+    </div>
+    <p class="agni-desc">AgniCycle is a web-based, research-grade thermodynamic engine cycle simulator — built to help researchers, students, and engineers model IC engine combustion cycles, analyze performance parameters, and study the effect of different fuels, all from a browser with no installation required.</p>
+    <div class="agni-cta-row">
+      <button class="agni-launch" onclick="launchApp('agni')"><i class="ti ti-player-play"></i> Launch AgniCycle</button>
+      <button class="btn" data-page="tools"><i class="ti ti-cpu"></i> All research tools</button>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="section-title" style="margin-bottom:14px">What AgniCycle does</div>
+  <div class="agni-features">
+    <div class="agni-feat">
+      <div class="agni-feat-icon"><i class="ti ti-chart-line"></i></div>
+      <h4>Thermodynamic cycle modelling</h4>
+      <p>Simulate Otto, Diesel, and Dual combustion cycles with adjustable compression ratios, heat addition, and cutoff ratios to study ideal engine behaviour.</p>
+    </div>
+    <div class="agni-feat">
+      <div class="agni-feat-icon"><i class="ti ti-flame"></i></div>
+      <h4>Multi-fuel analysis</h4>
+      <p>Compare performance across conventional and alternative fuels — hydrogen, CNG, HCNG blends, biodiesel, and DME — to study fuel substitution effects.</p>
+    </div>
+    <div class="agni-feat">
+      <div class="agni-feat-icon"><i class="ti ti-gauge"></i></div>
+      <h4>Performance parameters</h4>
+      <p>Compute thermal efficiency, specific work output, MEP, and other key engine performance indicators instantly with interactive parameter sweeps.</p>
+    </div>
+    <div class="agni-feat">
+      <div class="agni-feat-icon"><i class="ti ti-device-desktop"></i></div>
+      <h4>Zero-install, browser-based</h4>
+      <p>Fully web-based — no Python, no MATLAB, no setup. Open the browser, run a simulation, share results. Built for teaching and rapid prototyping.</p>
+    </div>
+  </div>
+
+  <!-- Why AgniCycle -->
+  <div class="card" style="margin-bottom:22px">
+    <h3><i class="ti ti-bulb"></i> The motivation</h3>
+    <p style="margin-top:8px">Engine cycle simulators are either locked behind expensive commercial software (GT-Power, Ricardo WAVE) or require local Python/MATLAB setups that take hours to configure. AgniCycle was built to change that — free, instant, accessible to any researcher or student anywhere. <em style="color:var(--accent)">"Agni"</em> is Sanskrit for fire, a nod to combustion research and the IIT tradition.</p>
+  </div>
+
+  <!-- Tech stack -->
+  <div class="section-title" style="margin-bottom:10px">Tech stack &amp; deployment</div>
+  <div class="agni-tech" style="margin-bottom:6px">
+    <span style="font-size:13px;font-weight:500;color:var(--muted)">Built with:</span>
+    <span class="agni-tech-tag">Python</span>
+    <span class="agni-tech-tag">Streamlit</span>
+    <span class="agni-tech-tag">NumPy · SciPy</span>
+    <span class="agni-tech-tag">Plotly</span>
+    <span class="agni-tech-tag">Google Cloud Run</span>
+    <span class="agni-tech-tag">Docker</span>
+  </div>
+  <p style="font-size:12px;color:var(--faint);margin-top:8px">Containerized and deployed on Google Cloud Run · Auto-scales to zero · CI/CD managed by the developer</p>
+
+</div>
+
+<!-- TOOLS -->
+<div class="page" id="page-tools" style="max-width:none;padding:36px 40px">
+  <div class="page-hd">
+    <div class="page-tag">Apps I've built</div>
+    <h1>Web applications</h1>
+    <p>Production tools for combustion and engine research — built, deployed, and maintained by me on Google Cloud Run.</p>
+  </div>
+
+  <div class="app-cards">
+    <!-- AgniCycle -->
+    <div class="app-card" id="card-agni" onclick="launchApp('agni')">
+      <div class="app-preview agni-preview">
+        <div class="app-preview-glow"></div>
+        <div class="app-preview-icon">
+          <i class="ti ti-engine"></i>
+          <span>AgniCycle</span>
+        </div>
+      </div>
+      <div class="app-card-body">
+        <div class="app-card-meta">
+          <h3>AgniCycle</h3>
+          <span class="app-badge">v1.3.0</span>
+        </div>
+        <p>Research-grade engine cycle simulator. Model thermodynamic combustion cycles, analyze performance parameters, and study fuel effects across IC engine configurations.</p>
+        <button class="btn btn-primary app-launch"><i class="ti ti-player-play"></i> Launch app</button>
+      </div>
+    </div>
+
+    <!-- Spray Calculator -->
+    <div class="app-card" id="card-spray" onclick="launchApp('spray')">
+      <div class="app-preview spray-preview">
+        <div class="app-preview-glow"></div>
+        <div class="app-preview-icon">
+          <i class="ti ti-droplet"></i>
+          <span>Spray Calc</span>
+        </div>
+      </div>
+      <div class="app-card-body">
+        <div class="app-card-meta">
+          <h3>Spray Calculator</h3>
+          <span class="app-badge">Web App</span>
+        </div>
+        <p>Estimate macroscopic fuel spray and jet characteristics — penetration length, cone angle, and atomization parameters — for direct-injection engine research.</p>
+        <button class="btn btn-primary app-launch"><i class="ti ti-player-play"></i> Launch app</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PhD WORK -->
+<div class="page" id="page-phd">
+  <div class="page-hd">
+    <div class="page-tag">PhD research</div>
+    <h1>Doctoral work</h1>
+    <p>Graphical summaries of key publications from my PhD at the Engine Research Laboratory, IIT Kanpur (2017–2024). Advisor: Prof. Avinash Kumar Agarwal.</p>
+  </div>
+  <div class="phd-gallery">
+
+    <div class="phd-card">
+      <img src="images/phd-work-1.jpg" alt="Effects of Initial Chamber Pressure, Temperature and Mixture Strength on Combustion and Flame Kernel Propagation" class="phd-img"/>
+      <div class="phd-info">
+        <div class="phd-journal">Energy Conversion and Management · 2024</div>
+        <h3>Effects of initial chamber pressure, temperature and mixture strength on combustion and flame kernel propagation in hydrogen and natural gas–air mixtures</h3>
+        <a href="https://doi.org/10.1016/j.enconman.2024.118654" class="tlink" style="margin-top:10px"><i class="ti ti-arrow-up-right"></i> View paper</a>
+      </div>
+    </div>
+
+    <div class="phd-card">
+      <img src="images/phd-work-2.jpg" alt="Laser Ignition Versus Conventional Spark Ignition for Hydrogen-Enriched Natural Gas" class="phd-img"/>
+      <div class="phd-info">
+        <div class="phd-journal">Applied Thermal Engineering · 2024</div>
+        <h3>Laser ignition versus conventional spark ignition system performance for hydrogen-enriched natural gas–air mixtures in a constant volume combustion chamber</h3>
+        <a href="https://doi.org/10.1016/j.applthermaleng.2024.123988" class="tlink" style="margin-top:10px"><i class="ti ti-arrow-up-right"></i> View paper</a>
+      </div>
+    </div>
+
+    <div class="phd-card">
+      <img src="images/phd-work-3.jpg" alt="Macroscopic Jet Characteristics of Hydrogen and Natural Gas in DISI Engine-Like Conditions" class="phd-img"/>
+      <div class="phd-info">
+        <div class="phd-journal">International Journal of Hydrogen Energy · 2024</div>
+        <h3>Macroscopic jet characteristics of hydrogen and natural gas in direct injection spark ignition engine-like conditions</h3>
+        <a href="https://doi.org/10.1016/j.ijhydene.2024.07.026" class="tlink" style="margin-top:10px"><i class="ti ti-arrow-up-right"></i> View paper</a>
+      </div>
+    </div>
+
+  </div>
+  <div style="margin-top:24px">
+    <a href="#" class="btn" onclick="event.preventDefault();goTo('publications')"><i class="ti ti-file-text"></i> See all publications</a>
+  </div>
+</div>
+
+<!-- COLLABORATE -->
+<div class="page" id="page-collaborate">
+  <div class="page-hd">
+    <div class="page-tag">Opportunity to collaborate</div>
+    <h1>Let's work together</h1>
+    <p>I welcome motivated students and scholars for short-term remote internships and joint research projects in combustion, hydrogen energy, battery safety, and propulsion systems.</p>
+  </div>
+
+  <div class="card-grid col2" style="margin-bottom:20px">
+    <div class="card">
+      <h3><i class="ti ti-users-group"></i>Who should apply</h3>
+      <ul style="font-size:13px;color:var(--muted);line-height:2;padding-left:18px">
+        <li>Graduate thesis students</li>
+        <li>Academic researchers</li>
+        <li>Industry professionals</li>
+        <li>Research groups in relevant areas</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-flask"></i>Research areas</h3>
+      <ul style="font-size:13px;color:var(--muted);line-height:2;padding-left:18px">
+        <li>Combustion &amp; spray dynamics</li>
+        <li>Hydrogen energy systems</li>
+        <li>Battery thermal safety</li>
+        <li>Advanced propulsion systems</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-coin"></i>Financial support</h3>
+      <p>A stipend of <strong>INR 10,000</strong> is available for selected candidates from economically disadvantaged backgrounds.</p>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-files"></i>How to apply</h3>
+      <p style="margin-bottom:12px">Send the following to <a href="mailto:dkumar39@wisc.edu" style="color:var(--accent)">dkumar39@wisc.edu</a>:</p>
+      <ul style="font-size:13px;color:var(--muted);line-height:2;padding-left:18px">
+        <li>CV or Resume</li>
+        <li>Brief statement of interest</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h3><i class="ti ti-info-circle"></i>Internship details</h3>
+    <p style="margin-bottom:14px">Short-term remote internships are available. Download the internship document for full details on scope, expectations, and deliverables.</p>
+    <a href="https://drive.google.com/file/d/1hZQgR6_jA53DURKhAUITAeZrUD_C2A4z/view?usp=sharing" class="btn btn-primary"><i class="ti ti-download"></i> Download internship document</a>
+  </div>
+
+  <div class="contact-item" style="max-width:400px">
+    <i class="ti ti-mail"></i>
+    <div><h4>Get in touch</h4><a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div>
+  </div>
+</div>
+
+<!-- MISC -->
+<div class="page" id="page-misc">
+  <div class="page-hd">
+    <div class="page-tag">Miscellaneous</div>
+    <h1>Useful resources</h1>
+  </div>
+
+  <div class="section-title">Software &amp; simulation</div>
+  <div class="link-grid" style="margin-bottom:20px">
+    <a href="https://hub.convergecfd.com/login" class="lcard"><i class="ti ti-cpu"></i><span>Convergent Science Hub</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://university.gtisoft.com/pages/27/home-page-universities" class="lcard"><i class="ti ti-school"></i><span>GT University</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://ansyshelp.ansys.com/account/secured?returnurl=/Views/Secured/corp/v232/en/chemkin_tg/chemkin_tg.html" class="lcard"><i class="ti ti-flask"></i><span>Chemkin Tutorials</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://cantera.org/stable/userguide/index.html#introductory-tutorials" class="lcard"><i class="ti ti-brand-python"></i><span>Cantera</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://www.smartuq.com/" class="lcard"><i class="ti ti-chart-dots"></i><span>SmartUQ</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://www.cfd-online.com/Forums/converge/" class="lcard"><i class="ti ti-messages"></i><span>CFD Online Forums</span><i class="ti ti-arrow-up-right arr"></i></a>
+  </div>
+
+  <div class="section-title">Research resources</div>
+  <div class="link-grid" style="margin-bottom:20px">
+    <a href="https://ecn.sandia.gov/" class="lcard"><i class="ti ti-flame"></i><span>Engine Combustion Network</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://www.sciencedirect.com/" class="lcard"><i class="ti ti-books"></i><span>Science Direct</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://www.mendeley.com/reference-manager/library/all-references" class="lcard"><i class="ti ti-bookmark"></i><span>Mendeley</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://scholar.google.com/schhp?hl=en" class="lcard"><i class="ti ti-school"></i><span>Google Scholar</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://erc.wisc.edu/" class="lcard"><i class="ti ti-building-bank"></i><span>ERC, UW–Madison</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://www.iitk.ac.in/erl/" class="lcard"><i class="ti ti-building-bank"></i><span>Engine Research Lab, IITK</span><i class="ti ti-arrow-up-right arr"></i></a>
+  </div>
+
+  <div class="section-title">Study material</div>
+  <div class="link-grid" style="margin-bottom:20px">
+    <a href="https://drive.google.com/drive/folders/12Kr1OTP9EsCSK5CqsY7ltEXi6pQjUD8A?usp=drive_link" class="lcard" target="_blank"><i class="ti ti-book"></i><span>Thermodynamics — Çengel &amp; Boles</span><i class="ti ti-arrow-up-right" style="margin-left:auto;font-size:13px;color:var(--faint)"></i></a>
+    <a href="https://drive.google.com/drive/folders/12Kr1OTP9EsCSK5CqsY7ltEXi6pQjUD8A?usp=drive_link" class="lcard" target="_blank"><i class="ti ti-book"></i><span>Fluid Mechanics — Frank M. White (8th Ed.)</span><i class="ti ti-arrow-up-right" style="margin-left:auto;font-size:13px;color:var(--faint)"></i></a>
+    <a href="https://drive.google.com/drive/folders/12Kr1OTP9EsCSK5CqsY7ltEXi6pQjUD8A?usp=drive_link" class="lcard" target="_blank"><i class="ti ti-book"></i><span>Heat &amp; Mass Transfer — Çengel &amp; Ghajar</span><i class="ti ti-arrow-up-right" style="margin-left:auto;font-size:13px;color:var(--faint)"></i></a>
+    <a href="https://drive.google.com/drive/folders/12Kr1OTP9EsCSK5CqsY7ltEXi6pQjUD8A?usp=drive_link" class="lcard" target="_blank"><i class="ti ti-book"></i><span>IC Engine Fundamentals — Heywood</span><i class="ti ti-arrow-up-right" style="margin-left:auto;font-size:13px;color:var(--faint)"></i></a>
+    <a href="https://drive.google.com/drive/folders/12Kr1OTP9EsCSK5CqsY7ltEXi6pQjUD8A?usp=drive_link" class="lcard" target="_blank"><i class="ti ti-book"></i><span>Diesel Engine Management (2014)</span><i class="ti ti-arrow-up-right" style="margin-left:auto;font-size:13px;color:var(--faint)"></i></a>
+    <a href="https://drive.google.com/drive/folders/12Kr1OTP9EsCSK5CqsY7ltEXi6pQjUD8A?usp=drive_link" class="lcard" target="_blank"><i class="ti ti-book"></i><span>Gasoline Engine Management (2015)</span><i class="ti ti-arrow-up-right" style="margin-left:auto;font-size:13px;color:var(--faint)"></i></a>
+  </div>
+
+  <div class="section-title">Music to work to</div>
+  <div class="music-row">
+    <a href="https://www.youtube.com/watch?v=TO57xv9hdxE" class="music-card" target="_blank"><div class="music-art mc-calm"><i class="ti ti-music"></i></div><div><h4>Peaceful music</h4><p>For focused, calm sessions</p></div><i class="ti ti-player-play arr"></i></a>
+    <a href="https://www.youtube.com/watch?v=6ZqxXeFvS2E&t=158s" class="music-card" target="_blank"><div class="music-art mc-energy"><i class="ti ti-bolt"></i></div><div><h4>Energetic music</h4><p>For high-energy sprints</p></div><i class="ti ti-player-play arr"></i></a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="page-hd">
+    <div class="page-tag">Get in touch</div>
+    <h1>Contact</h1>
+    <p>Open to collaborations, research discussions, and speaking invitations on clean combustion, hydrogen, and battery safety.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-item"><i class="ti ti-mail"></i><div><h4>Email</h4><a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div></div>
+    <div class="contact-item"><i class="ti ti-map-pin"></i><div><h4>Office</h4><p>ERC Computing Room-1008, Engineering Research Building, 1500 Engineering Drive, Madison, WI 53706, USA</p></div></div>
+    <div class="contact-item"><i class="ti ti-world"></i><div><h4>ERC profile</h4><a href="https://erc.wisc.edu/staff/kumar-dhananjay/">erc.wisc.edu/staff/kumar-dhananjay</a></div></div>
+    <div class="contact-item"><i class="ti ti-language"></i><div><h4>Languages</h4><p>Hindi · English · Magahi</p></div></div>
+  </div>
+
+  <div class="section-title">Online profiles</div>
+  <div class="link-grid" style="margin-bottom:24px">
+    <a href="https://scholar.google.com/citations?user=kYDGsMAAAAAJ" class="lcard"><i class="ti ti-school"></i><span>Google Scholar</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://www.researchgate.net/profile/Dhananjay-Kumar-10" class="lcard"><i class="ti ti-atom"></i><span>ResearchGate</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=57218117181" class="lcard"><i class="ti ti-file-text"></i><span>Scopus (ID: 57218117181)</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://orcid.org/0000-0003-1167-9672" class="lcard"><i class="ti ti-fingerprint"></i><span>ORCID</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://www.linkedin.com/in/dhkrnl" class="lcard"><i class="ti ti-brand-linkedin"></i><span>LinkedIn</span><i class="ti ti-arrow-up-right arr"></i></a>
+    <a href="https://erc.wisc.edu/staff/kumar-dhananjay/" class="lcard"><i class="ti ti-building-bank"></i><span>ERC staff page</span><i class="ti ti-arrow-up-right arr"></i></a>
+  </div>
+
+  <div class="section-title">Professional service</div>
+  <div class="service-row">
+    <div class="card">
+      <h3><i class="ti ti-users-group"></i>Memberships</h3>
+      <p>SAE International (ID: 6160838640)<br>ISEES (ID: 18010)<br>ASME (ID: 22007304021)</p>
+    </div>
+    <div class="card">
+      <h3><i class="ti ti-clipboard-check"></i>Journal reviewer</h3>
+      <p>Fuel · IJHE · Energy · JEES · Springer Nature · ASME J. Thermal Science &amp; Eng. Applications · ASME J. Engineering for Gas Turbines and Power</p>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div>© <span id="footer-year"></span> Dhananjay Kumar · Engine Research Center, University of Wisconsin–Madison</div>
+  <div style="margin-top:4px">Built with <span style="color:var(--accent)">♥</span> · <a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div>
+</footer>
+</main>
+</div><!-- end shell -->
+
+<!-- FULLSCREEN APP OVERLAY -->
+<div id="app-fullscreen" style="display:none;position:fixed;inset:0;z-index:500;background:var(--bg);flex-direction:column">
+  <div style="display:flex;align-items:center;gap:12px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0">
+    <span id="app-fs-name" style="font-weight:600;font-size:14px;color:var(--text);flex:1"></span>
+    <button onclick="closeApp()" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid var(--border2);background:var(--surface2);color:var(--text);cursor:pointer"><i class="ti ti-x"></i> Close</button>
+  </div>
+  <iframe id="app-frame" src="" title="" allow="fullscreen" style="flex:1;border:none;display:block;width:100%"></iframe>
+</div>
+
+<script>
+document.getElementById('footer-year').textContent=new Date().getFullYear();
+const pages=document.querySelectorAll('.page');
+const tnavs=document.querySelectorAll('.tnav');
+const slinks=document.querySelectorAll('.slink');
+const homebtns=document.querySelectorAll('[data-page]');
+
+function goTo(id){
+  pages.forEach(p=>p.classList.remove('active'));
+  tnavs.forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+  slinks.forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+  const pg=document.getElementById('page-'+id);
+  if(pg){pg.classList.add('active');window.scrollTo(0,0);}
+}
+
+homebtns.forEach(b=>b.addEventListener('click',()=>goTo(b.dataset.page)));
+
+// theme
+const root=document.documentElement,tbtn=document.getElementById('theme');
+const saved=localStorage.getItem('dk-theme')||'dark';
+root.setAttribute('data-theme',saved);
+const moonSVG='<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+const sunSVG='<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+function syncIcon(){tbtn.innerHTML=root.getAttribute('data-theme')==='dark'?sunSVG:moonSVG;}
+syncIcon();
+tbtn.addEventListener('click',()=>{const d=root.getAttribute('data-theme')==='dark';root.setAttribute('data-theme',d?'light':'dark');localStorage.setItem('dk-theme',d?'light':'dark');syncIcon();});
+
+// Fullscreen toggle
+(function(){
+  const btn=document.getElementById('fs-btn');
+  const iconEnter=document.getElementById('fs-icon-enter');
+  const iconExit=document.getElementById('fs-icon-exit');
+  function updateIcon(){
+    const isFs=!!document.fullscreenElement;
+    iconEnter.style.display=isFs?'none':'block';
+    iconExit.style.display=isFs?'block':'none';
+  }
+  function toggle(){
+    if(!document.fullscreenElement){
+      document.documentElement.requestFullscreen().catch(()=>{});
+    } else {
+      document.exitFullscreen();
+    }
+  }
+  btn.addEventListener('click',toggle);
+  document.addEventListener('fullscreenchange',updateIcon);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='f'||e.key==='F'){
+      const tag=document.activeElement?.tagName;
+      if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT')return;
+      toggle();
+    }
+  });
+})();
+
+// mobile sidebar
+const menuBtn=document.getElementById('menu'),sb=document.getElementById('sidebar');
+menuBtn.addEventListener('click',()=>sb.classList.toggle('open'));
+document.addEventListener('click',e=>{
+  const bnavMoreEl=document.getElementById('bnav-more');
+  if(!sb.contains(e.target)&&e.target!==menuBtn&&!bnavMoreEl?.contains(e.target)&&e.target!==bnavMoreEl)
+    sb.classList.remove('open');
+});
+sb.querySelectorAll('.slink').forEach(b=>b.addEventListener('click',()=>sb.classList.remove('open')));
+
+
+// App launcher — fullscreen overlay, URL never exposed
+const appData = {
+  agni:  { url:'https://agnicycle-865384871824.us-west2.run.app/',       name:'AgniCycle' },
+  spray: { url:'https://spray-calculator-865384871824.us-west2.run.app', name:'Spray Calculator' }
+};
+function launchApp(id) {
+  const d = appData[id];
+  const fs = document.getElementById('app-fullscreen');
+  document.getElementById('app-frame').src = d.url;
+  document.getElementById('app-fs-name').textContent = d.name;
+  fs.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeApp() {
+  const fs = document.getElementById('app-fullscreen');
+  fs.style.display = 'none';
+  document.getElementById('app-frame').src = '';
+  document.body.style.overflow = '';
+}
+
+// Metric count-up animation (setInterval — reliable across all browsers)
+(function(){
+  function countUp(el,dur){
+    const raw=el.dataset.target||(el.dataset.target=el.textContent.trim());
+    const suffix=raw.replace(/[0-9]/g,'');
+    const target=parseInt(raw);
+    if(isNaN(target))return;
+    el.textContent='0'+suffix;
+    const start=Date.now();
+    const iv=setInterval(()=>{
+      const p=Math.min((Date.now()-start)/dur,1);
+      el.textContent=Math.round(target*(1-Math.pow(1-p,3)))+suffix;
+      if(p>=1)clearInterval(iv);
+    },16);
+  }
+  function runCountUp(){
+    document.querySelectorAll('.stat .n,.stat-n').forEach(el=>countUp(el,1600));
+  }
+  setTimeout(runCountUp,300);
+  // Re-trigger when user navigates to home
+  const _goTo=goTo;
+  goTo=function(id){_goTo(id);if(id==='home')setTimeout(runCountUp,80);};
+  homebtns.forEach(b=>b.addEventListener('click',()=>{if(b.dataset.page==='home')setTimeout(runCountUp,80);}));
+})();
+
+// Live citation metrics from OpenAlex (auto-updates daily)
+(function(){
+  const ORCID='0000-0003-1167-9672';
+  const labelMap={
+    'citations':'cited_by_count',
+    'h-index':'h_index',
+    'i10':'i10_index',
+    'papers':'works_count',
+    'publications':'works_count'
+  };
+  function updateMetrics(d){
+    const vals={
+      cited_by_count:d.cited_by_count,
+      h_index:d.summary_stats?.h_index,
+      i10_index:d.summary_stats?.i10_index,
+      works_count:d.works_count
+    };
+    document.querySelectorAll('.stat-mini,.stat,.pub-metric').forEach(el=>{
+      const labelEl=el.querySelector('.stat-l,.label,.l');
+      const valEl=el.querySelector('.stat-n,.n');
+      if(!labelEl||!valEl)return;
+      const lbl=labelEl.textContent.toLowerCase().trim();
+      for(const[key,field]of Object.entries(labelMap)){
+        if(lbl.includes(key)&&vals[field]!=null){
+          valEl.dataset.target=String(vals[field]);
+          valEl.textContent=String(vals[field]);
+          break;
+        }
+      }
+    });
+  }
+  fetch('https://api.openalex.org/authors/https://orcid.org/'+ORCID+'?select=cited_by_count,summary_stats,works_count',
+    {headers:{'User-Agent':'dhananjay-website/1.0 (mailto:dhkrnl37@gmail.com)'}}
+  ).then(r=>r.ok?r.json():null).then(d=>d&&updateMetrics(d)).catch(()=>{});
+})();
+
+// Live publications list from OpenAlex
+(function(){
+  const ORCID='0000-0003-1167-9672';
+  const ME_ORCID='https://orcid.org/'+ORCID;
+
+  function fmtName(n){
+    const p=n.trim().split(/\s+/);
+    if(p.length===1)return p[0];
+    return p.slice(0,-1).map(x=>x[0]).join(' ')+' '+p[p.length-1];
+  }
+
+  function fmtAuthors(auths){
+    function isMe(a){return a.author.orcid===ME_ORCID||a.author.display_name==='Dhananjay Kumar';}
+    if(auths.length<=5){
+      return auths.map(a=>{const n=fmtName(a.author.display_name);return isMe(a)?`<b>${n}</b>`:n;}).join(', ');
+    }
+    const mi=auths.findIndex(isMe);
+    if(mi<=2){
+      const s=auths.slice(0,3).map(a=>{const n=fmtName(a.author.display_name);return isMe(a)?`<b>${n}</b>`:n;});
+      return s.join(', ')+', et al.';
+    }
+    return fmtName(auths[0].author.display_name)+', …, <b>'+fmtName(auths[mi].author.display_name)+'</b>, et al.';
+  }
+
+  function pubHTML(w,extraClass){
+    const title=w.title||'';
+    const year=w.publication_year||'';
+    const journal=w.primary_location?.source?.display_name||'';
+    const url=w.primary_location?.landing_page_url||(w.doi?'https://doi.org/'+w.doi.replace('https://doi.org/',''):'#');
+    const authors=fmtAuthors(w.authorships||[]);
+    const jPart=journal?`<em>${journal}</em>`:'';
+    const meta=[authors,jPart,year].filter(Boolean).join(' · ');
+    return `<a href="${url}" class="pub-item${extraClass?' '+extraClass:''}" target="_blank"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">${title}</div><div class="pub-meta">${meta}</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>`;
+  }
+
+  fetch('https://api.openalex.org/works?filter=author.orcid:'+ORCID+'&sort=publication_date:desc&per_page=50&select=title,publication_year,primary_location,authorships,doi,type',
+    {headers:{'User-Agent':'dhananjay-website/1.0 (mailto:dhkrnl37@gmail.com)'}}
+  ).then(r=>r.ok?r.json():null).then(data=>{
+    if(!data||!data.results)return;
+    const journals=data.results.filter(w=>w.type==='journal-article');
+
+    // Update home page recent list (top 3)
+    const homeList=document.getElementById('home-pubs-list');
+    if(homeList&&journals.length){
+      homeList.innerHTML=journals.slice(0,3).map(w=>pubHTML(w)).join('');
+    }
+
+    // Update publications page full international journals list
+    const intlList=document.getElementById('intl-journals-list');
+    if(intlList&&journals.length){
+      intlList.innerHTML=journals.map(w=>pubHTML(w)).join('');
+    }
+  }).catch(()=>{});
+})();
+
+// Interactive research node graph
+(function(){
+  const svg=document.getElementById('research-graph');
+  if(!svg)return;
+  const gnodes=svg.querySelectorAll('.gnode');
+  const glines=svg.querySelectorAll('.gline');
+  const ginfo=document.getElementById('graph-info');
+  const dflt='<span style="opacity:.4;font-style:italic;font-size:10.5px">hover a node to explore</span>';
+  gnodes.forEach(nd=>{
+    const id=nd.dataset.id,col=nd.dataset.color,desc=nd.dataset.desc,name=nd.dataset.name;
+    const ring=nd.querySelector('.gnode-ring'),circ=nd.querySelector('.gnode-circle');
+    nd.addEventListener('mouseenter',()=>{
+      gnodes.forEach(n=>n.style.opacity='0.3');
+      nd.style.opacity='1';
+      circ.style.filter=`drop-shadow(0 0 9px ${col})`;
+      ring.style.opacity='0.85';
+      ring.setAttribute('stroke-width','1.8');
+      glines.forEach(l=>{
+        const m=l.dataset.node===id;
+        l.setAttribute('stroke',m?col:'rgba(59,130,246,.06)');
+        l.setAttribute('stroke-width',m?'2.5':'1');
+        l.style.opacity=m?'1':'0.4';
+      });
+      ginfo.innerHTML=`<b style="color:${col}">${name}</b> — ${desc}`;
+    });
+    nd.addEventListener('mouseleave',()=>{
+      gnodes.forEach(n=>n.style.opacity='1');
+      circ.style.filter='';
+      ring.style.opacity='0.35';
+      ring.setAttribute('stroke-width','1');
+      glines.forEach(l=>{
+        l.setAttribute('stroke','rgba(59,130,246,.15)');
+        l.setAttribute('stroke-width','1.2');
+        l.style.opacity='1';
+      });
+      ginfo.innerHTML=dflt;
+    });
+  });
+})();
+
+// Bottom nav — mobile (deferred so the <nav> HTML is in DOM first)
+setTimeout(function(){
+  const bnavItems=document.querySelectorAll('#bottom-nav .bnav[data-page]');
+  const bnavMore=document.getElementById('bnav-more');
+  const sb=document.getElementById('sidebar');
+  if(!bnavItems.length)return;
+  function syncBnav(id){
+    const inBar=[...bnavItems].some(b=>b.dataset.page===id);
+    bnavItems.forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+    if(bnavMore)bnavMore.classList.toggle('active',!inBar);
+  }
+  bnavItems.forEach(b=>b.addEventListener('click',()=>goTo(b.dataset.page)));
+  if(bnavMore)bnavMore.addEventListener('click',()=>sb.classList.toggle('open'));
+  const _gt=goTo;
+  goTo=function(id){_gt(id);syncBnav(id);};
+  syncBnav('home');
+},0);
+</script>
+
+<!-- Bottom navigation bar (mobile only) -->
+<nav class="bottom-nav" id="bottom-nav">
+  <button class="bnav active" data-page="home"><i class="ti ti-home"></i><span>Home</span></button>
+  <button class="bnav" data-page="projects"><i class="ti ti-flask"></i><span>Projects</span></button>
+  <button class="bnav" data-page="publications"><i class="ti ti-files"></i><span>Papers</span></button>
+  <button class="bnav bnav-agni" data-page="agnicycle"><i class="ti ti-bolt"></i><span>AgniCycle</span></button>
+  <button class="bnav" id="bnav-more"><i class="ti ti-menu-2"></i><span>More</span></button>
+</nav>
+</body>
+</html>
