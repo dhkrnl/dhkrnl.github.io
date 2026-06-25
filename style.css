@@ -78,6 +78,14 @@ b{font-weight:600}
 .slink i{font-size:15px;flex-shrink:0;width:18px;text-align:center}
 .slink:hover{color:var(--text);background:var(--surface2)}
 .slink.active{color:var(--accent);background:var(--accent-bg);font-weight:600;box-shadow:inset 2px 0 0 var(--accent)}
+/* On wide desktops (>1280px) the topbar already shows every page, so the
+   sidebar drops its duplicate nav and becomes a pure identity rail.
+   Below 1281px the sidebar nav stays — it holds overflow items and is the
+   slide-out menu on tablet/mobile. */
+@media(min-width:1281px){
+  .sidebar .nav-section,
+  .sidebar .nav-section + .divider{display:none}
+}
 .socials-row{display:flex;gap:7px;flex-wrap:wrap;padding:0 6px}
 .soc-btn{width:34px;height:34px;border-radius:9px;border:1px solid var(--border);background:var(--surface2);display:grid;place-items:center;font-size:16px;color:var(--muted);cursor:pointer;transition:.15s;position:relative}
 .soc-btn:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-bg);transform:translateY(-2px);box-shadow:0 2px 8px rgba(26,138,96,.15)}
