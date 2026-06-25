@@ -252,17 +252,16 @@ setTimeout(function(){
   // ✕ just hides the toast; will re-appear on next fullscreen exit
   document.getElementById('fs-prompt-no').addEventListener('click',hidePrompt);
   // Hide when fullscreen entered; re-show when user exits fullscreen
-  function onFsChange(){
-    if(isFs()){
-      hidePrompt();
-    } else {
-      setTimeout(showPrompt,800);
-    }
-  }
-  document.addEventListener('fullscreenchange',onFsChange);
-  document.addEventListener('webkitfullscreenchange',onFsChange);
-  // Re-show when user returns to this tab (tab switch exits fullscreen)
+  let reShowTimer;
+  function scheduleShow(ms){clearTimeout(reShowTimer);reShowTimer=setTimeout(showPrompt,ms);}
+  document.addEventListener('fullscreenchange',function(){
+    if(isFs())hidePrompt(); else scheduleShow(600);
+  });
+  document.addEventListener('webkitfullscreenchange',function(){
+    if(isFs())hidePrompt(); else scheduleShow(600);
+  });
+  // Re-show when user returns to this tab — cancels any pending fullscreenchange timer
   document.addEventListener('visibilitychange',function(){
-    if(document.visibilityState==='visible'&&!isFs())setTimeout(showPrompt,400);
+    if(document.visibilityState==='visible'&&!isFs())scheduleShow(400);
   });
 })();

@@ -1,3 +1,10 @@
+/* Smooth cross-page transitions (Chrome 126+, degrades gracefully) */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:fadeOut .18s ease}
+::view-transition-new(root){animation:fadeIn .22s ease}
+@keyframes fadeOut{from{opacity:1}to{opacity:0}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
 :root{
   --bg:#eef0eb;--surface:#ffffff;--surface2:#f5f7f3;
   --border:rgba(0,0,0,.08);--border2:rgba(0,0,0,.14);
