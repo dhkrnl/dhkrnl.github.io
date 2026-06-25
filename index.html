@@ -336,11 +336,20 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 .stat .l,.pub-metric .l,.stat-l{font-size:12px}
 
 /* ===== TEXT JUSTIFICATION ===== */
-.page-hd p,.home-hero-text p,.card p,.proj p,.tl-item p,.award-item p,.contact-item p,.agni-desc,.agni-feat p{text-align:justify;hyphens:auto;overflow-wrap:break-word}
+.page-hd p,.home-hero-text p,.card p,.proj p,.tl-item p,.award-item p,.contact-item p,.agni-desc,.agni-feat p{text-align:justify;overflow-wrap:break-word}
+/* Hyphens only where columns are wide enough */
+.card p,.proj p,.tl-item p,.award-item p,.contact-item p,.agni-desc,.agni-feat p{hyphens:auto}
+.home-hero-text p{hyphens:none}
 .tl-item p,.award-item p,.contact-item p{line-height:1.75}
 
 @media(max-width:1150px){.tnav-hide-sm{display:none}}
 @media(max-width:1280px){.tnav-hide-md{display:none}}
+
+/* ===== MEDIUM DESKTOP (901px–1199px) ===== */
+@media(min-width:901px) and (max-width:1199px){
+  #research-graph{width:300px;height:auto}
+  .graph-info{width:260px}
+}
 
 /* ===== TABLET (641px–900px) ===== */
 @media(min-width:641px) and (max-width:900px){
@@ -353,7 +362,11 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   .stats-row,.pub-metrics{grid-template-columns:repeat(4,1fr)}
   .card-grid.col2{grid-template-columns:repeat(2,1fr)}
   .card-grid.col3{grid-template-columns:repeat(2,1fr)}
-  .home-hero{gap:24px}
+  .home-hero{flex-direction:column;align-items:center;gap:20px}
+  .home-hero-text{max-width:100%}
+  .home-hero-text p{max-width:100%}
+  #research-graph{width:340px;height:auto}
+  .graph-info{width:300px}
   .bottom-nav{display:none}
   .tnav-hide-sm,.tnav-hide-md{display:none}
 }
@@ -415,10 +428,17 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   .sidebar.open{display:flex}
   .menu-btn{display:none}
   .stats-row,.pub-metrics{grid-template-columns:1fr 1fr}
-  .card-grid.col2,.card-grid.col3,.contact-grid,.service-row,.music-row,.app-cards{grid-template-columns:1fr}
+  .card-grid.col2,.card-grid.col3,.contact-grid,.service-row,.music-row,.app-cards,.agni-features{grid-template-columns:1fr}
   .page{padding:20px 18px;padding-bottom:calc(18px + 68px)}
-  .home-hero{flex-direction:column;gap:16px}
+  .home-hero{flex-direction:column;align-items:center;gap:16px}
+  .home-hero-text{width:100%}
+  .home-hero-text p{max-width:100%;hyphens:none}
+  #research-graph{width:280px;height:auto}
+  .graph-info{width:260px}
   .proj-top{flex-direction:column}
+  .agni-hero{padding:28px 22px}
+  .agni-hero h1{font-size:26px}
+  .page-hd h1{font-size:22px}
   .bottom-nav{display:flex}
 }
 </style>
