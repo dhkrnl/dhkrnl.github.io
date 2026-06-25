@@ -260,4 +260,8 @@ setTimeout(function(){
   }
   document.addEventListener('fullscreenchange',onFsChange);
   document.addEventListener('webkitfullscreenchange',onFsChange);
+  // Re-show when user returns to this tab (tab switch exits fullscreen)
+  document.addEventListener('visibilitychange',function(){
+    if(document.visibilityState==='visible'&&!isFs())setTimeout(showPrompt,400);
+  });
 })();
