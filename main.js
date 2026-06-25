@@ -234,6 +234,7 @@ setTimeout(function(){
   }
   function onAnyClick(e){
     if(e.target.closest('#fs-prompt-no'))return;
+    if(e.target.closest('.topbar,.sidebar,.bottom-nav'))return;
     enterFs();
     hidePrompt();
   }
