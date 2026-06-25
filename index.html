@@ -6,6 +6,8 @@
 <title>Dhananjay Kumar · Postdoctoral Researcher</title>
 <meta name="description" content="Dhananjay Kumar — Postdoctoral Research Associate at the Engine Research Center, UW–Madison. Research in hydrogen combustion, alternative fuels, and Li-ion battery safety."/>
 <link rel="icon" href="/images/favicon_512px.svg" type="image/svg+xml"/>
+<meta name="theme-color" content="#1a8a60"/>
+<link rel="canonical" href="https://dhkrnl.github.io/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Dhananjay Kumar · Postdoctoral Researcher"/>
 <meta property="og:description" content="Dhananjay Kumar — Postdoctoral Research Associate at the Engine Research Center, UW–Madison. Research in hydrogen combustion, alternative fuels, and Li-ion battery safety."/>
@@ -311,46 +313,82 @@
 
 <script src="/main.js"></script>
 <script>
-// Research graph interaction (home page only)
+// Research graph interaction (home page only) — mouse + touch
 (function(){
   const svg=document.getElementById('research-graph');
   if(!svg)return;
   const gnodes=svg.querySelectorAll('.gnode');
   const glines=svg.querySelectorAll('.gline');
   const ginfo=document.getElementById('graph-info');
-  function getDflt(){return document.documentElement.dataset.lang==='hi'?'<span style="opacity:.4;font-style:italic;font-size:10.5px">किसी node पर hover करें</span>':'<span style="opacity:.4;font-style:italic;font-size:10.5px">hover a node to explore</span>';}
+  const isTouch=()=>'ontouchstart' in window||navigator.maxTouchPoints>0;
+  function getDflt(){
+    const hi=document.documentElement.dataset.lang==='hi';
+    const action=isTouch()?'tap':'hover';
+    const actionHi=isTouch()?'tap':'hover';
+    return hi?`<span style="opacity:.4;font-style:italic;font-size:10.5px">किसी node पर ${actionHi} करें</span>`:`<span style="opacity:.4;font-style:italic;font-size:10.5px">${action} a node to explore</span>`;
+  }
   const descHi={h2:'HCNG blends, laser और spark ignition, CVCCs में flame kernel propagation',spray:'Schlieren और Mie-scattering imaging से macroscopic spray characterization',cfd:'CONVERGE CFD से 3D combustion, spray और thermal runaway की numerical modelling',battery:'EV और hybrid vehicles के लिए Li-ion cell thermal runaway modelling',laser:'Laser ignition, LIBS spectroscopy, high-speed optical engine diagnostics',altfuel:'Methanol, ethanol, HCNG — low-carbon IC engine fuels की combustion characterization'};
-  gnodes.forEach(nd=>{
+
+  let activeNode=null;
+
+  function activate(nd){
     const id=nd.dataset.id,col=nd.dataset.color,desc=nd.dataset.desc,name=nd.dataset.name;
     const ring=nd.querySelector('.gnode-ring'),circ=nd.querySelector('.gnode-circle');
-    nd.addEventListener('mouseenter',()=>{
-      gnodes.forEach(n=>n.style.opacity='0.3');
-      nd.style.opacity='1';
-      circ.style.filter=`drop-shadow(0 0 9px ${col})`;
-      ring.style.opacity='0.85';
-      ring.setAttribute('stroke-width','1.8');
-      glines.forEach(l=>{
-        const m=l.dataset.node===id;
-        l.setAttribute('stroke',m?col:'rgba(59,130,246,.06)');
-        l.setAttribute('stroke-width',m?'2.5':'1');
-        l.style.opacity=m?'1':'0.4';
-      });
-      const dispDesc=document.documentElement.dataset.lang==='hi'?(descHi[id]||desc):desc;
-      ginfo.innerHTML=`<b style="color:${col}">${name}</b> — ${dispDesc}`;
+    gnodes.forEach(n=>n.style.opacity='0.3');
+    nd.style.opacity='1';
+    circ.style.filter=`drop-shadow(0 0 9px ${col})`;
+    ring.style.opacity='0.85';
+    ring.setAttribute('stroke-width','1.8');
+    glines.forEach(l=>{
+      const m=l.dataset.node===id;
+      l.setAttribute('stroke',m?col:'rgba(59,130,246,.06)');
+      l.setAttribute('stroke-width',m?'2.5':'1');
+      l.style.opacity=m?'1':'0.4';
     });
-    nd.addEventListener('mouseleave',()=>{
-      gnodes.forEach(n=>n.style.opacity='1');
-      circ.style.filter='';
-      ring.style.opacity='0.35';
-      ring.setAttribute('stroke-width','1');
-      glines.forEach(l=>{
-        l.setAttribute('stroke','rgba(59,130,246,.15)');
-        l.setAttribute('stroke-width','1.2');
-        l.style.opacity='1';
-      });
-      ginfo.innerHTML=getDflt();
+    const dispDesc=document.documentElement.dataset.lang==='hi'?(descHi[id]||desc):desc;
+    ginfo.innerHTML=`<b style="color:${col}">${name}</b> — ${dispDesc}`;
+    activeNode=nd;
+  }
+
+  function reset(){
+    gnodes.forEach(n=>{
+      n.style.opacity='1';
+      const c=n.querySelector('.gnode-circle'),r=n.querySelector('.gnode-ring');
+      if(c)c.style.filter='';
+      if(r){r.style.opacity='0.35';r.setAttribute('stroke-width','1');}
     });
+    glines.forEach(l=>{
+      l.setAttribute('stroke','rgba(59,130,246,.15)');
+      l.setAttribute('stroke-width','1.2');
+      l.style.opacity='1';
+    });
+    ginfo.innerHTML=getDflt();
+    activeNode=null;
+  }
+
+  gnodes.forEach(nd=>{
+    // Mouse
+    nd.addEventListener('mouseenter',()=>activate(nd));
+    nd.addEventListener('mouseleave',reset);
+    // Touch — tap to toggle; tap same node again to deactivate
+    nd.addEventListener('touchstart',e=>{
+      e.preventDefault();
+      if(activeNode===nd){reset();}else{activate(nd);}
+    },{passive:false});
+    nd.style.cursor='pointer';
   });
+
+  // Tap on SVG background resets
+  svg.addEventListener('touchstart',e=>{
+    if(!e.target.closest('.gnode'))reset();
+  },{passive:true});
+
+  // Update hint text on first touch
+  svg.addEventListener('touchstart',()=>{
+    if(ginfo.innerHTML===getDflt())ginfo.innerHTML=getDflt();
+  },{passive:true,once:true});
+
+  ginfo.innerHTML=getDflt();
 })();
 </script>
 </body>
