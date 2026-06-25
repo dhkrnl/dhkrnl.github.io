@@ -68,6 +68,8 @@ b{font-weight:600}
 .icon-btn{width:36px;height:36px;border-radius:9px;border:1.5px solid var(--border2);background:var(--surface2);cursor:pointer;color:var(--text);display:grid;place-items:center;font-size:18px;transition:.18s;flex-shrink:0;box-shadow:var(--shadow-xs)}
 .icon-btn svg{width:17px;height:17px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none;display:block}
 .icon-btn:hover{background:var(--accent-bg);border-color:var(--accent);color:var(--accent);box-shadow:0 2px 8px rgba(26,138,96,.2)}
+#lang-btn{font-family:system-ui,sans-serif;font-weight:700;font-size:13px}
+#lang-btn.hi-active{color:var(--accent);border-color:var(--accent);background:var(--accent-bg)}
 .menu-btn{display:none}
 .topbar-nav-wrap{position:relative;flex:1;min-width:0;display:flex;align-items:center}
 .topbar-nav-wrap::after{content:'';position:absolute;right:0;top:0;bottom:0;width:48px;background:linear-gradient(to right,transparent,var(--surface));pointer-events:none}
@@ -427,22 +429,23 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   </div>
   <div class="topbar-nav-wrap">
     <nav class="topbar-nav">
-      <button class="tnav active" data-page="home">Home</button>
-      <button class="tnav" data-page="projects">Projects</button>
-      <button class="tnav" data-page="experience">Experience</button>
-      <button class="tnav" data-page="skills">Skills</button>
-      <button class="tnav" data-page="publications">Publications</button>
-      <button class="tnav" data-page="awards">Awards</button>
-      <button class="tnav tnav-agni" data-page="agnicycle">⚡ AgniCycle</button>
-      <button class="tnav tnav-hide-md" data-page="teaching">Teaching</button>
-      <button class="tnav tnav-hide-md" data-page="tools">Tools</button>
-      <button class="tnav tnav-hide-md" data-page="phd">PhD Work</button>
-      <button class="tnav tnav-hide-sm" data-page="collaborate">Collaborate</button>
-      <button class="tnav tnav-hide-sm" data-page="misc">Misc</button>
-      <button class="tnav" data-page="contact">Contact</button>
+      <button class="tnav active" data-page="home" data-hi="होम">Home</button>
+      <button class="tnav" data-page="projects" data-hi="Projects">Projects</button>
+      <button class="tnav" data-page="experience" data-hi="अनुभव">Experience</button>
+      <button class="tnav" data-page="skills" data-hi="Skills">Skills</button>
+      <button class="tnav" data-page="publications" data-hi="Publications">Publications</button>
+      <button class="tnav" data-page="awards" data-hi="पुरस्कार">Awards</button>
+      <button class="tnav tnav-agni" data-page="agnicycle" data-hi="⚡ AgniCycle">⚡ AgniCycle</button>
+      <button class="tnav tnav-hide-md" data-page="teaching" data-hi="शिक्षण">Teaching</button>
+      <button class="tnav tnav-hide-md" data-page="tools" data-hi="Tools">Tools</button>
+      <button class="tnav tnav-hide-md" data-page="phd" data-hi="PhD Work">PhD Work</button>
+      <button class="tnav tnav-hide-sm" data-page="collaborate" data-hi="साथ काम करें">Collaborate</button>
+      <button class="tnav tnav-hide-sm" data-page="misc" data-hi="अन्य">Misc</button>
+      <button class="tnav" data-page="contact" data-hi="संपर्क">Contact</button>
     </nav>
   </div>
   <div class="topbar-right">
+    <button class="icon-btn" id="lang-btn" title="हिंदी / English" onclick="toggleHindi()"><span id="lang-label">हिं</span></button>
     <button class="icon-btn" id="theme" title="Toggle dark mode">
       <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
@@ -468,24 +471,24 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   </div>
   <div class="divider"></div>
   <div class="sidebar-section">
-    <div class="sidebar-label">Navigation</div>
-    <button class="slink active" data-page="home"><i class="ti ti-home"></i> Home</button>
-    <button class="slink" data-page="projects"><i class="ti ti-flask"></i> Current projects</button>
-    <button class="slink" data-page="experience"><i class="ti ti-briefcase"></i> Experience</button>
-    <button class="slink" data-page="skills"><i class="ti ti-tool"></i> Skills</button>
-    <button class="slink" data-page="publications"><i class="ti ti-file-text"></i> Publications</button>
-    <button class="slink" data-page="awards"><i class="ti ti-trophy"></i> Awards &amp; honors</button>
+    <div class="sidebar-label" data-hi="नेविगेशन">Navigation</div>
+    <button class="slink active" data-page="home" data-hi='<i class="ti ti-home"></i> होम'><i class="ti ti-home"></i> Home</button>
+    <button class="slink" data-page="projects" data-hi='<i class="ti ti-flask"></i> मौजूदा Projects'><i class="ti ti-flask"></i> Current projects</button>
+    <button class="slink" data-page="experience" data-hi='<i class="ti ti-briefcase"></i> अनुभव'><i class="ti ti-briefcase"></i> Experience</button>
+    <button class="slink" data-page="skills" data-hi='<i class="ti ti-tool"></i> Skills'><i class="ti ti-tool"></i> Skills</button>
+    <button class="slink" data-page="publications" data-hi='<i class="ti ti-file-text"></i> Publications'><i class="ti ti-file-text"></i> Publications</button>
+    <button class="slink" data-page="awards" data-hi='<i class="ti ti-trophy"></i> पुरस्कार और सम्मान'><i class="ti ti-trophy"></i> Awards &amp; honors</button>
     <button class="slink slink-agni" data-page="agnicycle"><img src="images/01_primary_icon.svg" style="width:16px;height:16px;border-radius:4px;vertical-align:-3px;margin-right:2px"/> AgniCycle <span style="font-size:9px;font-weight:700;background:#22c55e;color:#fff;padding:1px 6px;border-radius:10px;margin-left:auto">App</span></button>
-    <button class="slink" data-page="teaching"><i class="ti ti-chalkboard"></i> Teaching</button>
-    <button class="slink" data-page="tools"><i class="ti ti-cpu"></i> Research tools</button>
-    <button class="slink" data-page="phd"><i class="ti ti-microscope"></i> PhD work</button>
-    <button class="slink" data-page="collaborate"><i class="ti ti-users"></i> Collaborate</button>
-    <button class="slink" data-page="misc"><i class="ti ti-link"></i> Miscellaneous</button>
-    <button class="slink" data-page="contact"><i class="ti ti-mail"></i> Contact</button>
+    <button class="slink" data-page="teaching" data-hi='<i class="ti ti-chalkboard"></i> शिक्षण'><i class="ti ti-chalkboard"></i> Teaching</button>
+    <button class="slink" data-page="tools" data-hi='<i class="ti ti-cpu"></i> Research Tools'><i class="ti ti-cpu"></i> Research tools</button>
+    <button class="slink" data-page="phd" data-hi='<i class="ti ti-microscope"></i> PhD Work'><i class="ti ti-microscope"></i> PhD work</button>
+    <button class="slink" data-page="collaborate" data-hi='<i class="ti ti-users"></i> साथ काम करें'><i class="ti ti-users"></i> Collaborate</button>
+    <button class="slink" data-page="misc" data-hi='<i class="ti ti-link"></i> अन्य'><i class="ti ti-link"></i> Miscellaneous</button>
+    <button class="slink" data-page="contact" data-hi='<i class="ti ti-mail"></i> संपर्क'><i class="ti ti-mail"></i> Contact</button>
   </div>
   <div class="divider"></div>
   <div class="sidebar-section">
-    <div class="sidebar-label">Profiles</div>
+    <div class="sidebar-label" data-hi="Profiles">Profiles</div>
     <div class="socials-row">
       <a class="soc-btn" href="https://scholar.google.com/citations?user=kYDGsMAAAAAJ" title="Google Scholar"><i class="ti ti-school"></i></a>
       <a class="soc-btn" href="https://www.researchgate.net/profile/Dhananjay-Kumar-10" title="ResearchGate"><i class="ti ti-atom"></i></a>
@@ -497,7 +500,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   </div>
   <div class="divider"></div>
   <div class="sidebar-section">
-    <div class="sidebar-label">Contact</div>
+    <div class="sidebar-label" data-hi="संपर्क">Contact</div>
     <div class="contact-mini">
       <div class="cmi"><i class="ti ti-mail"></i><a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div>
       <div class="cmi"><i class="ti ti-map-pin"></i><span>ERC Rm 1008, 1500 Engineering Drive, Madison WI 53706</span></div>
@@ -505,7 +508,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   </div>
   <div class="divider"></div>
   <div class="sidebar-section">
-    <div class="sidebar-label">Research metrics</div>
+    <div class="sidebar-label" data-hi="Research Metrics">Research metrics</div>
     <div class="stats-mini">
       <div class="stat-mini"><span class="stat-n">403</span><span class="stat-l">Citations</span></div>
       <div class="stat-mini"><span class="stat-n">11</span><span class="stat-l">h-index</span></div>
@@ -525,7 +528,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
       <h1>Dhananjay Kumar, PhD</h1>
       <div class="role">Postdoctoral Research Associate</div>
       <div class="inst" style="font-size:13px;color:var(--muted);margin-bottom:14px">Engine Research Center, Dept. of Mechanical Engineering · University of Wisconsin–Madison</div>
-      <p>Engines run the world, and I work to make them cleaner. I research <b>hydrogen combustion</b> and <b>alternative fuels</b> for IC engines, and study <b>Li-ion battery thermal runaway</b> to make electric vehicles safer. My goal: push the boundary of sustainable propulsion, one experiment at a time.</p>
+      <p data-hi="Engines पूरी दुनिया चलाते हैं, और मैं उन्हें साफ़ बनाने पर काम करता हूँ। मैं IC engines के लिए <b>hydrogen combustion</b> और <b>alternative fuels</b> पर research करता हूँ, और electric vehicles को सुरक्षित बनाने के लिए <b>Li-ion battery thermal runaway</b> का अध्ययन करता हूँ। मेरा लक्ष्य: एक experiment एक बार में, sustainable propulsion की सीमाएँ आगे बढ़ाना।">Engines run the world, and I work to make them cleaner. I research <b>hydrogen combustion</b> and <b>alternative fuels</b> for IC engines, and study <b>Li-ion battery thermal runaway</b> to make electric vehicles safer. My goal: push the boundary of sustainable propulsion, one experiment at a time.</p>
       <div class="chip-row">
         <span class="chip green">Hydrogen combustion</span>
         <span class="chip green">IC engines</span>
@@ -534,9 +537,9 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
         <span class="chip">CONVERGE CFD</span>
       </div>
       <div class="home-btns">
-        <button class="btn btn-primary" data-page="projects"><i class="ti ti-flask"></i> Current projects</button>
-        <button class="btn" data-page="publications"><i class="ti ti-file-text"></i> Publications</button>
-        <button class="btn" data-page="contact"><i class="ti ti-mail"></i> Contact</button>
+        <button class="btn btn-primary" data-page="projects" data-hi='<i class="ti ti-flask"></i> मौजूदा Projects'><i class="ti ti-flask"></i> Current projects</button>
+        <button class="btn" data-page="publications" data-hi='<i class="ti ti-file-text"></i> Publications'><i class="ti ti-file-text"></i> Publications</button>
+        <button class="btn" data-page="contact" data-hi='<i class="ti ti-mail"></i> संपर्क'><i class="ti ti-mail"></i> Contact</button>
       </div>
     </div>
     <div class="hero-graph-wrap">
@@ -608,25 +611,25 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     <div class="stat"><div class="n">40+</div><div class="l">Publications</div></div>
   </div>
 
-  <div class="section-title">Research areas</div>
+  <div class="section-title" data-hi="Research क्षेत्र">Research areas</div>
   <div class="card-grid col3">
     <div class="card">
       <h3><i class="ti ti-flame"></i>Hydrogen combustion</h3>
-      <p>Advanced combustion strategies for H₂ in IC engines — efficiency, emissions, and knock control.</p>
+      <p data-hi="IC engines में H₂ के लिए advanced combustion strategies — efficiency, emissions, और knock control।">Advanced combustion strategies for H₂ in IC engines — efficiency, emissions, and knock control.</p>
     </div>
     <div class="card">
       <h3><i class="ti ti-battery-charging"></i>Battery safety</h3>
-      <p>Thermal runaway in Li-ion cells for EV and hybrid vehicle applications.</p>
+      <p data-hi="EV और hybrid vehicles में Li-ion cells की thermal runaway।">Thermal runaway in Li-ion cells for EV and hybrid vehicle applications.</p>
     </div>
     <div class="card">
       <h3><i class="ti ti-leaf"></i>Alternative fuels</h3>
-      <p>Combustion characterization of low-carbon fuels for sustainable transport.</p>
+      <p data-hi="Sustainable transport के लिए low-carbon fuels की combustion characterization।">Combustion characterization of low-carbon fuels for sustainable transport.</p>
     </div>
   </div>
 
   <div style="display:flex;align-items:center;justify-content:space-between;margin:28px 0 14px">
-    <div class="section-title" style="margin:0">Recent publications</div>
-    <button class="btn" data-page="publications" style="font-size:12px;padding:5px 14px">View all <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+    <div class="section-title" style="margin:0" data-hi="हाल के Publications">Recent publications</div>
+    <button class="btn" data-page="publications" style="font-size:12px;padding:5px 14px" data-hi='सभी देखें <i class="ti ti-arrow-right" style="font-size:13px"></i>'>View all <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
   </div>
   <div id="home-pubs-list">
     <a href="https://doi.org/10.1016/j.fuel.2025.138144" class="pub-item" target="_blank"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Numerical modeling of macroscopic and dynamic jet characteristics of H₂, CNG, and blends in DISI engine-like conditions</div><div class="pub-meta">Q Pham, <b>D Kumar</b>, A K Agarwal, S Park · <em>Fuel</em> · 2026</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
@@ -638,21 +641,21 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 <!-- PROJECTS -->
 <div class="page" id="page-projects">
   <div class="page-hd">
-    <div class="page-tag">Current work</div>
-    <h1>Active research projects</h1>
-    <p>Ongoing funded projects at the Engine Research Center, University of Wisconsin–Madison.</p>
+    <div class="page-tag" data-hi="मौजूदा काम">Current work</div>
+    <h1 data-hi="चल रहे Research Projects">Active research projects</h1>
+    <p data-hi="Engine Research Center, University of Wisconsin–Madison में चल रहे funded research projects।">Ongoing funded projects at the Engine Research Center, University of Wisconsin–Madison.</p>
   </div>
 
   <div class="proj">
     <div class="proj-top">
-      <h3>Modeling engine and hybrid system powertrain</h3>
+      <h3 data-hi="Engine और Hybrid System Powertrain की Modeling">Modeling engine and hybrid system powertrain</h3>
       <span class="proj-badge">Project 01</span>
     </div>
     <div class="proj-meta">
-      <span><i class="ti ti-building"></i>Funded by Ford Motor Company, USA</span>
+      <span data-hi='<i class="ti ti-building"></i>Ford Motor Company, USA द्वारा funded'><i class="ti ti-building"></i>Funded by Ford Motor Company, USA</span>
       <span><i class="ti ti-user"></i>PI: Prof. Sage Kokjohn (UW–Madison) · Ben Petersen (Ford Motor Company)</span>
     </div>
-    <p>Thermal runaway modelling of Li-ion batteries in hybrid powertrains using CONVERGE CFD with user-defined functions (UDF) and the Auto-Lion electrochemical submodel.</p>
+    <p data-hi="Hybrid powertrains में Li-ion batteries की thermal runaway modelling — CONVERGE CFD में user-defined functions (UDF) और Auto-Lion electrochemical submodel के साथ।">Thermal runaway modelling of Li-ion batteries in hybrid powertrains using CONVERGE CFD with user-defined functions (UDF) and the Auto-Lion electrochemical submodel.</p>
     <div class="chip-row">
       <span class="chip-sm">Thermal runaway</span>
       <span class="chip-sm">Li-ion battery</span>
@@ -664,14 +667,14 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 
   <div class="proj">
     <div class="proj-top">
-      <h3>Hydrogen leak detection technique development</h3>
+      <h3 data-hi="Hydrogen Leak Detection Technique का विकास">Hydrogen leak detection technique development</h3>
       <span class="proj-badge">Project 02</span>
     </div>
     <div class="proj-meta">
-      <span><i class="ti ti-building"></i>Funded by ARPA-E, US Department of Energy</span>
+      <span data-hi='<i class="ti ti-building"></i>ARPA-E, US Department of Energy द्वारा funded'><i class="ti ti-building"></i>Funded by ARPA-E, US Department of Energy</span>
       <span><i class="ti ti-user"></i>PI: Prof. Sage Kokjohn &amp; Prof. Scott Sanders (UW–Madison)</span>
     </div>
-    <p>Simulation of hydrogen leak scenarios and development of the iBAGi optical technique for real-time H₂ leak detection using CONVERGE CFD.</p>
+    <p data-hi="CONVERGE CFD से hydrogen leak scenarios की simulation और real-time H₂ leak detection के लिए iBAGi optical technique का विकास।">Simulation of hydrogen leak scenarios and development of the iBAGi optical technique for real-time H₂ leak detection using CONVERGE CFD.</p>
     <div class="chip-row">
       <span class="chip-sm">H₂ leak simulation</span>
       <span class="chip-sm">CONVERGE CFD</span>
@@ -683,11 +686,11 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 <!-- EXPERIENCE -->
 <div class="page" id="page-experience">
   <div class="page-hd">
-    <div class="page-tag">Research experience</div>
-    <h1>Academic &amp; research journey</h1>
+    <div class="page-tag" data-hi="Research अनुभव">Research experience</div>
+    <h1 data-hi="Academic और Research सफर">Academic &amp; research journey</h1>
   </div>
 
-  <div class="section-title">Positions</div>
+  <div class="section-title" data-hi="पद">Positions</div>
   <div class="tl" style="margin-bottom:28px">
     <div class="tl-item">
       <div class="tl-date">Oct 2024 — Present</div>
@@ -708,19 +711,19 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     </div>
   </div>
 
-  <div class="section-title">International exposure</div>
+  <div class="section-title" data-hi="अंतर्राष्ट्रीय अनुभव">International exposure</div>
   <div class="card-grid col2">
     <div class="card">
       <h3><i class="ti ti-world"></i>South Korea · Nov–Dec 2021</h3>
-      <p>Two-week collaborative project at Konkuk University &amp; Hanyang University on CNG-fueled DISI engine. Schlieren imaging of CNG spray and CONVERGE case setup. Advisors: Prof. Suhan Park &amp; Prof. Sungwook Park.</p>
+      <p data-hi="Konkuk University और Hanyang University में दो हफ़्ते का collaborative project, CNG-fueled DISI engine पर। CNG spray की Schlieren imaging और CONVERGE case setup। Advisors: Prof. Suhan Park &amp; Prof. Sungwook Park।">Two-week collaborative project at Konkuk University &amp; Hanyang University on CNG-fueled DISI engine. Schlieren imaging of CNG spray and CONVERGE case setup. Advisors: Prof. Suhan Park &amp; Prof. Sungwook Park.</p>
     </div>
     <div class="card">
       <h3><i class="ti ti-world"></i>United Kingdom · Aug 2023</h3>
-      <p>Paper presentation at SET-2023, University of Nottingham (spray characteristics of H₂ &amp; CNG via Schlieren imaging). Group visit to the Engine Lab at the University of Oxford with Prof. Richard Stone &amp; Prof. Gautam Kalghatgi.</p>
+      <p data-hi="SET-2023, University of Nottingham में paper presentation (H₂ &amp; CNG spray characteristics, Schlieren imaging)। Prof. Richard Stone &amp; Prof. Gautam Kalghatgi के साथ University of Oxford के Engine Lab का group visit।">Paper presentation at SET-2023, University of Nottingham (spray characteristics of H₂ &amp; CNG via Schlieren imaging). Group visit to the Engine Lab at the University of Oxford with Prof. Richard Stone &amp; Prof. Gautam Kalghatgi.</p>
     </div>
   </div>
 
-  <div class="section-title" style="margin-top:24px">Education</div>
+  <div class="section-title" style="margin-top:24px" data-hi="शिक्षा">Education</div>
   <div class="tl">
     <div class="tl-item">
       <div class="tl-date">2017 — 2024</div>
@@ -748,18 +751,18 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 <!-- SKILLS -->
 <div class="page" id="page-skills">
   <div class="page-hd">
-    <div class="page-tag">Technical skills</div>
-    <h1>Toolkit</h1>
+    <div class="page-tag" data-hi="Technical कौशल">Technical skills</div>
+    <h1 data-hi="Toolkit">Toolkit</h1>
   </div>
   <div class="card-grid col2">
     <div class="card">
       <h3><i class="ti ti-device-desktop"></i>Simulation software</h3>
       <div style="margin-top:10px">
-        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600">PROFICIENT</div>
+        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600" data-hi="माहिर">PROFICIENT</div>
         <div class="skill-tags" style="margin-bottom:12px">
           <span class="stag pro">CONVERGE CFD</span><span class="stag pro">GT-Power</span><span class="stag pro">Tecplot</span><span class="stag pro">Origin</span><span class="stag pro">SolidWorks</span>
         </div>
-        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600">BEGINNER</div>
+        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600" data-hi="शुरुआती">BEGINNER</div>
         <div class="skill-tags">
           <span class="stag beg">Ansys</span><span class="stag beg">Cantera</span><span class="stag beg">Chemkin</span><span class="stag beg">Auto-Lion</span><span class="stag beg">EnSight</span>
         </div>
@@ -768,11 +771,11 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     <div class="card">
       <h3><i class="ti ti-code"></i>Programming</h3>
       <div style="margin-top:10px">
-        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600">PROFICIENT</div>
+        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600" data-hi="माहिर">PROFICIENT</div>
         <div class="skill-tags" style="margin-bottom:12px">
           <span class="stag pro">MATLAB</span><span class="stag pro">LabVIEW</span><span class="stag pro">C++</span><span class="stag pro">HTML / CSS / JS</span><span class="stag pro">LaTeX</span>
         </div>
-        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600">BEGINNER</div>
+        <div style="font-size:12px;color:var(--faint);margin-bottom:7px;font-weight:600" data-hi="शुरुआती">BEGINNER</div>
         <div class="skill-tags">
           <span class="stag beg">Python</span><span class="stag beg">Google Cloud Run</span><span class="stag beg">Git</span>
         </div>
@@ -793,7 +796,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     <div class="card">
       <h3><i class="ti ti-users"></i>Soft skills</h3>
       <div class="skill-tags" style="margin-top:10px">
-        <span class="stag">Interpersonal communication</span><span class="stag">Research proposal writing</span><span class="stag">Event organisation</span>
+        <span class="stag" data-hi="लोगों से व्यवहार">Interpersonal communication</span><span class="stag" data-hi="Research Proposal लिखना">Research proposal writing</span><span class="stag" data-hi="कार्यक्रम आयोजन">Event organisation</span>
       </div>
     </div>
   </div>
@@ -802,9 +805,9 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 <!-- PUBLICATIONS -->
 <div class="page" id="page-publications">
   <div class="page-hd">
-    <div class="page-tag">Research output</div>
-    <h1>Publications</h1>
-    <p>40+ peer-reviewed journals, conference papers, book chapters, and patents.</p>
+    <div class="page-tag" data-hi="Research उत्पादन">Research output</div>
+    <h1 data-hi="Publications">Publications</h1>
+    <p data-hi="40+ peer-reviewed journals, conference papers, book chapters, और patents।">40+ peer-reviewed journals, conference papers, book chapters, and patents.</p>
   </div>
   <div class="pub-metrics">
     <div class="pub-metric"><div class="n">403</div><div class="l">Citations</div></div>
@@ -813,7 +816,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     <div class="pub-metric"><div class="n">40+</div><div class="l">Publications</div></div>
   </div>
 
-  <div class="pub-cat-hd">Refereed international journals</div>
+  <div class="pub-cat-hd" data-hi="अंतर्राष्ट्रीय Refereed Journals">Refereed international journals</div>
   <div id="intl-journals-list">
     <a href="https://doi.org/10.1016/j.fuel.2025.138144" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Numerical modeling of macroscopic and dynamic jet characteristics of low-carbon fuels: H₂, CNG, and blends in DISI engine-like conditions</div><div class="pub-meta">Q Pham, <b>D Kumar</b>, A K Agarwal, S Park · Fuel · 2026</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
     <a href="https://doi.org/10.1016/j.applthermaleng.2024.123988" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Laser ignition versus conventional spark ignition for hydrogen-enriched natural gas–air mixtures in a constant volume combustion chamber</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · Applied Thermal Engineering · 2024</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
@@ -827,21 +830,21 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     <a href="https://doi.org/10.1016/j.ijhydene.2020.05.005" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Particulate characteristics of laser ignited hydrogen-enriched compressed natural gas engine</div><div class="pub-meta">A P Singh, <b>D Kumar</b>, A K Agarwal · Int. Journal of Hydrogen Energy · 2020</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
   </div>
 
-  <div class="pub-cat-hd">Refereed national journals</div>
+  <div class="pub-cat-hd" data-hi="राष्ट्रीय Refereed Journals">Refereed national journals</div>
   <a href="https://doi.org/10.1007/s41403-020-00138-2" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Design and development of a portable disinfectant device</div><div class="pub-meta"><b>D Kumar</b>, U Sonawane, et al. · Trans. INAE 5(2):299–303 · 2020</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
   <a href="https://doi.org/10.1007/s41403-020-00141-7" class="pub-item"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">Development of autonomous advanced disinfection tunnel for COVID-19 surface disinfection in public places</div><div class="pub-meta">D Maurya, …, <b>D Kumar</b>, et al. · Trans. INAE 5(2):281–287 · 2020</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
 
-  <div class="pub-cat-hd">Patents</div>
+  <div class="pub-cat-hd" data-hi="Patents">Patents</div>
   <div class="pub-item"><div class="pub-ico p"><i class="ti ti-bulb"></i></div><div><div class="pub-title">A supplementary fuel intake assembly for an engine</div><div class="pub-meta">A K Agarwal, <b>D Kumar</b>, U Sonawane · Indian Patent (under review) App. 202411037965 · filed 14-05-2024</div></div></div>
   <div class="pub-item"><div class="pub-ico p"><i class="ti ti-bulb"></i></div><div><div class="pub-title">High-pressure coaxial direct injection system for an internal combustion engine</div><div class="pub-meta">A K Agarwal, H Valera, <b>D Kumar</b> · Indian Patent 589697, App. 202411037969 · granted 2026</div></div></div>
 
-  <div class="pub-cat-hd">International conference publications</div>
+  <div class="pub-cat-hd" data-hi="अंतर्राष्ट्रीय Conference Publications">International conference publications</div>
   <a href="https://www.sae.org/publications/technical-papers" class="pub-item"><div class="pub-ico j"><i class="ti ti-presentation"></i></div><div><div class="pub-title">Numerical predictions of in-cylinder phenomena in methanol-fueled locomotive engine using high-pressure DI technique</div><div class="pub-meta"><b>D Kumar</b>, H Valera, A K Agarwal · SAE Technical Paper · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
   <a href="https://doi.org/10.4271/2021-01-0382" class="pub-item"><div class="pub-ico j"><i class="ti ti-presentation"></i></div><div><div class="pub-title">Feasibility assessment of methanol fueling in two-wheeler engine using 1-D simulations</div><div class="pub-meta">H Valera, <b>D Kumar</b>, A K Agarwal · SAE Technical Paper 2021-01-0382 · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
   <div class="pub-item"><div class="pub-ico j"><i class="ti ti-microphone-2"></i></div><div><div class="pub-title">Experimental assessment of spray characteristics of hydrogen and CNG using Schlieren imaging</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · SET-2023, University of Nottingham, UK · 2023</div></div></div>
   <div class="pub-item"><div class="pub-ico j"><i class="ti ti-microphone-2"></i></div><div><div class="pub-title">Comparative assessment of macroscopic spray characteristics of gasoline, methanol, and ethanol in SI engine-like conditions</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · ILASS Asia-2022, IIT Indore · 2022</div></div></div>
 
-  <div class="pub-cat-hd">Book chapters</div>
+  <div class="pub-cat-hd" data-hi="Book Chapters">Book chapters</div>
   <a href="https://doi.org/10.1007/978-981-16-8618-4_9" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Fundamentals, evolution, and modeling of ignition systems for spark ignition engines</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · Engine Modeling and Simulation, Springer · 2022</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
   <a href="https://doi.org/10.1007/978-981-16-1280-0_2" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Technology options for methanol utilization in large bore diesel engines of railroad sector</div><div class="pub-meta"><b>D Kumar</b>, H Valera, A K Agarwal · Methanol, Springer · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
   <a href="https://doi.org/10.1007/978-981-15-0335-1_10" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Laser ignition technology for gaseous fuelled automotive engines</div><div class="pub-meta"><b>D Kumar</b>, A K Agarwal · Simulations and Optical Diagnostics for IC Engines, Springer · 2020</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
@@ -850,7 +853,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   <a href="https://doi.org/10.1007/978-981-16-1582-5_5" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Spray chamber designs and optical techniques for fundamental spray investigations</div><div class="pub-meta">S J Chintagunti, A Kalwar, <b>D Kumar</b>, A K Agarwal · Novel IC Engine Technologies, Springer · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
   <a href="https://doi.org/10.1007/978-981-15-0335-1_2" class="pub-item"><div class="pub-ico b"><i class="ti ti-notebook"></i></div><div><div class="pub-title">Modelling aspects for adaptation of alternative fuels in IC engines</div><div class="pub-meta">H Valera, <b>D Kumar</b>, A P Singh, A K Agarwal · Simulations and Optical Diagnostics, Springer · 2020</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
 
-  <div class="pub-cat-hd">Books / monographs edited</div>
+  <div class="pub-cat-hd" data-hi="संपादित Books / Monographs">Books / monographs edited</div>
   <a href="https://doi.org/10.1007/978-981-16-8618-4" class="pub-item"><div class="pub-ico b"><i class="ti ti-books"></i></div><div><div class="pub-title">Engine Modeling and Simulation</div><div class="pub-meta">A K Agarwal, <b>D Kumar</b>, N Sharma, U Sonawane (eds.) · Springer · 2022</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
   <a href="https://doi.org/10.1007/978-981-16-1513-9" class="pub-item"><div class="pub-ico b"><i class="ti ti-books"></i></div><div><div class="pub-title">Alternative Fuels and Advanced Combustion Techniques as Sustainable Solutions for Internal Combustion Engines</div><div class="pub-meta">A P Singh, <b>D Kumar</b>, A K Agarwal (eds.) · Springer · 2021</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>
 
@@ -865,31 +868,31 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 <!-- AWARDS -->
 <div class="page" id="page-awards">
   <div class="page-hd">
-    <div class="page-tag">Recognition</div>
-    <h1>Awards &amp; honors</h1>
+    <div class="page-tag" data-hi="पहचान">Recognition</div>
+    <h1 data-hi="पुरस्कार और सम्मान">Awards &amp; honors</h1>
   </div>
   <div class="award-item" style="flex-direction:column;gap:0"><div style="display:flex;gap:14px"><div class="award-ico ai-gold"><i class="ti ti-trophy"></i></div><div><div class="award-date">December 2021</div><h3>Best M.Tech. Thesis Award</h3><p>International Society for Energy, Environment and Sustainability (ISEES) &nbsp;·&nbsp; <a href="https://www.youtube.com/watch?v=omR75tJR8Ac" target="_blank" style="color:var(--accent)">Watch video ↗</a></p></div></div><div class="award-photo"><img src="images/award-mtech.jpg" alt="Best M.Tech. Thesis Award ceremony — ISEES December 2021"></div></div>
   <div class="award-item"><div class="award-ico ai-gold"><i class="ti ti-crown"></i></div><div><div class="award-date">2025–26 · NIT Mizoram</div><h3>President, Alumni Council</h3><p>National Institute of Technology Mizoram. &nbsp;·&nbsp; <a href="https://alumni.nitmz.ac.in/UserPanel/Council-Member.aspx" target="_blank" style="color:var(--accent)">View council ↗</a></p></div></div>
   <div class="award-item"><div class="award-ico ai-gold"><i class="ti ti-star"></i></div><div><div class="award-date">Fall Semester 2024 · IIT Kanpur</div><h3>Best Tutor — ESO201A Thermodynamics</h3><p>Outstanding tutoring of the undergraduate Thermodynamics course, IIT Kanpur. <a href="https://drive.google.com/file/d/10tev5MY_7UDNufY1EZmz5F3iqPHLFZar/view" style="color:var(--accent)">View certificate ↗</a></p></div></div>
   <div class="award-item"><div class="award-ico ai-blue"><i class="ti ti-presentation"></i></div><div><div class="award-date">December 2018 · IIT Roorkee</div><h3>Best Paper Presentation Award</h3><p>III-SEEC — International Conference on Sustainable Energy and Environmental Challenges, IIT Roorkee.</p></div></div>
-  <div class="award-item"><div class="award-ico ai-green"><i class="ti ti-school"></i></div><div><div class="award-date">2017 — 2022</div><h3>MHRD Fellowship — Direct PhD</h3><p>Ministry of Human Resource Development (Govt. of India) fellowship to pursue a direct PhD at IIT Kanpur.</p></div></div>
+  <div class="award-item"><div class="award-ico ai-green"><i class="ti ti-school"></i></div><div><div class="award-date">2017 — 2022</div><h3>MHRD Fellowship — Direct PhD</h3><p data-hi="Ministry of Human Resource Development (Govt. of India) की fellowship, IIT Kanpur में direct PhD के लिए।">Ministry of Human Resource Development (Govt. of India) fellowship to pursue a direct PhD at IIT Kanpur.</p></div></div>
   <div class="award-item"><div class="award-ico ai-green"><i class="ti ti-users-group"></i></div><div><div class="award-date">2019 — 2024</div><h3>Executive Committee Member — ISEES</h3><p>International Society for Energy, Environment and Sustainability.</p></div></div>
   <div class="award-item"><div class="award-ico ai-blue"><i class="ti ti-calendar-event"></i></div><div><div class="award-date">2019 — 2023</div><h3>Organising Convener — V, VI, VII &amp; VIII SEEC</h3><p>Organised four consecutive editions of the International Conference on Sustainable Energy and Environmental Challenges.</p></div></div>
   <div class="award-item"><div class="award-ico ai-green"><i class="ti ti-building-community"></i></div><div><div class="award-date">July 2016 · IIT Guwahati</div><h3>MHRD Ishan Vikas Internship</h3><p>Selected internship at IIT Guwahati under the Ishan Vikas Programme of MHRD.</p></div></div>
-  <div class="award-item"><div class="award-ico ai-gold"><i class="ti ti-award"></i></div><div><div class="award-date">2010 · Nalanda, Bihar</div><h3>High School Board Exam Topper</h3><p>Sardar Vallabh Bhai Patel High School, Gangti, Nalanda.</p></div></div>
+  <div class="award-item"><div class="award-ico ai-gold"><i class="ti ti-award"></i></div><div><div class="award-date">2010 · Nalanda, Bihar</div><h3 data-hi="High School Board Exam में टॉपर">High School Board Exam Topper</h3><p>Sardar Vallabh Bhai Patel High School, Gangti, Nalanda.</p></div></div>
 </div>
 
 <!-- TEACHING -->
 <div class="page" id="page-teaching">
   <div class="page-hd">
-    <div class="page-tag">Teaching</div>
-    <h1>Teaching &amp; outreach</h1>
-    <p>Teaching is what I love the most — from tutoring juniors in my village to assisting courses at IIT Kanpur and translating NPTEL lectures into Hindi.</p>
+    <div class="page-tag" data-hi="शिक्षण">Teaching</div>
+    <h1 data-hi="शिक्षण और Outreach">Teaching &amp; outreach</h1>
+    <p data-hi="Teaching मुझे सबसे ज़्यादा पसंद है — गाँव में जूनियर्स को पढ़ाने से लेकर IIT Kanpur में courses assist करने और NPTEL lectures को Hindi में translate करने तक।">Teaching is what I love the most — from tutoring juniors in my village to assisting courses at IIT Kanpur and translating NPTEL lectures into Hindi.</p>
   </div>
   <div class="teach-item">
     <div class="teach-top"><h3>Teaching assistant — IIT Kanpur</h3><span class="teach-date">2017 — 2024</span></div>
     <div class="inst">Dept. of Mechanical Engineering, IIT Kanpur</div>
-    <p>Assisted in UG and PG courses: IC Engines, Heat and Mass Transfer, Energy Storage Systems, Alternative Fuels, Advances in IC Engine, Combustion, and Air Pollution.</p>
+    <p data-hi="UG और PG courses में assist किया: IC Engines, Heat and Mass Transfer, Energy Storage Systems, Alternative Fuels, Advances in IC Engine, Combustion, और Air Pollution।">Assisted in UG and PG courses: IC Engines, Heat and Mass Transfer, Energy Storage Systems, Alternative Fuels, Advances in IC Engine, Combustion, and Air Pollution.</p>
   </div>
   <div class="teach-item">
     <div class="teach-top"><h3>Tutor — Thermodynamics (UG)</h3><span class="teach-date">IIT Kanpur</span></div>
@@ -909,7 +912,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   <div class="teach-item">
     <div class="teach-top"><h3>NPTEL Hindi translator</h3><span class="teach-date">IIT Kharagpur × IIT Kanpur</span></div>
     <div class="inst">Thermodynamics course — IIT Kharagpur</div>
-    <p>Translated 11 lectures of the Thermodynamics course from English into Hindi for NPTEL, making engineering education accessible to Hindi-speaking students across India.</p>
+    <p data-hi="NPTEL के लिए Thermodynamics course के 11 lectures English से Hindi में translate किए — पूरे India में Hindi-speaking students तक engineering education पहुँचाने के लिए।">Translated 11 lectures of the Thermodynamics course from English into Hindi for NPTEL, making engineering education accessible to Hindi-speaking students across India.</p>
     <div class="teach-links">
       <a href="https://drive.google.com/drive/folders/1Fnd_qJBHlSPgGdbL5jakEg_ggrszq9BO?usp=sharing" class="tlink" target="_blank"><i class="ti ti-file-text"></i> Original (English)</a>
       <a href="https://drive.google.com/drive/folders/1y6XJJ1P5neYIYdeYHv5gelin8xysJzfE?usp=drive_link" class="tlink" target="_blank"><i class="ti ti-file-text"></i> Translated (Hindi)</a>
@@ -919,7 +922,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   <div class="teach-item">
     <div class="teach-top"><h3>Community outreach</h3><span class="teach-date">Nalanda, Bihar · ongoing</span></div>
     <div class="inst">Village school, Gangti, Nalanda</div>
-    <p>Tutored juniors during high school. Whenever I visit my village, I set aside time to interact with school students — sharing a glimpse of science and research with the next generation.</p>
+    <p data-hi="High school में जूनियर्स को पढ़ाया। जब भी गाँव जाता हूँ, school students के साथ वक़्त बिताता हूँ — अगली पीढ़ी को science और research की एक झलक दिखाने के लिए।">Tutored juniors during high school. Whenever I visit my village, I set aside time to interact with school students — sharing a glimpse of science and research with the next generation.</p>
   </div>
 </div>
 
@@ -928,54 +931,54 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 
   <!-- Hero -->
   <div class="agni-hero">
-    <div class="agni-badge"><i class="ti ti-rocket"></i> Startup · In Production</div>
+    <div class="agni-badge" data-hi='<i class="ti ti-rocket"></i> Startup · Production में'><i class="ti ti-rocket"></i> Startup · In Production</div>
     <div class="agni-logo">
       <img src="images/01_primary_icon.svg" alt="AgniCycle" style="width:52px;height:52px;border-radius:14px;flex-shrink:0;box-shadow:0 4px 20px rgba(234,88,12,.4);display:block"/>
       <div>
         <h1>AgniCycle</h1>
-        <div class="agni-tagline">Engine Cycle Simulation for Research</div>
+        <div class="agni-tagline" data-hi="Research के लिए Engine Cycle Simulation">Engine Cycle Simulation for Research</div>
       </div>
     </div>
-    <p class="agni-desc">AgniCycle is a web-based, research-grade thermodynamic engine cycle simulator — built to help researchers, students, and engineers model IC engine combustion cycles, analyze performance parameters, and study the effect of different fuels, all from a browser with no installation required.</p>
+    <p class="agni-desc" data-hi="AgniCycle एक web-based, research-grade thermodynamic engine cycle simulator है — जो researchers, students, और engineers को IC engine combustion cycles model करने, performance parameters analyze करने, और अलग-अलग fuels के effects study करने में मदद करता है, सीधे browser से, बिना किसी installation के।">AgniCycle is a web-based, research-grade thermodynamic engine cycle simulator — built to help researchers, students, and engineers model IC engine combustion cycles, analyze performance parameters, and study the effect of different fuels, all from a browser with no installation required.</p>
     <div class="agni-cta-row">
-      <button class="agni-launch" onclick="launchApp('agni')"><i class="ti ti-player-play"></i> Launch AgniCycle</button>
-      <button class="btn" data-page="tools"><i class="ti ti-cpu"></i> All research tools</button>
+      <button class="agni-launch" onclick="launchApp('agni')" data-hi='<i class="ti ti-player-play"></i> AgniCycle खोलें'><i class="ti ti-player-play"></i> Launch AgniCycle</button>
+      <button class="btn" data-page="tools" data-hi='<i class="ti ti-cpu"></i> सभी Research Tools'><i class="ti ti-cpu"></i> All research tools</button>
     </div>
   </div>
 
   <!-- Features -->
-  <div class="section-title" style="margin-bottom:14px">What AgniCycle does</div>
+  <div class="section-title" style="margin-bottom:14px" data-hi="AgniCycle क्या करता है">What AgniCycle does</div>
   <div class="agni-features">
     <div class="agni-feat">
       <div class="agni-feat-icon"><i class="ti ti-chart-line"></i></div>
-      <h4>Thermodynamic cycle modelling</h4>
-      <p>Simulate Otto, Diesel, and Dual combustion cycles with adjustable compression ratios, heat addition, and cutoff ratios to study ideal engine behaviour.</p>
+      <h4 data-hi="Thermodynamic Cycle Modelling">Thermodynamic cycle modelling</h4>
+      <p data-hi="Adjustable compression ratios, heat addition, और cutoff ratios के साथ Otto, Diesel, और Dual combustion cycles simulate करें — ideal engine behaviour समझने के लिए।">Simulate Otto, Diesel, and Dual combustion cycles with adjustable compression ratios, heat addition, and cutoff ratios to study ideal engine behaviour.</p>
     </div>
     <div class="agni-feat">
       <div class="agni-feat-icon"><i class="ti ti-flame"></i></div>
-      <h4>Multi-fuel analysis</h4>
-      <p>Compare performance across conventional and alternative fuels — hydrogen, CNG, HCNG blends, biodiesel, and DME — to study fuel substitution effects.</p>
+      <h4 data-hi="Multi-fuel Analysis">Multi-fuel analysis</h4>
+      <p data-hi="Conventional और alternative fuels — hydrogen, CNG, HCNG blends, biodiesel, DME — की performance compare करें, fuel substitution effects study करने के लिए।">Compare performance across conventional and alternative fuels — hydrogen, CNG, HCNG blends, biodiesel, and DME — to study fuel substitution effects.</p>
     </div>
     <div class="agni-feat">
       <div class="agni-feat-icon"><i class="ti ti-gauge"></i></div>
-      <h4>Performance parameters</h4>
-      <p>Compute thermal efficiency, specific work output, MEP, and other key engine performance indicators instantly with interactive parameter sweeps.</p>
+      <h4 data-hi="Performance Parameters">Performance parameters</h4>
+      <p data-hi="Thermal efficiency, specific work output, MEP, और key engine performance indicators instantly compute करें, interactive parameter sweeps के साथ।">Compute thermal efficiency, specific work output, MEP, and other key engine performance indicators instantly with interactive parameter sweeps.</p>
     </div>
     <div class="agni-feat">
       <div class="agni-feat-icon"><i class="ti ti-device-desktop"></i></div>
-      <h4>Zero-install, browser-based</h4>
-      <p>Fully web-based — no Python, no MATLAB, no setup. Open the browser, run a simulation, share results. Built for teaching and rapid prototyping.</p>
+      <h4 data-hi="Zero-install, Browser-based">Zero-install, browser-based</h4>
+      <p data-hi="पूरी तरह web-based — कोई Python नहीं, कोई MATLAB नहीं, कोई setup नहीं। Browser खोलो, simulation चलाओ, results share करो। Teaching और rapid prototyping के लिए बनाया।">Fully web-based — no Python, no MATLAB, no setup. Open the browser, run a simulation, share results. Built for teaching and rapid prototyping.</p>
     </div>
   </div>
 
   <!-- Why AgniCycle -->
   <div class="card" style="margin-bottom:22px">
-    <h3><i class="ti ti-bulb"></i> The motivation</h3>
-    <p style="margin-top:8px">Engine cycle simulators are either locked behind expensive commercial software (GT-Power, Ricardo WAVE) or require local Python/MATLAB setups that take hours to configure. AgniCycle was built to change that — free, instant, accessible to any researcher or student anywhere. <em style="color:var(--accent)">"Agni"</em> is Sanskrit for fire, a nod to combustion research and the IIT tradition.</p>
+    <h3 data-hi='<i class="ti ti-bulb"></i> प्रेरणा'><i class="ti ti-bulb"></i> The motivation</h3>
+    <p style="margin-top:8px" data-hi='Engine cycle simulators या तो महंगे commercial software (GT-Power, Ricardo WAVE) में बंद हैं, या local Python/MATLAB setup की ज़रूरत है जो configure करने में घंटों लगते हैं। AgniCycle इसे बदलने के लिए बना — free, instant, किसी भी researcher या student के लिए। <em style="color:var(--accent)">"Agni"</em> Sanskrit में fire है — combustion research और IIT की परंपरा को नमन।'>Engine cycle simulators are either locked behind expensive commercial software (GT-Power, Ricardo WAVE) or require local Python/MATLAB setups that take hours to configure. AgniCycle was built to change that — free, instant, accessible to any researcher or student anywhere. <em style="color:var(--accent)">"Agni"</em> is Sanskrit for fire, a nod to combustion research and the IIT tradition.</p>
   </div>
 
   <!-- Tech stack -->
-  <div class="section-title" style="margin-bottom:10px">Tech stack &amp; deployment</div>
+  <div class="section-title" style="margin-bottom:10px" data-hi="Tech Stack और Deployment">Tech stack &amp; deployment</div>
   <div class="agni-tech" style="margin-bottom:6px">
     <span style="font-size:13px;font-weight:500;color:var(--muted)">Built with:</span>
     <span class="agni-tech-tag">Python</span>
@@ -992,9 +995,9 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 <!-- TOOLS -->
 <div class="page" id="page-tools" style="max-width:none;padding:36px 40px">
   <div class="page-hd">
-    <div class="page-tag">Apps I've built</div>
-    <h1>Web applications</h1>
-    <p>Production tools for combustion and engine research — built, deployed, and maintained by me on Google Cloud Run.</p>
+    <div class="page-tag" data-hi="मेरे बनाए Apps">Apps I've built</div>
+    <h1 data-hi="Web Applications">Web applications</h1>
+    <p data-hi="Combustion और engine research के लिए production tools — मैंने खुद बनाए, deploy किए, और Google Cloud Run पर maintain करता हूँ।">Production tools for combustion and engine research — built, deployed, and maintained by me on Google Cloud Run.</p>
   </div>
 
   <div class="app-cards">
@@ -1012,8 +1015,8 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
           <h3>AgniCycle</h3>
           <span class="app-badge">v1.3.0</span>
         </div>
-        <p>Research-grade engine cycle simulator. Model thermodynamic combustion cycles, analyze performance parameters, and study fuel effects across IC engine configurations.</p>
-        <button class="btn btn-primary app-launch"><i class="ti ti-player-play"></i> Launch app</button>
+        <p data-hi="Research-grade engine cycle simulator। Thermodynamic combustion cycles model करो, performance parameters analyze करो, और IC engine configurations में fuel effects study करो।">Research-grade engine cycle simulator. Model thermodynamic combustion cycles, analyze performance parameters, and study fuel effects across IC engine configurations.</p>
+        <button class="btn btn-primary app-launch" data-hi='<i class="ti ti-player-play"></i> App खोलें'><i class="ti ti-player-play"></i> Launch app</button>
       </div>
     </div>
 
@@ -1031,8 +1034,8 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
           <h3>Spray Calculator</h3>
           <span class="app-badge">Web App</span>
         </div>
-        <p>Estimate macroscopic fuel spray and jet characteristics — penetration length, cone angle, and atomization parameters — for direct-injection engine research.</p>
-        <button class="btn btn-primary app-launch"><i class="ti ti-player-play"></i> Launch app</button>
+        <p data-hi="Macroscopic fuel spray और jet characteristics estimate करो — penetration length, cone angle, और atomization parameters — direct-injection engine research के लिए।">Estimate macroscopic fuel spray and jet characteristics — penetration length, cone angle, and atomization parameters — for direct-injection engine research.</p>
+        <button class="btn btn-primary app-launch" data-hi='<i class="ti ti-player-play"></i> App खोलें'><i class="ti ti-player-play"></i> Launch app</button>
       </div>
     </div>
   </div>
@@ -1041,9 +1044,9 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 <!-- PhD WORK -->
 <div class="page" id="page-phd">
   <div class="page-hd">
-    <div class="page-tag">PhD research</div>
-    <h1>Doctoral work</h1>
-    <p>Graphical summaries of key publications from my PhD at the Engine Research Laboratory, IIT Kanpur (2017–2024). Advisor: Prof. Avinash Kumar Agarwal.</p>
+    <div class="page-tag" data-hi="PhD Research">PhD research</div>
+    <h1 data-hi="Doctoral Work">Doctoral work</h1>
+    <p data-hi="IIT Kanpur के Engine Research Laboratory (2017–2024) में मेरी PhD की मुख्य publications के graphical summaries। Advisor: Prof. Avinash Kumar Agarwal।">Graphical summaries of key publications from my PhD at the Engine Research Laboratory, IIT Kanpur (2017–2024). Advisor: Prof. Avinash Kumar Agarwal.</p>
   </div>
   <div class="phd-gallery">
 
@@ -1076,26 +1079,26 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 
   </div>
   <div style="margin-top:24px">
-    <a href="#" class="btn" onclick="event.preventDefault();goTo('publications')"><i class="ti ti-file-text"></i> See all publications</a>
+    <a href="#" class="btn" onclick="event.preventDefault();goTo('publications')" data-hi='<i class="ti ti-file-text"></i> सभी Publications देखें'><i class="ti ti-file-text"></i> See all publications</a>
   </div>
 </div>
 
 <!-- COLLABORATE -->
 <div class="page" id="page-collaborate">
   <div class="page-hd">
-    <div class="page-tag">Opportunity to collaborate</div>
-    <h1>Let's work together</h1>
-    <p>I welcome motivated students and scholars for short-term remote internships and joint research projects in combustion, hydrogen energy, battery safety, and propulsion systems.</p>
+    <div class="page-tag" data-hi="Collaboration का अवसर">Opportunity to collaborate</div>
+    <h1 data-hi="मिलकर काम करते हैं">Let's work together</h1>
+    <p data-hi="मैं combustion, hydrogen energy, battery safety, और propulsion systems में short-term remote internships और joint research projects के लिए motivated students और scholars का स्वागत करता हूँ।">I welcome motivated students and scholars for short-term remote internships and joint research projects in combustion, hydrogen energy, battery safety, and propulsion systems.</p>
   </div>
 
   <div class="card-grid col2" style="margin-bottom:20px">
     <div class="card">
-      <h3><i class="ti ti-users-group"></i>Who should apply</h3>
+      <h3 data-hi='<i class="ti ti-users-group"></i>कौन Apply कर सकता है'><i class="ti ti-users-group"></i>Who should apply</h3>
       <ul style="font-size:13px;color:var(--muted);line-height:2;padding-left:18px">
-        <li>Graduate thesis students</li>
-        <li>Academic researchers</li>
-        <li>Industry professionals</li>
-        <li>Research groups in relevant areas</li>
+        <li data-hi="Graduate thesis students">Graduate thesis students</li>
+        <li data-hi="Academic researchers">Academic researchers</li>
+        <li data-hi="Industry professionals">Industry professionals</li>
+        <li data-hi="Related fields के Research Groups">Research groups in relevant areas</li>
       </ul>
     </div>
     <div class="card">
@@ -1108,39 +1111,39 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
       </ul>
     </div>
     <div class="card">
-      <h3><i class="ti ti-coin"></i>Financial support</h3>
-      <p>A stipend of <strong>INR 10,000</strong> is available for selected candidates from economically disadvantaged backgrounds.</p>
+      <h3 data-hi='<i class="ti ti-coin"></i>आर्थिक सहायता'><i class="ti ti-coin"></i>Financial support</h3>
+      <p data-hi="चुने गए economically disadvantaged candidates को <strong>₹10,000</strong> stipend उपलब्ध है।">A stipend of <strong>INR 10,000</strong> is available for selected candidates from economically disadvantaged backgrounds.</p>
     </div>
     <div class="card">
-      <h3><i class="ti ti-files"></i>How to apply</h3>
-      <p style="margin-bottom:12px">Send the following to <a href="mailto:dkumar39@wisc.edu" style="color:var(--accent)">dkumar39@wisc.edu</a>:</p>
+      <h3 data-hi='<i class="ti ti-files"></i>Apply कैसे करें'><i class="ti ti-files"></i>How to apply</h3>
+      <p style="margin-bottom:12px" data-hi='<a href="mailto:dkumar39@wisc.edu" style="color:var(--accent)">dkumar39@wisc.edu</a> पर ये भेजें:'>Send the following to <a href="mailto:dkumar39@wisc.edu" style="color:var(--accent)">dkumar39@wisc.edu</a>:</p>
       <ul style="font-size:13px;color:var(--muted);line-height:2;padding-left:18px">
-        <li>CV or Resume</li>
-        <li>Brief statement of interest</li>
+        <li data-hi="CV या Resume">CV or Resume</li>
+        <li data-hi="Interest का brief statement">Brief statement of interest</li>
       </ul>
     </div>
   </div>
 
   <div class="card" style="margin-bottom:20px">
-    <h3><i class="ti ti-info-circle"></i>Internship details</h3>
-    <p style="margin-bottom:14px">Short-term remote internships are available. Download the internship document for full details on scope, expectations, and deliverables.</p>
-    <a href="https://drive.google.com/file/d/1hZQgR6_jA53DURKhAUITAeZrUD_C2A4z/view?usp=sharing" class="btn btn-primary"><i class="ti ti-download"></i> Download internship document</a>
+    <h3 data-hi='<i class="ti ti-info-circle"></i>Internship विवरण'><i class="ti ti-info-circle"></i>Internship details</h3>
+    <p style="margin-bottom:14px" data-hi="Short-term remote internships उपलब्ध हैं। Scope, expectations, और deliverables की पूरी जानकारी के लिए internship document download करें।">Short-term remote internships are available. Download the internship document for full details on scope, expectations, and deliverables.</p>
+    <a href="https://drive.google.com/file/d/1hZQgR6_jA53DURKhAUITAeZrUD_C2A4z/view?usp=sharing" class="btn btn-primary" data-hi='<i class="ti ti-download"></i> Internship Document Download करें'><i class="ti ti-download"></i> Download internship document</a>
   </div>
 
   <div class="contact-item" style="max-width:400px">
     <i class="ti ti-mail"></i>
-    <div><h4>Get in touch</h4><a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div>
+    <div><h4 data-hi="संपर्क करें">Get in touch</h4><a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div>
   </div>
 </div>
 
 <!-- MISC -->
 <div class="page" id="page-misc">
   <div class="page-hd">
-    <div class="page-tag">Miscellaneous</div>
-    <h1>Useful resources</h1>
+    <div class="page-tag" data-hi="अन्य">Miscellaneous</div>
+    <h1 data-hi="उपयोगी Resources">Useful resources</h1>
   </div>
 
-  <div class="section-title">Software &amp; simulation</div>
+  <div class="section-title" data-hi="Software और Simulation">Software &amp; simulation</div>
   <div class="link-grid" style="margin-bottom:20px">
     <a href="https://hub.convergecfd.com/login" class="lcard"><i class="ti ti-cpu"></i><span>Convergent Science Hub</span><i class="ti ti-arrow-up-right arr"></i></a>
     <a href="https://university.gtisoft.com/pages/27/home-page-universities" class="lcard"><i class="ti ti-school"></i><span>GT University</span><i class="ti ti-arrow-up-right arr"></i></a>
@@ -1150,7 +1153,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     <a href="https://www.cfd-online.com/Forums/converge/" class="lcard"><i class="ti ti-messages"></i><span>CFD Online Forums</span><i class="ti ti-arrow-up-right arr"></i></a>
   </div>
 
-  <div class="section-title">Research resources</div>
+  <div class="section-title" data-hi="Research Resources">Research resources</div>
   <div class="link-grid" style="margin-bottom:20px">
     <a href="https://ecn.sandia.gov/" class="lcard"><i class="ti ti-flame"></i><span>Engine Combustion Network</span><i class="ti ti-arrow-up-right arr"></i></a>
     <a href="https://www.sciencedirect.com/" class="lcard"><i class="ti ti-books"></i><span>Science Direct</span><i class="ti ti-arrow-up-right arr"></i></a>
@@ -1160,7 +1163,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     <a href="https://www.iitk.ac.in/erl/" class="lcard"><i class="ti ti-building-bank"></i><span>Engine Research Lab, IITK</span><i class="ti ti-arrow-up-right arr"></i></a>
   </div>
 
-  <div class="section-title">Study material</div>
+  <div class="section-title" data-hi="पढ़ाई का Material">Study material</div>
   <div class="link-grid" style="margin-bottom:20px">
     <a href="https://drive.google.com/drive/folders/12Kr1OTP9EsCSK5CqsY7ltEXi6pQjUD8A?usp=drive_link" class="lcard" target="_blank"><i class="ti ti-book"></i><span>Thermodynamics — Çengel &amp; Boles</span><i class="ti ti-arrow-up-right" style="margin-left:auto;font-size:13px;color:var(--faint)"></i></a>
     <a href="https://drive.google.com/drive/folders/12Kr1OTP9EsCSK5CqsY7ltEXi6pQjUD8A?usp=drive_link" class="lcard" target="_blank"><i class="ti ti-book"></i><span>Fluid Mechanics — Frank M. White (8th Ed.)</span><i class="ti ti-arrow-up-right" style="margin-left:auto;font-size:13px;color:var(--faint)"></i></a>
@@ -1170,29 +1173,29 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     <a href="https://drive.google.com/drive/folders/12Kr1OTP9EsCSK5CqsY7ltEXi6pQjUD8A?usp=drive_link" class="lcard" target="_blank"><i class="ti ti-book"></i><span>Gasoline Engine Management (2015)</span><i class="ti ti-arrow-up-right" style="margin-left:auto;font-size:13px;color:var(--faint)"></i></a>
   </div>
 
-  <div class="section-title">Music to work to</div>
+  <div class="section-title" data-hi="काम के दौरान Music">Music to work to</div>
   <div class="music-row">
-    <a href="https://www.youtube.com/watch?v=TO57xv9hdxE" class="music-card" target="_blank"><div class="music-art mc-calm"><i class="ti ti-music"></i></div><div><h4>Peaceful music</h4><p>For focused, calm sessions</p></div><i class="ti ti-player-play arr"></i></a>
-    <a href="https://www.youtube.com/watch?v=6ZqxXeFvS2E&t=158s" class="music-card" target="_blank"><div class="music-art mc-energy"><i class="ti ti-bolt"></i></div><div><h4>Energetic music</h4><p>For high-energy sprints</p></div><i class="ti ti-player-play arr"></i></a>
+    <a href="https://www.youtube.com/watch?v=TO57xv9hdxE" class="music-card" target="_blank"><div class="music-art mc-calm"><i class="ti ti-music"></i></div><div><h4 data-hi="शांत Music">Peaceful music</h4><p data-hi="Focus के साथ काम के लिए">For focused, calm sessions</p></div><i class="ti ti-player-play arr"></i></a>
+    <a href="https://www.youtube.com/watch?v=6ZqxXeFvS2E&t=158s" class="music-card" target="_blank"><div class="music-art mc-energy"><i class="ti ti-bolt"></i></div><div><h4 data-hi="तेज़ Music">Energetic music</h4><p data-hi="तेज़ी से काम के लिए">For high-energy sprints</p></div><i class="ti ti-player-play arr"></i></a>
   </div>
 </div>
 
 <!-- CONTACT -->
 <div class="page" id="page-contact">
   <div class="page-hd">
-    <div class="page-tag">Get in touch</div>
-    <h1>Contact</h1>
-    <p>Open to collaborations, research discussions, and speaking invitations on clean combustion, hydrogen, and battery safety.</p>
+    <div class="page-tag" data-hi="संपर्क करें">Get in touch</div>
+    <h1 data-hi="संपर्क">Contact</h1>
+    <p data-hi="Clean combustion, hydrogen, और battery safety पर collaborations, research discussions, और speaking invitations के लिए हमेशा तैयार हूँ।">Open to collaborations, research discussions, and speaking invitations on clean combustion, hydrogen, and battery safety.</p>
   </div>
 
   <div class="contact-grid">
-    <div class="contact-item"><i class="ti ti-mail"></i><div><h4>Email</h4><a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div></div>
-    <div class="contact-item"><i class="ti ti-map-pin"></i><div><h4>Office</h4><p>ERC Computing Room-1008, Engineering Research Building, 1500 Engineering Drive, Madison, WI 53706, USA</p></div></div>
-    <div class="contact-item"><i class="ti ti-world"></i><div><h4>ERC profile</h4><a href="https://erc.wisc.edu/staff/kumar-dhananjay/" style="word-break:break-all">erc.wisc.edu/staff/kumar-dhananjay</a></div></div>
-    <div class="contact-item"><i class="ti ti-language"></i><div><h4>Languages</h4><p>Hindi · English · Magahi</p></div></div>
+    <div class="contact-item"><i class="ti ti-mail"></i><div><h4 data-hi="ईमेल">Email</h4><a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div></div>
+    <div class="contact-item"><i class="ti ti-map-pin"></i><div><h4 data-hi="कार्यालय">Office</h4><p>ERC Computing Room-1008, Engineering Research Building, 1500 Engineering Drive, Madison, WI 53706, USA</p></div></div>
+    <div class="contact-item"><i class="ti ti-world"></i><div><h4 data-hi="ERC Profile">ERC profile</h4><a href="https://erc.wisc.edu/staff/kumar-dhananjay/" style="word-break:break-all">erc.wisc.edu/staff/kumar-dhananjay</a></div></div>
+    <div class="contact-item"><i class="ti ti-language"></i><div><h4 data-hi="भाषाएँ">Languages</h4><p>Hindi · English · Magahi</p></div></div>
   </div>
 
-  <div class="section-title">Online profiles</div>
+  <div class="section-title" data-hi="Online Profiles">Online profiles</div>
   <div class="link-grid" style="margin-bottom:24px">
     <a href="https://scholar.google.com/citations?user=kYDGsMAAAAAJ" class="lcard"><i class="ti ti-school"></i><span>Google Scholar</span><i class="ti ti-arrow-up-right arr"></i></a>
     <a href="https://www.researchgate.net/profile/Dhananjay-Kumar-10" class="lcard"><i class="ti ti-atom"></i><span>ResearchGate</span><i class="ti ti-arrow-up-right arr"></i></a>
@@ -1202,14 +1205,14 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     <a href="https://erc.wisc.edu/staff/kumar-dhananjay/" class="lcard"><i class="ti ti-building-bank"></i><span>ERC staff page</span><i class="ti ti-arrow-up-right arr"></i></a>
   </div>
 
-  <div class="section-title">Professional service</div>
+  <div class="section-title" data-hi="Professional Service">Professional service</div>
   <div class="service-row">
     <div class="card">
-      <h3><i class="ti ti-users-group"></i>Memberships</h3>
+      <h3 data-hi='<i class="ti ti-users-group"></i>सदस्यताएँ'><i class="ti ti-users-group"></i>Memberships</h3>
       <p>SAE International (ID: 6160838640)<br>ISEES (ID: 18010)<br>ASME (ID: 22007304021)</p>
     </div>
     <div class="card">
-      <h3><i class="ti ti-clipboard-check"></i>Journal reviewer</h3>
+      <h3 data-hi='<i class="ti ti-clipboard-check"></i>Journal Reviewer'><i class="ti ti-clipboard-check"></i>Journal reviewer</h3>
       <p>Fuel · IJHE · Energy · JEES · Springer Nature · ASME J. Thermal Science &amp; Eng. Applications · ASME J. Engineering for Gas Turbines and Power</p>
     </div>
   </div>
@@ -1217,7 +1220,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 
 <footer class="site-footer">
   <div>© <span id="footer-year"></span> Dhananjay Kumar · Engine Research Center, University of Wisconsin–Madison</div>
-  <div style="margin-top:4px">Built with <span style="color:var(--accent)">♥</span> · <a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div>
+  <div style="margin-top:4px" data-hi='♥ से बनाया · <a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a>'>Built with <span style="color:var(--accent)">♥</span> · <a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div>
 </footer>
 </main>
 </div><!-- end shell -->
@@ -1233,6 +1236,27 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 
 <script>
 document.getElementById('footer-year').textContent=new Date().getFullYear();
+
+// ===== HINDI / HINGLISH TOGGLE =====
+window.toggleHindi=function(){
+  const isHi=document.documentElement.dataset.lang==='hi';
+  const next=isHi?'en':'hi';
+  document.documentElement.dataset.lang=next;
+  document.querySelectorAll('[data-hi]').forEach(function(el){
+    if(next==='hi'){
+      if(!el.dataset.en)el.dataset.en=el.innerHTML;
+      el.innerHTML=el.dataset.hi;
+    } else {
+      if(el.dataset.en)el.innerHTML=el.dataset.en;
+    }
+  });
+  const lbl=document.getElementById('lang-label');
+  const btn=document.getElementById('lang-btn');
+  if(lbl)lbl.textContent=next==='hi'?'EN':'हिं';
+  if(btn)btn.classList.toggle('hi-active',next==='hi');
+  localStorage.setItem('dk-lang',next);
+};
+(function(){if(localStorage.getItem('dk-lang')==='hi')toggleHindi();})();
 const pages=document.querySelectorAll('.page');
 const tnavs=document.querySelectorAll('.tnav');
 const slinks=document.querySelectorAll('.slink');
@@ -1442,7 +1466,8 @@ function closeApp() {
   const gnodes=svg.querySelectorAll('.gnode');
   const glines=svg.querySelectorAll('.gline');
   const ginfo=document.getElementById('graph-info');
-  const dflt='<span style="opacity:.4;font-style:italic;font-size:10.5px">hover a node to explore</span>';
+  function getDflt(){return document.documentElement.dataset.lang==='hi'?'<span style="opacity:.4;font-style:italic;font-size:10.5px">किसी node पर hover करें</span>':'<span style="opacity:.4;font-style:italic;font-size:10.5px">hover a node to explore</span>';}
+  const descHi={h2:'HCNG blends, laser और spark ignition, CVCCs में flame kernel propagation',spray:'Schlieren और Mie-scattering imaging से macroscopic spray characterization',cfd:'CONVERGE CFD से 3D combustion, spray और thermal runaway की numerical modelling',battery:'EV और hybrid vehicles के लिए Li-ion cell thermal runaway modelling',laser:'Laser ignition, LIBS spectroscopy, high-speed optical engine diagnostics',altfuel:'DME, biodiesel, HCNG — low-carbon IC engine fuels की combustion characterization'};
   gnodes.forEach(nd=>{
     const id=nd.dataset.id,col=nd.dataset.color,desc=nd.dataset.desc,name=nd.dataset.name;
     const ring=nd.querySelector('.gnode-ring'),circ=nd.querySelector('.gnode-circle');
@@ -1458,7 +1483,8 @@ function closeApp() {
         l.setAttribute('stroke-width',m?'2.5':'1');
         l.style.opacity=m?'1':'0.4';
       });
-      ginfo.innerHTML=`<b style="color:${col}">${name}</b> — ${desc}`;
+      const dispDesc=document.documentElement.dataset.lang==='hi'?(descHi[id]||desc):desc;
+      ginfo.innerHTML=`<b style="color:${col}">${name}</b> — ${dispDesc}`;
     });
     nd.addEventListener('mouseleave',()=>{
       gnodes.forEach(n=>n.style.opacity='1');
@@ -1470,7 +1496,7 @@ function closeApp() {
         l.setAttribute('stroke-width','1.2');
         l.style.opacity='1';
       });
-      ginfo.innerHTML=dflt;
+      ginfo.innerHTML=getDflt();
     });
   });
 })();
