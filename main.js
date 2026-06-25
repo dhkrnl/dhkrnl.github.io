@@ -1,5 +1,24 @@
 document.getElementById('footer-year').textContent=new Date().getFullYear();
 
+// ===== SCROLL PROGRESS BAR =====
+(function(){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const bar=document.createElement('div');
+  bar.id='scroll-progress';
+  document.body.appendChild(bar);
+  let ticking=false;
+  function update(){
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    const pct=h>0?(window.scrollY/h)*100:0;
+    bar.style.width=pct+'%';
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(update);ticking=true;}
+  },{passive:true});
+  update();
+})();
+
 // ===== HINDI / HINGLISH TOGGLE =====
 window.toggleHindi=function(){
   const isHi=document.documentElement.dataset.lang==='hi';

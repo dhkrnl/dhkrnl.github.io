@@ -495,3 +495,77 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 /* Publications filter smooth transitions */
 .pub-section{transition:opacity .22s ease,transform .22s ease}
 .pub-item{transition:opacity .18s ease,transform .18s ease}
+
+/* ═══════════════════ ENHANCED MOTION LAYER ═══════════════════ */
+@media (prefers-reduced-motion:no-preference){
+
+/* — Scroll progress bar (top of viewport) — */
+#scroll-progress{position:fixed;top:0;left:0;height:2.5px;width:0;z-index:3000;background:linear-gradient(90deg,var(--accent),#3b82f6,#22c55e);box-shadow:0 0 10px rgba(59,130,246,.45);transition:width .08s linear;border-radius:0 3px 3px 0;pointer-events:none}
+
+/* — Animated gradient sheen sweeping across the name — */
+@keyframes nameSheen{0%,68%{background-position:160% 0}100%{background-position:-30% 0}}
+.home-hero-text h1,.page-hd h1{
+  background:linear-gradient(100deg,var(--text) 0%,var(--text) 42%,var(--accent) 50%,var(--text) 58%,var(--text) 100%);
+  background-size:260% 100%;background-position:160% 0;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:nameSheen 7s ease-in-out 1.4s infinite;
+}
+.home-hero-text h1{animation:heroIn .5s .05s ease both,nameSheen 7s ease-in-out 1.6s infinite;}
+
+/* — Flowing gradient bar: hero top + stat top — */
+@keyframes barFlow{0%{background-position:0 0}100%{background-position:200% 0}}
+.home-hero{position:relative}
+.home-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#3b82f6,#22c55e,var(--accent));background-size:200% 100%;animation:barFlow 5s linear infinite;border-radius:var(--radius) var(--radius) 0 0}
+.stat::before{background:linear-gradient(90deg,var(--accent),#3b82f6,var(--accent));background-size:200% 100%;animation:barFlow 4s linear infinite}
+[data-theme="dark"] .stat::before{background:linear-gradient(90deg,#3b82f6,#22c55e,#3b82f6);background-size:200% 100%;animation:barFlow 4s linear infinite}
+
+/* — Light sheen sweep on hover (cards, items, projects) — */
+@keyframes sheenSweep{0%{transform:translateX(-130%) skewX(-18deg)}100%{transform:translateX(340%) skewX(-18deg)}}
+.card,.stat,.pub-item,.award-item,.proj,.teach-item,.contact-item,.lcard{position:relative;overflow:hidden}
+.card::after,.pub-item::after,.award-item::after,.proj::after,.teach-item::after,.contact-item::after,.lcard::after{content:'';position:absolute;top:0;left:0;width:38%;height:100%;background:linear-gradient(100deg,transparent,rgba(120,170,255,.08),transparent);transform:translateX(-130%) skewX(-18deg);pointer-events:none;z-index:2}
+.card:hover::after,.pub-item:hover::after,.award-item:hover::after,.proj:hover::after,.teach-item:hover::after,.contact-item:hover::after,.lcard:hover::after{animation:sheenSweep .8s ease}
+.stat::after{content:'';position:absolute;top:0;left:0;width:38%;height:100%;background:linear-gradient(100deg,transparent,rgba(120,170,255,.1),transparent);transform:translateX(-130%) skewX(-18deg);pointer-events:none;z-index:2}
+.stat:hover::after{animation:sheenSweep .8s ease}
+
+/* — Top-nav animated underline — */
+.tnav::after{content:'';position:absolute;bottom:-9px;left:50%;width:18px;height:2.5px;border-radius:2px;background:var(--accent);transform:translateX(-50%) scaleX(0);transform-origin:center;transition:transform .25s ease,opacity .2s;opacity:0}
+.tnav:hover::after{opacity:.55;transform:translateX(-50%) scaleX(.62)}
+.tnav.active::after{opacity:1;transform:translateX(-50%) scaleX(1)}
+
+/* — Primary button gloss sweep on hover — */
+.btn-primary,.cf-send{position:relative;overflow:hidden}
+.btn-primary::after,.cf-send::after{content:'';position:absolute;top:0;left:0;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:translateX(-160%) skewX(-20deg);pointer-events:none}
+.btn-primary:hover::after,.cf-send:hover::after{animation:sheenSweep .7s ease}
+
+/* — Chip cascade entrance + hover lift — */
+@keyframes chipIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.chip-row .chip{animation:chipIn .42s ease both;transition:transform .16s,color .16s,border-color .16s,background .16s}
+.chip-row .chip:nth-child(1){animation-delay:.34s}
+.chip-row .chip:nth-child(2){animation-delay:.40s}
+.chip-row .chip:nth-child(3){animation-delay:.46s}
+.chip-row .chip:nth-child(4){animation-delay:.52s}
+.chip-row .chip:nth-child(5){animation-delay:.58s}
+.chip-row .chip:nth-child(6){animation-delay:.64s}
+.chip:hover{transform:translateY(-2px);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
+
+/* — Social button icon flick — */
+.soc-btn i{transition:transform .2s ease}
+.soc-btn:hover i{transform:rotate(-9deg) scale(1.12)}
+
+/* — Profile photo soft glow pulse — */
+@keyframes avPulse{0%,100%{box-shadow:0 0 0 4px rgba(26,138,96,.15),0 4px 20px rgba(26,138,96,.3)}50%{box-shadow:0 0 0 5px rgba(26,138,96,.24),0 6px 26px rgba(26,138,96,.44)}}
+@keyframes avPulseDark{0%,100%{box-shadow:0 0 0 4px rgba(59,130,246,.18),0 4px 20px rgba(59,130,246,.2)}50%{box-shadow:0 0 0 5px rgba(59,130,246,.28),0 6px 26px rgba(59,130,246,.36)}}
+.av{animation:avPulse 4.5s ease-in-out infinite}
+[data-theme="dark"] .av{animation:avPulseDark 4.5s ease-in-out infinite}
+
+/* — Research graph: breathing rings + rotating center ring — */
+@keyframes ringBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.gnode-ring{transform-box:fill-box;transform-origin:center;animation:ringBreathe 3.6s ease-in-out infinite}
+.gnode:nth-of-type(odd) .gnode-ring{animation-duration:4.3s}
+.gnode:nth-of-type(3n) .gnode-ring{animation-delay:-1.4s}
+.gnode:nth-of-type(2n) .gnode-ring{animation-delay:-.7s}
+.center-pulse{transform-box:fill-box;transform-origin:center;animation:centerpulse 3s ease-in-out infinite,spin 30s linear infinite}
+
+}
+
