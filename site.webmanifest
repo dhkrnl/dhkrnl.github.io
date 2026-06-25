@@ -1,0 +1,19 @@
+{
+  "name": "Dhananjay Kumar — Researcher",
+  "short_name": "D. Kumar",
+  "description": "Academic portfolio of Dhananjay Kumar — Postdoctoral Research Associate at the Engine Research Center, UW–Madison.",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#070c18",
+  "theme_color": "#1a8a60",
+  "icons": [
+    { "src": "/images/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/images/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
