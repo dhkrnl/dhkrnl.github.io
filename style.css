@@ -65,7 +65,7 @@ b{font-weight:600}
 .sidebar::-webkit-scrollbar{width:4px}
 .sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 .profile-card{text-align:center;background:linear-gradient(170deg,rgba(26,138,96,.13) 0%,rgba(26,138,96,.04) 60%,transparent 100%);padding:28px 20px 22px;border-bottom:1px solid var(--border)}
-.av{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);display:grid;place-items:center;font-family:'Sora';font-size:26px;font-weight:700;color:#fff;margin:0 auto 14px;box-shadow:0 0 0 4px rgba(26,138,96,.15),0 4px 20px rgba(26,138,96,.3);object-fit:cover;filter:brightness(1.18) contrast(1.05)}
+.av{width:112px;height:112px;border-radius:50%;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);display:grid;place-items:center;font-family:'Sora';font-size:26px;font-weight:700;color:#fff;margin:0 auto 14px;box-shadow:0 0 0 4px rgba(26,138,96,.15),0 4px 20px rgba(26,138,96,.3);object-fit:cover;filter:brightness(1.18) contrast(1.05)}
 .profile-card h2{font-family:'Sora';font-size:15px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
 .profile-card .role{font-size:11px;color:var(--accent);font-weight:600;margin-bottom:4px;padding:2px 10px;display:inline-block;background:var(--accent-bg);border-radius:20px}
 .profile-card .inst{font-size:11px;color:var(--muted);line-height:1.6;margin-top:6px}
