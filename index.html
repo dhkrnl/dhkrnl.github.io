@@ -592,7 +592,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
           <circle class="gnode-circle" cx="106" cy="243" r="20" fill="var(--surface)" stroke="#f472b6" stroke-width="1.8"/>
           <text x="106" y="248" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#f472b6" font-weight="600">Laser</text>
         </g>
-        <g class="gnode" data-id="altfuel" data-name="Alternative Fuels" data-color="#34d399" data-desc="DME, biodiesel, HCNG — combustion characterisation of low-carbon IC engine fuels">
+        <g class="gnode" data-id="altfuel" data-name="Alternative Fuels" data-color="#34d399" data-desc="Methanol, ethanol, HCNG — combustion characterisation of low-carbon IC engine fuels">
           <circle class="gnode-ring" cx="214" cy="243" r="28" fill="none" stroke="#34d399" stroke-width="1" opacity="0.35"/>
           <circle class="gnode-circle" cx="214" cy="243" r="20" fill="var(--surface)" stroke="#34d399" stroke-width="1.8"/>
           <text x="214" y="239" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#34d399" font-weight="600">Alt.</text>
@@ -961,7 +961,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
     <div class="agni-feat">
       <div class="agni-feat-icon"><i class="ti ti-flame"></i></div>
       <h4 data-hi="Multi-fuel Analysis">Multi-fuel analysis</h4>
-      <p data-hi="Conventional और alternative fuels — hydrogen, CNG, HCNG blends, biodiesel, DME — की performance compare करें, fuel substitution effects study करने के लिए।">Compare performance across conventional and alternative fuels — hydrogen, CNG, HCNG blends, biodiesel, and DME — to study fuel substitution effects.</p>
+      <p data-hi="Conventional और alternative fuels — hydrogen, CNG, HCNG blends, methanol, ethanol — की performance compare करें, fuel substitution effects study करने के लिए।">Compare performance across conventional and alternative fuels — hydrogen, CNG, HCNG blends, methanol, and ethanol — to study fuel substitution effects.</p>
     </div>
     <div class="agni-feat">
       <div class="agni-feat-icon"><i class="ti ti-gauge"></i></div>
@@ -1471,7 +1471,7 @@ function closeApp() {
   const glines=svg.querySelectorAll('.gline');
   const ginfo=document.getElementById('graph-info');
   function getDflt(){return document.documentElement.dataset.lang==='hi'?'<span style="opacity:.4;font-style:italic;font-size:10.5px">किसी node पर hover करें</span>':'<span style="opacity:.4;font-style:italic;font-size:10.5px">hover a node to explore</span>';}
-  const descHi={h2:'HCNG blends, laser और spark ignition, CVCCs में flame kernel propagation',spray:'Schlieren और Mie-scattering imaging से macroscopic spray characterization',cfd:'CONVERGE CFD से 3D combustion, spray और thermal runaway की numerical modelling',battery:'EV और hybrid vehicles के लिए Li-ion cell thermal runaway modelling',laser:'Laser ignition, LIBS spectroscopy, high-speed optical engine diagnostics',altfuel:'DME, biodiesel, HCNG — low-carbon IC engine fuels की combustion characterization'};
+  const descHi={h2:'HCNG blends, laser और spark ignition, CVCCs में flame kernel propagation',spray:'Schlieren और Mie-scattering imaging से macroscopic spray characterization',cfd:'CONVERGE CFD से 3D combustion, spray और thermal runaway की numerical modelling',battery:'EV और hybrid vehicles के लिए Li-ion cell thermal runaway modelling',laser:'Laser ignition, LIBS spectroscopy, high-speed optical engine diagnostics',altfuel:'Methanol, ethanol, HCNG — low-carbon IC engine fuels की combustion characterization'};
   gnodes.forEach(nd=>{
     const id=nd.dataset.id,col=nd.dataset.color,desc=nd.dataset.desc,name=nd.dataset.name;
     const ring=nd.querySelector('.gnode-ring'),circ=nd.querySelector('.gnode-circle');
