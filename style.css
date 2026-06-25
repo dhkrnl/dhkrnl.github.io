@@ -164,8 +164,10 @@ b{font-weight:600}
 .tl-item:last-child{padding-bottom:0}
 .tl-item::before{content:"";position:absolute;left:-26px;top:4px;width:13px;height:13px;border-radius:50%;background:var(--surface);border:2.5px solid var(--accent)}
 .tl-item.dim::before{border-color:var(--faint)}
-.tl-date{font-size:11px;font-weight:600;color:var(--accent);margin-bottom:3px}
+.tl-date{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.03em;margin-bottom:3px}
 .tl-item.dim .tl-date{color:var(--faint)}
+[data-theme="dark"] .tl-date{color:#93c5fd}
+[data-theme="dark"] .tl-item.dim .tl-date{color:#3b5a8a}
 .tl-item h3{font-size:15px;font-weight:600;margin-bottom:2px}
 .tl-item p{font-size:13px;color:var(--muted);line-height:1.65}
 
