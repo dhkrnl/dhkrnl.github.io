@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AgniCycle · Dhananjay Kumar</title>
+<meta name="description" content="AgniCycle — web-based, research-grade thermodynamic engine cycle simulator built by Dhananjay Kumar."/>
+<link rel="icon" href="/images/favicon_512px.svg" type="image/svg+xml"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="AgniCycle · Dhananjay Kumar"/>
+<meta property="og:description" content="AgniCycle — web-based, research-grade thermodynamic engine cycle simulator built by Dhananjay Kumar."/>
+<meta property="og:image" content="https://dhkrnl.github.io/images/profile.jpg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AgniCycle · Dhananjay Kumar"/>
+<meta name="twitter:image" content="https://dhkrnl.github.io/images/profile.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+<link rel="stylesheet" href="/style.css"/>
+<script>(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('dk-theme')||'dark');})();</script>
+</head>
+<body>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">
+    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit">
+      <div class="brand-mark">DK</div>
+      <span class="brand-name">Dhananjay Kumar</span>
+    </a>
+  </div>
+  <div class="topbar-nav-wrap">
+    <nav class="topbar-nav">
+      <a class="tnav" href="/" data-page="home" data-hi="होम">Home</a>
+      <a class="tnav" href="/projects/" data-page="projects" data-hi="Projects">Projects</a>
+      <a class="tnav" href="/experience/" data-page="experience" data-hi="अनुभव">Experience</a>
+      <a class="tnav" href="/skills/" data-page="skills" data-hi="Skills">Skills</a>
+      <a class="tnav" href="/publications/" data-page="publications" data-hi="Publications">Publications</a>
+      <a class="tnav" href="/awards/" data-page="awards" data-hi="पुरस्कार">Awards</a>
+      <a class="tnav tnav-agni" href="/agnicycle/" data-page="agnicycle" data-hi="⚡ AgniCycle">⚡ AgniCycle</a>
+      <a class="tnav tnav-hide-md" href="/teaching/" data-page="teaching" data-hi="शिक्षण">Teaching</a>
+      <a class="tnav tnav-hide-md" href="/tools/" data-page="tools" data-hi="Tools">Tools</a>
+      <a class="tnav tnav-hide-md" href="/phd/" data-page="phd" data-hi="PhD Work">PhD Work</a>
+      <a class="tnav tnav-hide-sm" href="/collaborate/" data-page="collaborate" data-hi="साथ काम करें">Collaborate</a>
+      <a class="tnav tnav-hide-sm" href="/misc/" data-page="misc" data-hi="अन्य">Misc</a>
+      <a class="tnav" href="/contact/" data-page="contact" data-hi="संपर्क">Contact</a>
+    </nav>
+  </div>
+  <div class="topbar-right">
+    <button class="icon-btn" id="lang-btn" title="हिंदी / English" onclick="toggleHindi()"><span id="lang-label">हिं</span></button>
+    <button class="icon-btn" id="theme" title="Toggle dark mode">
+      <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn" id="fs-btn" title="Fullscreen (F)">
+      <svg id="fs-icon-enter" viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      <svg id="fs-icon-exit" viewBox="0 0 24 24" style="display:none"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/></svg>
+    </button>
+    <button class="icon-btn menu-btn" id="menu" title="Navigation menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="shell">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="profile-card">
+    <img src="/images/profile.jpg" class="av" alt="Dhananjay Kumar">
+    <h2>Dhananjay Kumar</h2>
+    <div class="role">Postdoctoral Research Associate</div>
+    <div class="inst">Engine Research Center<br>University of Wisconsin–Madison</div>
+  </div>
+  <div class="divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-label" data-hi="नेविगेशन">Navigation</div>
+    <a class="slink" href="/" data-page="home" data-hi='<i class="ti ti-home"></i> होम'><i class="ti ti-home"></i> Home</a>
+    <a class="slink" href="/projects/" data-page="projects" data-hi='<i class="ti ti-flask"></i> मौजूदा Projects'><i class="ti ti-flask"></i> Current projects</a>
+    <a class="slink" href="/experience/" data-page="experience" data-hi='<i class="ti ti-briefcase"></i> अनुभव'><i class="ti ti-briefcase"></i> Experience</a>
+    <a class="slink" href="/skills/" data-page="skills" data-hi='<i class="ti ti-tool"></i> Skills'><i class="ti ti-tool"></i> Skills</a>
+    <a class="slink" href="/publications/" data-page="publications" data-hi='<i class="ti ti-file-text"></i> Publications'><i class="ti ti-file-text"></i> Publications</a>
+    <a class="slink" href="/awards/" data-page="awards" data-hi='<i class="ti ti-trophy"></i> पुरस्कार और सम्मान'><i class="ti ti-trophy"></i> Awards &amp; honors</a>
+    <a class="slink slink-agni" href="/agnicycle/" data-page="agnicycle"><img src="/images/01_primary_icon.svg" style="width:16px;height:16px;border-radius:4px;vertical-align:-3px;margin-right:2px"/> AgniCycle <span style="font-size:9px;font-weight:700;background:#22c55e;color:#fff;padding:1px 6px;border-radius:10px;margin-left:auto">App</span></a>
+    <a class="slink" href="/teaching/" data-page="teaching" data-hi='<i class="ti ti-chalkboard"></i> शिक्षण'><i class="ti ti-chalkboard"></i> Teaching</a>
+    <a class="slink" href="/tools/" data-page="tools" data-hi='<i class="ti ti-cpu"></i> Research Tools'><i class="ti ti-cpu"></i> Research tools</a>
+    <a class="slink" href="/phd/" data-page="phd" data-hi='<i class="ti ti-microscope"></i> PhD Work'><i class="ti ti-microscope"></i> PhD work</a>
+    <a class="slink" href="/collaborate/" data-page="collaborate" data-hi='<i class="ti ti-users"></i> साथ काम करें'><i class="ti ti-users"></i> Collaborate</a>
+    <a class="slink" href="/misc/" data-page="misc" data-hi='<i class="ti ti-link"></i> अन्य'><i class="ti ti-link"></i> Miscellaneous</a>
+    <a class="slink" href="/contact/" data-page="contact" data-hi='<i class="ti ti-mail"></i> संपर्क'><i class="ti ti-mail"></i> Contact</a>
+  </div>
+  <div class="divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-label" data-hi="Profiles">Profiles</div>
+    <div class="socials-row">
+      <a class="soc-btn" href="https://scholar.google.com/citations?user=kYDGsMAAAAAJ" title="Google Scholar"><i class="ti ti-school"></i></a>
+      <a class="soc-btn" href="https://www.researchgate.net/profile/Dhananjay-Kumar-10" title="ResearchGate"><i class="ti ti-atom"></i></a>
+      <a class="soc-btn" href="https://www.scopus.com/authid/detail.uri?authorId=57218117181" title="Scopus"><i class="ti ti-file-text"></i></a>
+      <a class="soc-btn" href="https://orcid.org/0000-0003-1167-9672" title="ORCID"><i class="ti ti-fingerprint"></i></a>
+      <a class="soc-btn" href="https://www.linkedin.com/in/dhkrnl" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+      <a class="soc-btn" href="https://erc.wisc.edu/staff/kumar-dhananjay/" title="ERC profile"><i class="ti ti-building-bank"></i></a>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-label" data-hi="संपर्क">Contact</div>
+    <div class="contact-mini">
+      <div class="cmi"><i class="ti ti-mail"></i><a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div>
+      <div class="cmi"><i class="ti ti-map-pin"></i><span>ERC Rm 1008, 1500 Engineering Drive, Madison WI 53706</span></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-label" data-hi="Research Metrics">Research metrics</div>
+    <div class="stats-mini">
+      <div class="stat-mini"><span class="stat-n">403</span><span class="stat-l">Citations</span></div>
+      <div class="stat-mini"><span class="stat-n">11</span><span class="stat-l">h-index</span></div>
+      <div class="stat-mini"><span class="stat-n">12</span><span class="stat-l">i10</span></div>
+      <div class="stat-mini"><span class="stat-n">40+</span><span class="stat-l">Papers</span></div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- Hero -->
+  <div class="agni-hero">
+    <div class="agni-badge" data-hi='<i class="ti ti-rocket"></i> Startup · Live है'><i class="ti ti-rocket"></i> Startup · In Production</div>
+    <div class="agni-logo">
+      <img src="/images/01_primary_icon.svg" alt="AgniCycle" style="width:52px;height:52px;border-radius:14px;flex-shrink:0;box-shadow:0 4px 20px rgba(234,88,12,.4);display:block"/>
+      <div>
+        <h1>AgniCycle</h1>
+        <div class="agni-tagline" data-hi="Research के लिए Engine Cycle Simulation">Engine Cycle Simulation for Research</div>
+      </div>
+    </div>
+    <p class="agni-desc" data-hi="AgniCycle एक web-based, research-grade thermodynamic engine cycle simulator है — जो researchers, students, और engineers को IC engine combustion cycles model करने, performance parameters analyze करने, और अलग-अलग fuels के effects study करने में मदद करता है, सीधे browser से, बिना किसी installation के।">AgniCycle is a web-based, research-grade thermodynamic engine cycle simulator — built to help researchers, students, and engineers model IC engine combustion cycles, analyze performance parameters, and study the effect of different fuels, all from a browser with no installation required.</p>
+    <div class="agni-cta-row">
+      <button class="agni-launch" onclick="launchApp('agni')" data-hi='<i class="ti ti-player-play"></i> AgniCycle खोलें'><i class="ti ti-player-play"></i> Launch AgniCycle</button>
+      <a href="/tools/" class="btn" data-hi='<i class="ti ti-cpu"></i> सभी Research Tools'><i class="ti ti-cpu"></i> All research tools</a>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="section-title" style="margin-bottom:14px" data-hi="AgniCycle क्या करता है">What AgniCycle does</div>
+  <div class="agni-features">
+    <div class="agni-feat">
+      <div class="agni-feat-icon"><i class="ti ti-chart-line"></i></div>
+      <h4 data-hi="Thermodynamic Cycle Modelling">Thermodynamic cycle modelling</h4>
+      <p data-hi="Adjustable compression ratios, heat addition, और cutoff ratios के साथ Otto, Diesel, और Dual combustion cycles simulate करें — ideal engine behaviour समझने के लिए।">Simulate Otto, Diesel, and Dual combustion cycles with adjustable compression ratios, heat addition, and cutoff ratios to study ideal engine behaviour.</p>
+    </div>
+    <div class="agni-feat">
+      <div class="agni-feat-icon"><i class="ti ti-flame"></i></div>
+      <h4 data-hi="Multi-fuel Analysis">Multi-fuel analysis</h4>
+      <p data-hi="Conventional और alternative fuels — hydrogen, CNG, HCNG blends, methanol, ethanol — की performance compare करें, fuel substitution effects study करने के लिए।">Compare performance across conventional and alternative fuels — hydrogen, CNG, HCNG blends, methanol, and ethanol — to study fuel substitution effects.</p>
+    </div>
+    <div class="agni-feat">
+      <div class="agni-feat-icon"><i class="ti ti-gauge"></i></div>
+      <h4 data-hi="Performance Parameters">Performance parameters</h4>
+      <p data-hi="Thermal efficiency, specific work output, MEP, और key engine performance indicators instantly compute करें, interactive parameter sweeps के साथ।">Compute thermal efficiency, specific work output, MEP, and other key engine performance indicators instantly with interactive parameter sweeps.</p>
+    </div>
+    <div class="agni-feat">
+      <div class="agni-feat-icon"><i class="ti ti-device-desktop"></i></div>
+      <h4 data-hi="Zero-install, Browser-based">Zero-install, browser-based</h4>
+      <p data-hi="पूरी तरह web-based — कोई Python नहीं, कोई MATLAB नहीं, कोई setup नहीं। Browser खोलो, simulation चलाओ, results share करो। Teaching और rapid prototyping के लिए बनाया।">Fully web-based — no Python, no MATLAB, no setup. Open the browser, run a simulation, share results. Built for teaching and rapid prototyping.</p>
+    </div>
+  </div>
+
+  <!-- Why AgniCycle -->
+  <div class="card" style="margin-bottom:22px">
+    <h3 data-hi='<i class="ti ti-bulb"></i> प्रेरणा'><i class="ti ti-bulb"></i> The motivation</h3>
+    <p style="margin-top:8px" data-hi='Engine cycle simulators या तो महंगे commercial software (GT-Power, Ricardo WAVE) में बंद हैं, या local Python/MATLAB setup की ज़रूरत है जो configure करने में घंटों लगते हैं। AgniCycle इसे बदलने के लिए बना — free, instant, किसी भी researcher या student के लिए। <em style="color:var(--accent)">"Agni"</em> Sanskrit में fire है — combustion research और IIT की परंपरा को नमन।'>Engine cycle simulators are either locked behind expensive commercial software (GT-Power, Ricardo WAVE) or require local Python/MATLAB setups that take hours to configure. AgniCycle was built to change that — free, instant, accessible to any researcher or student anywhere. <em style="color:var(--accent)">"Agni"</em> is Sanskrit for fire, a nod to combustion research and the IIT tradition.</p>
+  </div>
+
+  <!-- Tech stack -->
+  <div class="section-title" style="margin-bottom:10px" data-hi="Tech Stack और Deployment">Tech stack &amp; deployment</div>
+  <div class="agni-tech" style="margin-bottom:6px">
+    <span style="font-size:13px;font-weight:500;color:var(--muted)">Built with:</span>
+    <span class="agni-tech-tag">Python</span>
+    <span class="agni-tech-tag">Streamlit</span>
+    <span class="agni-tech-tag">NumPy · SciPy</span>
+    <span class="agni-tech-tag">Plotly</span>
+    <span class="agni-tech-tag">Google Cloud Run</span>
+    <span class="agni-tech-tag">Docker</span>
+  </div>
+  <p style="font-size:12px;color:var(--faint);margin-top:8px">Containerized and deployed on Google Cloud Run · Auto-scales to zero · CI/CD managed by the developer</p>
+
+<footer class="site-footer">
+  <div>© <span id="footer-year"></span> Dhananjay Kumar · Engine Research Center, University of Wisconsin–Madison</div>
+  <div style="margin-top:4px" data-hi='♥ से बनाया · <a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a>'>Built with <span style="color:var(--accent)">♥</span> · <a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div>
+</footer>
+</main>
+</div><!-- end shell -->
+
+<!-- FULLSCREEN APP OVERLAY -->
+<div id="app-fullscreen" style="display:none;position:fixed;inset:0;z-index:500;background:var(--bg);flex-direction:column">
+  <div style="display:flex;align-items:center;gap:12px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0">
+    <span id="app-fs-name" style="font-weight:600;font-size:14px;color:var(--text);flex:1"></span>
+    <button onclick="closeApp()" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid var(--border2);background:var(--surface2);color:var(--text);cursor:pointer"><i class="ti ti-x"></i> Close</button>
+  </div>
+  <iframe id="app-frame" src="" title="" allow="fullscreen" style="flex:1;border:none;display:block;width:100%"></iframe>
+</div>
+
+<!-- BOTTOM NAV (mobile) -->
+<nav class="bottom-nav" id="bottom-nav">
+  <a class="bnav" href="/" data-page="home"><i class="ti ti-home"></i><span>Home</span></a>
+  <a class="bnav" href="/projects/" data-page="projects"><i class="ti ti-flask"></i><span>Projects</span></a>
+  <a class="bnav" href="/publications/" data-page="publications"><i class="ti ti-files"></i><span>Papers</span></a>
+  <a class="bnav bnav-agni" href="/agnicycle/" data-page="agnicycle"><i class="ti ti-bolt"></i><span>AgniCycle</span></a>
+  <button class="bnav" id="bnav-more"><i class="ti ti-menu-2"></i><span>More</span></button>
+</nav>
+
+<!-- FULLSCREEN PROMPT -->
+<div id="fs-prompt">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+  <span>Click anywhere to go fullscreen</span>
+  <button id="fs-prompt-no">✕</button>
+</div>
+
+<script src="/main.js"></script>
+</body>
+</html>
