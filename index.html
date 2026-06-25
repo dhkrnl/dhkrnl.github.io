@@ -1569,14 +1569,18 @@ window.addEventListener('popstate',function(){
 
 // Fullscreen prompt — any click triggers fullscreen; ✕ opts out
 (function(){
-  if(!document.fullscreenEnabled)return;
+  if(!document.fullscreenEnabled && !document.webkitFullscreenEnabled)return;
   if(sessionStorage.getItem('fs-dismissed'))return;
   const prompt=document.getElementById('fs-prompt');
   if(!prompt)return;
   let hideTimer;
+  function enterFs(){
+    const el=document.documentElement;
+    (el.requestFullscreen||el.webkitRequestFullscreen||function(){}).call(el);
+  }
   function onAnyClick(e){
-    if(e.target.id==='fs-prompt-no')return; // let dismiss handler run
-    document.documentElement.requestFullscreen().catch(()=>{});
+    if(e.target.closest('#fs-prompt-no'))return;
+    enterFs();
     hide();
   }
   function hide(){
@@ -1592,7 +1596,10 @@ window.addEventListener('popstate',function(){
   },600);
   document.getElementById('fs-prompt-no').addEventListener('click',hide);
   document.addEventListener('fullscreenchange',()=>{
-    if(document.fullscreenElement)hide();
+    if(document.fullscreenElement||document.webkitFullscreenElement)hide();
+  });
+  document.addEventListener('webkitfullscreenchange',()=>{
+    if(document.webkitFullscreenElement)hide();
   });
 })();
 </script>
