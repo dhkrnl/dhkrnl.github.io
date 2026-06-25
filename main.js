@@ -468,6 +468,15 @@ setTimeout(function(){
   ov.addEventListener('click',e=>{if(e.target===ov)close();});
   document.addEventListener('keydown',e=>{
     if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();isOpen()?close():open();return;}
+    // "/" — focus publications search if on that page, else open palette
+    if(e.key==='/'&&!isOpen()){
+      const tag=document.activeElement&&document.activeElement.tagName;
+      if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT')return;
+      e.preventDefault();
+      const ps=document.getElementById('pub-search');
+      if(ps){ps.focus();ps.select&&ps.select();}else{open();}
+      return;
+    }
     if(!isOpen())return;
     if(e.key==='Escape'){e.preventDefault();close();}
     else if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(sel+1,items.length-1);paint();}
@@ -486,5 +495,20 @@ setTimeout(function(){
     btn.addEventListener('click',open);
     tr.insertBefore(btn,tr.firstChild);
   }
+})();
+
+// ===== MAGNETIC PULL on prominent buttons (runs last, after cmdk trigger exists) =====
+(function(){
+  const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||'ontouchstart'in window)return;
+  document.querySelectorAll('.btn-primary,.agni-launch,.cmdk-trigger').forEach(el=>{
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      const x=(e.clientX-r.left-r.width/2)/(r.width/2);
+      const y=(e.clientY-r.top-r.height/2)/(r.height/2);
+      el.style.transform='translate('+(x*5).toFixed(1)+'px,'+(y*4).toFixed(1)+'px)';
+    });
+    el.addEventListener('mouseleave',()=>{el.style.transform='';});
+  });
 })();
 

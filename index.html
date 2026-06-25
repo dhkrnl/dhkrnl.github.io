@@ -237,8 +237,8 @@
         </g>
         <!-- Center DK node -->
         <circle class="center-pulse" cx="190" cy="180" r="48" fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="6 4"/>
-        <circle cx="190" cy="180" r="34" fill="var(--surface)" stroke="#3b82f6" stroke-width="3"/>
-        <text x="190" y="187" text-anchor="middle" font-family="Sora,Inter,sans-serif" font-size="20" fill="#60a5fa" font-weight="700">DK</text>
+        <circle id="dk-core" cx="190" cy="180" r="34" fill="var(--surface)" stroke="#3b82f6" stroke-width="3" style="cursor:pointer"/>
+        <text id="dk-core-t" x="190" y="187" text-anchor="middle" font-family="Sora,Inter,sans-serif" font-size="20" fill="#60a5fa" font-weight="700" style="cursor:pointer">DK</text>
       </svg>
       <div id="graph-info" class="graph-info">
         <span style="opacity:.4;font-style:italic;font-size:11px">hover a node to explore</span>
@@ -314,11 +314,11 @@
   const glines=svg.querySelectorAll('.gline');
   const ginfo=document.getElementById('graph-info');
   const isTouch=()=>'ontouchstart' in window||navigator.maxTouchPoints>0;
+  const navMap={h2:'/publications/',spray:'/tools/',cfd:'/skills/',battery:'/projects/',laser:'/phd/',altfuel:'/publications/'};
   function getDflt(){
     const hi=document.documentElement.dataset.lang==='hi';
-    const action=isTouch()?'tap':'hover';
-    const actionHi=isTouch()?'tap':'hover';
-    return hi?`<span style="opacity:.4;font-style:italic;font-size:10.5px">किसी node पर ${actionHi} करें</span>`:`<span style="opacity:.4;font-style:italic;font-size:10.5px">${action} a node to explore</span>`;
+    if(isTouch())return hi?`<span style="opacity:.4;font-style:italic;font-size:10.5px">किसी node पर tap करें</span>`:`<span style="opacity:.4;font-style:italic;font-size:10.5px">tap a node to explore</span>`;
+    return hi?`<span style="opacity:.4;font-style:italic;font-size:10.5px">node पर hover करें · खोलने के लिए click करें</span>`:`<span style="opacity:.4;font-style:italic;font-size:10.5px">hover a node · click to open</span>`;
   }
   const descHi={h2:'HCNG blends, laser और spark ignition, CVCCs में flame kernel propagation',spray:'Schlieren और Mie-scattering imaging से macroscopic spray characterization',cfd:'CONVERGE CFD से 3D combustion, spray और thermal runaway की numerical modelling',battery:'EV और hybrid vehicles के लिए Li-ion cell thermal runaway modelling',laser:'Laser ignition, LIBS spectroscopy, high-speed optical engine diagnostics',altfuel:'Methanol, ethanol, HCNG — low-carbon IC engine fuels की combustion characterization'};
 
@@ -343,7 +343,8 @@
       l.style.opacity=m?'1':'0.4';
     });
     const dispDesc=document.documentElement.dataset.lang==='hi'?(descHi[id]||desc):desc;
-    ginfo.innerHTML=`<b style="color:${col}">${name}</b> — ${dispDesc}`;
+    const openHint=(!isTouch()&&navMap[id])?` <span style="color:${col};font-weight:600;white-space:nowrap">↗ open</span>`:'';
+    ginfo.innerHTML=`<b style="color:${col}">${name}</b> — ${dispDesc}${openHint}`;
     activeNode=nd;
   }
 
@@ -367,12 +368,20 @@
     // Mouse
     nd.addEventListener('mouseenter',()=>activate(nd));
     nd.addEventListener('mouseleave',reset);
+    // Click navigates to related page (touch preventDefault below suppresses this on tap)
+    nd.addEventListener('click',()=>{const u=navMap[nd.dataset.id];if(u)location.href=u;});
     // Touch — tap to toggle; tap same node again to deactivate
     nd.addEventListener('touchstart',e=>{
       e.preventDefault();
       if(activeNode===nd){reset();}else{activate(nd);}
     },{passive:false});
     nd.style.cursor='pointer';
+  });
+
+  // Center DK node → projects overview
+  ['dk-core','dk-core-t'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.addEventListener('click',()=>{location.href='/projects/';});
   });
 
   // Tap on SVG background resets
