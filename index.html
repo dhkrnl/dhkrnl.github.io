@@ -329,6 +329,10 @@
   }
   const descHi={h2:'HCNG blends, laser और spark ignition, CVCCs में flame kernel propagation',spray:'Schlieren और Mie-scattering imaging से macroscopic spray characterization',cfd:'CONVERGE CFD से 3D combustion, spray और thermal runaway की numerical modelling',battery:'EV और hybrid vehicles के लिए Li-ion cell thermal runaway modelling',laser:'Laser ignition, LIBS spectroscopy, high-speed optical engine diagnostics',altfuel:'Methanol, ethanol, HCNG — low-carbon IC engine fuels की combustion characterization'};
 
+  // Entrance stagger: lines then nodes
+  glines.forEach((l,i)=>{l.style.animation=`lineIn .4s ${.12+i*.05}s ease both`;});
+  gnodes.forEach((nd,i)=>{nd.style.animation=`nodeIn .38s ${.28+i*.07}s ease both`;});
+
   let activeNode=null;
 
   function activate(nd){

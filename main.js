@@ -96,9 +96,11 @@ function closeApp() {
   document.body.style.overflow = '';
 }
 
-// Metric count-up animation
+// Metric count-up animation — triggered when stats scroll into view
 (function(){
   function countUp(el,dur){
+    if(el.dataset.counted)return;
+    el.dataset.counted='1';
     const raw=el.dataset.target||(el.dataset.target=el.textContent.trim());
     const suffix=raw.replace(/[0-9]/g,'');
     const target=parseInt(raw);
@@ -111,10 +113,40 @@ function closeApp() {
       if(p>=1)clearInterval(iv);
     },16);
   }
-  function runCountUp(){
-    document.querySelectorAll('.stat .n,.stat-n').forEach(el=>countUp(el,1600));
-  }
-  setTimeout(runCountUp,300);
+  const statEls=document.querySelectorAll('.stat .n,.stat-n');
+  if(!statEls.length)return;
+  if(!window.IntersectionObserver){statEls.forEach(el=>countUp(el,1600));return;}
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){countUp(e.target,1600);io.unobserve(e.target);}});
+  },{threshold:.3});
+  statEls.forEach(el=>io.observe(el));
+})();
+
+// Scroll entrance animations via Intersection Observer
+(function(){
+  if(!window.IntersectionObserver)return;
+  const sel='.card,.award-item,.teach-item,.exp-item,.cert-item,.collab-card,.phd-card,.skills-block,.contact-item,.lcard,.music-card,.pub-metrics,.stats-row';
+  const els=document.querySelectorAll(sel);
+  if(!els.length)return;
+  els.forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight-40)return; // already visible — skip
+    el.classList.add('reveal');
+  });
+  const revealed=document.querySelectorAll('.reveal');
+  if(!revealed.length)return;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{
+      if(!e.isIntersecting)return;
+      // Slight stagger for siblings in same parent
+      const siblings=[...e.target.parentElement.querySelectorAll('.reveal.in-view')];
+      const delay=Math.min(siblings.length*60,180);
+      e.target.style.animationDelay=delay+'ms';
+      e.target.classList.add('in-view');
+      io.unobserve(e.target);
+    });
+  },{threshold:.1,rootMargin:'0px 0px -24px 0px'});
+  revealed.forEach(el=>io.observe(el));
 })();
 
 // Live citation metrics from OpenAlex (auto-updates daily)
@@ -175,20 +207,31 @@ function closeApp() {
     let anyVisible=false;
     document.querySelectorAll('.pub-section').forEach(sec=>{
       const typeMatch=activeFilter==='all'||sec.dataset.type===activeFilter;
-      sec.style.display=typeMatch?'':'none';
-      if(!typeMatch)return;
+      if(!typeMatch){
+        sec.style.opacity='0';sec.style.transform='translateY(-6px)';
+        setTimeout(()=>{if(sec.style.opacity==='0')sec.style.display='none';},220);
+        return;
+      }
+      // Show section
+      sec.style.display='';
+      requestAnimationFrame(()=>{sec.style.opacity='1';sec.style.transform='';});
+      let secVisible=false;
       sec.querySelectorAll('.pub-item').forEach(item=>{
         const show=!term||item.textContent.toLowerCase().includes(term);
-        item.style.display=show?'':'none';
-        if(show)anyVisible=true;
+        if(!show){
+          item.style.opacity='0';item.style.transform='scale(.97)';
+          setTimeout(()=>{if(item.style.opacity==='0')item.style.display='none';},190);
+        } else {
+          item.style.display='';
+          requestAnimationFrame(()=>{item.style.opacity='1';item.style.transform='';});
+          secVisible=true;anyVisible=true;
+        }
       });
-      // Hide section header if all its items are hidden
       const hd=sec.querySelector('.pub-cat-hd');
-      const visItems=[...sec.querySelectorAll('.pub-item')].some(i=>i.style.display!=='none');
-      if(hd)hd.style.display=visItems?'':'none';
-      if(visItems)anyVisible=true;
+      if(hd)hd.style.display=secVisible?'':'none';
+      if(secVisible)anyVisible=true;
     });
-    if(empty)empty.style.display=anyVisible?'none':'block';
+    setTimeout(()=>{if(empty)empty.style.display=anyVisible?'none':'block';},230);
   }
 
   if(search)search.addEventListener('input',apply);

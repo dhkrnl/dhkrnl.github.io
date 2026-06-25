@@ -463,3 +463,35 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 /* Skeleton pulse for loading stats */
 @keyframes skPulse{0%,100%{opacity:.4}50%{opacity:1}}
 .sk-loading{animation:skPulse 1.4s ease-in-out infinite;pointer-events:none}
+
+/* ── Animations ─────────────────────────────────────────── */
+
+/* Scroll entrance */
+@keyframes revealUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.reveal{opacity:0}
+.reveal.in-view{animation:revealUp .45s ease both}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal.in-view{opacity:1;animation:none}}
+
+/* Home hero entrance */
+@keyframes heroIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.home-hero-text{animation:heroIn .5s .05s ease both}
+.hero-graph-wrap{animation:heroIn .55s .22s ease both}
+@media(prefers-reduced-motion:reduce){.home-hero-text,.hero-graph-wrap{animation:none}}
+
+/* Research graph node entrance */
+@keyframes nodeIn{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+@keyframes lineIn{from{opacity:0}to{opacity:1}}
+.gnode{transform-box:fill-box;transform-origin:center;transition:opacity .2s ease,transform .2s ease}
+.gline{transition:stroke .2s,stroke-width .2s,opacity .2s}
+
+/* Button micro-interactions */
+.btn,.soc-btn,.cv-btn,.cf-send,.pf-btn,.icon-btn{transition:.15s background,.15s color,.15s border-color,.12s transform}
+.btn:active,.soc-btn:active,.cv-btn:active,.cf-send:active,.pf-btn:active,.icon-btn:active{transform:scale(.94)}
+
+/* Sidebar link hover translate */
+.slink{transition:.15s color,.15s background,.12s transform}
+.slink:not(.active):hover{transform:translateX(3px)}
+
+/* Publications filter smooth transitions */
+.pub-section{transition:opacity .22s ease,transform .22s ease}
+.pub-item{transition:opacity .18s ease,transform .18s ease}
