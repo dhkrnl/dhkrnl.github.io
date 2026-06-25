@@ -1,9 +1,11 @@
 /* Smooth cross-page transitions (Chrome 126+, degrades gracefully) */
-@view-transition{navigation:auto}
-::view-transition-old(root){animation:fadeOut .18s ease}
-::view-transition-new(root){animation:fadeIn .22s ease}
-@keyframes fadeOut{from{opacity:1}to{opacity:0}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:no-preference){
+  @view-transition{navigation:auto}
+  ::view-transition-old(root){animation:fadeOut .18s ease}
+  ::view-transition-new(root){animation:fadeIn .22s ease}
+  @keyframes fadeOut{from{opacity:1}to{opacity:0}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+}
 
 :root{
   --bg:#eef0eb;--surface:#ffffff;--surface2:#f5f7f3;
@@ -433,3 +435,31 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   .page-hd h1{font-size:22px}
   .bottom-nav{display:flex}
 }
+
+/* Contact form */
+.contact-form{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px}
+.contact-form h3{font-size:15px;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+@media(max-width:540px){.cf-row{grid-template-columns:1fr}}
+.cf-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.cf-group label{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.cf-group input,.cf-group textarea,.cf-row .cf-group input{width:100%;padding:9px 13px;border:1px solid var(--border2);border-radius:9px;background:var(--surface2);color:var(--text);font-size:13px;font-family:inherit;transition:.15s;box-sizing:border-box}
+.cf-group input:focus,.cf-group textarea:focus{outline:none;border-color:var(--accent);background:var(--surface)}
+.cf-group textarea{resize:vertical;min-height:110px;line-height:1.6}
+.cf-send{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:10px 24px;border-radius:10px;background:var(--accent);color:#fff;border:none;cursor:pointer;transition:.15s}
+.cf-send:hover{opacity:.88}
+.cf-note{font-size:11px;color:var(--faint);margin-top:10px}
+.cf-success{display:none;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;background:var(--accent-bg);border:1px solid rgba(26,138,96,.25);color:var(--accent);font-size:13px;font-weight:500;margin-top:14px}
+
+/* Publications filter bar */
+.pub-filter-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:22px}
+.pub-search{flex:1;min-width:180px;padding:8px 14px;border:1px solid var(--border2);border-radius:9px;background:var(--surface2);color:var(--text);font-size:13px;font-family:inherit}
+.pub-search:focus{outline:none;border-color:var(--accent)}
+.pub-filter-btns{display:flex;flex-wrap:wrap;gap:6px}
+.pf-btn{font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;border:1px solid var(--border2);background:var(--surface2);color:var(--muted);cursor:pointer;transition:.15s}
+.pf-btn.active,.pf-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.pub-empty{display:none;padding:28px;text-align:center;color:var(--faint);font-size:13px}
+
+/* Skeleton pulse for loading stats */
+@keyframes skPulse{0%,100%{opacity:.4}50%{opacity:1}}
+.sk-loading{animation:skPulse 1.4s ease-in-out infinite;pointer-events:none}

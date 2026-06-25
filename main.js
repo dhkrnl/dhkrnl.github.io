@@ -127,6 +127,11 @@ function closeApp() {
     'papers':'works_count',
     'publications':'works_count'
   };
+  // Skeleton pulse while loading
+  document.querySelectorAll('.stat-mini,.stat,.pub-metric').forEach(el=>{
+    const v=el.querySelector('.stat-n,.n');
+    if(v)v.classList.add('sk-loading');
+  });
   function updateMetrics(d){
     const vals={
       cited_by_count:d.cited_by_count,
@@ -138,6 +143,7 @@ function closeApp() {
       const labelEl=el.querySelector('.stat-l,.label,.l');
       const valEl=el.querySelector('.stat-n,.n');
       if(!labelEl||!valEl)return;
+      valEl.classList.remove('sk-loading');
       const lbl=labelEl.textContent.toLowerCase().trim();
       for(const[key,field]of Object.entries(labelMap)){
         if(lbl.includes(key)&&vals[field]!=null){
@@ -150,7 +156,47 @@ function closeApp() {
   }
   fetch('https://api.openalex.org/authors/https://orcid.org/'+ORCID+'?select=cited_by_count,summary_stats,works_count',
     {headers:{'User-Agent':'dhananjay-website/1.0 (mailto:dhkrnl37@gmail.com)'}}
-  ).then(r=>r.ok?r.json():null).then(d=>d&&updateMetrics(d)).catch(()=>{});
+  ).then(r=>r.ok?r.json():null).then(d=>{
+    if(d)updateMetrics(d);
+    else document.querySelectorAll('.sk-loading').forEach(el=>el.classList.remove('sk-loading'));
+  }).catch(()=>document.querySelectorAll('.sk-loading').forEach(el=>el.classList.remove('sk-loading')));
+})();
+
+// Publications search + category filter
+(function(){
+  const search=document.getElementById('pub-search');
+  const btns=document.querySelectorAll('[data-pub-filter]');
+  const empty=document.getElementById('pub-empty');
+  if(!search&&!btns.length)return;
+  let activeFilter='all';
+
+  function apply(){
+    const term=(search?search.value.toLowerCase().trim():'');
+    let anyVisible=false;
+    document.querySelectorAll('.pub-section').forEach(sec=>{
+      const typeMatch=activeFilter==='all'||sec.dataset.type===activeFilter;
+      sec.style.display=typeMatch?'':'none';
+      if(!typeMatch)return;
+      sec.querySelectorAll('.pub-item').forEach(item=>{
+        const show=!term||item.textContent.toLowerCase().includes(term);
+        item.style.display=show?'':'none';
+        if(show)anyVisible=true;
+      });
+      // Hide section header if all its items are hidden
+      const hd=sec.querySelector('.pub-cat-hd');
+      const visItems=[...sec.querySelectorAll('.pub-item')].some(i=>i.style.display!=='none');
+      if(hd)hd.style.display=visItems?'':'none';
+      if(visItems)anyVisible=true;
+    });
+    if(empty)empty.style.display=anyVisible?'none':'block';
+  }
+
+  if(search)search.addEventListener('input',apply);
+  btns.forEach(btn=>btn.addEventListener('click',()=>{
+    activeFilter=btn.dataset.pubFilter;
+    btns.forEach(b=>b.classList.toggle('active',b===btn));
+    apply();
+  }));
 })();
 
 // Live publications list from OpenAlex

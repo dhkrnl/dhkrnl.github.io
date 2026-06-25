@@ -130,6 +130,19 @@
     <p data-hi="Clean combustion, hydrogen, और battery safety पर collaborations, research discussions, और speaking invitations के लिए हमेशा तैयार हूँ।">Open to collaborations, research discussions, and speaking invitations on clean combustion, hydrogen, and battery safety.</p>
   </div>
 
+  <div class="contact-form">
+    <h3><i class="ti ti-send" style="color:var(--accent)"></i> Send a message</h3>
+    <div class="cf-row">
+      <div class="cf-group"><label>Name</label><input type="text" id="cf-name" placeholder="Your name" autocomplete="name"/></div>
+      <div class="cf-group"><label>Email</label><input type="email" id="cf-email" placeholder="your@email.com" autocomplete="email"/></div>
+    </div>
+    <div class="cf-group"><label>Subject</label><input type="text" id="cf-subject" placeholder="Collaboration, research discussion, speaking invitation…"/></div>
+    <div class="cf-group"><label>Message</label><textarea id="cf-msg" placeholder="Your message…"></textarea></div>
+    <button class="cf-send" onclick="cfSend()"><i class="ti ti-mail-forward"></i> Send via email</button>
+    <div class="cf-note">Opens your email client with the message pre-filled.</div>
+    <div class="cf-success" id="cf-success"><i class="ti ti-circle-check"></i> Email client opened — thanks for reaching out!</div>
+  </div>
+
   <div class="contact-grid">
     <div class="contact-item"><i class="ti ti-mail"></i><div><h4 data-hi="ईमेल">Email</h4><a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a></div></div>
     <div class="contact-item"><i class="ti ti-map-pin"></i><div><h4 data-hi="कार्यालय">Office</h4><p>ERC Computing Room-1008, Engineering Research Building, 1500 Engineering Drive, Madison, WI 53706, USA</p></div></div>
@@ -192,5 +205,19 @@
 </div>
 
 <script src="/main.js"></script>
+<script>
+function cfSend(){
+  const name=document.getElementById('cf-name').value.trim();
+  const email=document.getElementById('cf-email').value.trim();
+  const subj=document.getElementById('cf-subject').value.trim();
+  const msg=document.getElementById('cf-msg').value.trim();
+  if(!name||!email||!subj||!msg){alert('Please fill in all fields.');return;}
+  const body='From: '+name+' ('+email+')\n\n'+msg;
+  window.location.href='mailto:dkumar39@wisc.edu?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  const s=document.getElementById('cf-success');
+  s.style.display='flex';
+  setTimeout(()=>s.style.display='none',5000);
+}
+</script>
 </body>
 </html>
