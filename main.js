@@ -222,13 +222,12 @@ setTimeout(function(){
   if(bnavMore)bnavMore.classList.toggle('active',!inBar);
 },0);
 
-// Fullscreen prompt — any click triggers fullscreen; ✕ opts out
+// Fullscreen prompt — shows whenever not in fullscreen; re-appears if user exits
 (function(){
   if(!document.fullscreenEnabled && !document.webkitFullscreenEnabled)return;
-  if(sessionStorage.getItem('fs-dismissed'))return;
   const prompt=document.getElementById('fs-prompt');
   if(!prompt)return;
-  let hideTimer;
+  function isFs(){return !!(document.fullscreenElement||document.webkitFullscreenElement);}
   function enterFs(){
     const el=document.documentElement;
     (el.requestFullscreen||el.webkitRequestFullscreen||function(){}).call(el);
@@ -236,24 +235,29 @@ setTimeout(function(){
   function onAnyClick(e){
     if(e.target.closest('#fs-prompt-no'))return;
     enterFs();
-    hide();
+    hidePrompt();
   }
-  function hide(){
-    prompt.classList.remove('show');
-    sessionStorage.setItem('fs-dismissed','1');
-    document.removeEventListener('click',onAnyClick,true);
-    clearTimeout(hideTimer);
-  }
-  setTimeout(()=>{
+  function showPrompt(){
+    if(isFs())return;
     prompt.classList.add('show');
-    hideTimer=setTimeout(hide,8000);
     document.addEventListener('click',onAnyClick,true);
-  },600);
-  document.getElementById('fs-prompt-no').addEventListener('click',hide);
-  document.addEventListener('fullscreenchange',()=>{
-    if(document.fullscreenElement||document.webkitFullscreenElement)hide();
-  });
-  document.addEventListener('webkitfullscreenchange',()=>{
-    if(document.webkitFullscreenElement)hide();
-  });
+  }
+  function hidePrompt(){
+    prompt.classList.remove('show');
+    document.removeEventListener('click',onAnyClick,true);
+  }
+  // Show on load if not already fullscreen
+  if(!isFs())setTimeout(showPrompt,600);
+  // ✕ just hides the toast; will re-appear on next fullscreen exit
+  document.getElementById('fs-prompt-no').addEventListener('click',hidePrompt);
+  // Hide when fullscreen entered; re-show when user exits fullscreen
+  function onFsChange(){
+    if(isFs()){
+      hidePrompt();
+    } else {
+      setTimeout(showPrompt,800);
+    }
+  }
+  document.addEventListener('fullscreenchange',onFsChange);
+  document.addEventListener('webkitfullscreenchange',onFsChange);
 })();
