@@ -567,5 +567,48 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 .gnode:nth-of-type(2n) .gnode-ring{animation-delay:-.7s}
 .center-pulse{transform-box:fill-box;transform-origin:center;animation:centerpulse 3s ease-in-out infinite,spin 30s linear infinite}
 
+/* — Cursor-follow spotlight glow on cards — */
+.card::before,.proj::before,.pub-item::before,.award-item::before,.teach-item::before,.contact-item::before,.lcard::before,.phd-card::before,.music-card::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;opacity:0;transition:opacity .3s ease;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 18%,transparent),transparent 60%);
 }
+.card:hover::before,.proj:hover::before,.pub-item:hover::before,.award-item:hover::before,.teach-item:hover::before,.contact-item:hover::before,.lcard:hover::before,.phd-card:hover::before,.music-card:hover::before{opacity:1}
+.phd-card,.music-card{position:relative;overflow:hidden}
+
+/* — Research graph parallax tilt — */
+.hero-graph-wrap{perspective:900px}
+#research-graph{transition:transform .4s ease;will-change:transform}
+
+}
+
+/* ═══════════════════ COMMAND PALETTE (⌘K) ═══════════════════ */
+.cmdk-trigger{display:flex;align-items:center;gap:7px;height:36px;padding:0 11px;border-radius:9px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--muted);cursor:pointer;font-size:12px;font-family:inherit;font-weight:500;flex-shrink:0;transition:.18s;box-shadow:var(--shadow-xs)}
+.cmdk-trigger:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+.cmdk-trigger i{font-size:15px}
+.cmdk-trigger kbd{font-family:inherit;font-size:10px;font-weight:600;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1px 5px;color:var(--faint)}
+#cmdk-overlay{position:fixed;inset:0;z-index:4000;background:rgba(8,12,20,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding:14vh 16px 16px;opacity:0;transition:opacity .16s ease}
+#cmdk-overlay.open{display:flex;opacity:1}
+#cmdk{width:min(580px,100%);background:var(--surface);border:1px solid var(--border2);border-radius:15px;box-shadow:0 26px 70px rgba(0,0,0,.5);overflow:hidden;transform:translateY(-10px) scale(.97);transition:transform .2s cubic-bezier(.34,1.4,.64,1)}
+#cmdk-overlay.open #cmdk{transform:none}
+.cmdk-search{display:flex;align-items:center;gap:11px;padding:15px 18px;border-bottom:1px solid var(--border)}
+.cmdk-search i{font-size:19px;color:var(--muted);flex-shrink:0}
+#cmdk-input{flex:1;border:none;background:none;font-size:15px;color:var(--text);font-family:inherit;outline:none;padding:0}
+#cmdk-input::placeholder{color:var(--faint)}
+#cmdk-list{max-height:46vh;overflow-y:auto;padding:7px;scrollbar-width:thin}
+#cmdk-list::-webkit-scrollbar{width:5px}
+#cmdk-list::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+.cmdk-group{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);padding:9px 12px 5px}
+.cmdk-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;font-size:13.5px;color:var(--text);cursor:pointer;transition:background .12s}
+.cmdk-item i{font-size:18px;color:var(--muted);width:21px;text-align:center;flex-shrink:0;transition:color .12s}
+.cmdk-item .cmdk-sub{margin-left:auto;font-size:11px;color:var(--faint)}
+.cmdk-item.sel{background:var(--accent-bg)}
+.cmdk-item.sel i{color:var(--accent)}
+.cmdk-item.sel .cmdk-arrow{opacity:1;transform:none}
+.cmdk-arrow{margin-left:auto;font-size:14px;color:var(--accent);opacity:0;transform:translateX(-4px);transition:.15s}
+.cmdk-empty{padding:22px;text-align:center;color:var(--faint);font-size:13px}
+#cmdk-foot{display:flex;gap:16px;align-items:center;padding:9px 16px;border-top:1px solid var(--border);font-size:11px;color:var(--faint)}
+#cmdk-foot span{display:flex;align-items:center;gap:5px}
+#cmdk-foot kbd{font-family:inherit;font-size:10px;background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:1px 6px;color:var(--muted)}
+@media(max-width:768px){.cmdk-trigger span,.cmdk-trigger kbd{display:none}.cmdk-trigger{padding:0;width:36px;justify-content:center}}
+@media(prefers-reduced-motion:reduce){#cmdk-overlay,#cmdk{transition:none}}
 

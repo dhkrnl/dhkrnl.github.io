@@ -338,3 +338,153 @@ setTimeout(function(){
   if(bnavMore)bnavMore.classList.toggle('active',!inBar);
 },0);
 
+// ===== INTERACTIVE: cursor spotlight + graph parallax =====
+(function(){
+  const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce)return;
+
+  // Cursor-follow spotlight glow on cards
+  const spotSel='.card,.proj,.pub-item,.award-item,.teach-item,.contact-item,.lcard,.phd-card,.music-card';
+  document.querySelectorAll(spotSel).forEach(el=>{
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      el.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+      el.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+    },{passive:true});
+  });
+
+  // Parallax tilt on the research graph
+  const wrap=document.querySelector('.hero-graph-wrap');
+  const gsvg=document.getElementById('research-graph');
+  if(wrap&&gsvg&&!('ontouchstart'in window)){
+    let raf=0;
+    wrap.addEventListener('mousemove',e=>{
+      const r=wrap.getBoundingClientRect();
+      const dx=(e.clientX-r.left)/r.width-.5;
+      const dy=(e.clientY-r.top)/r.height-.5;
+      if(raf)return;
+      raf=requestAnimationFrame(()=>{
+        gsvg.style.transition='transform .12s ease-out';
+        gsvg.style.transform=`rotateY(${(dx*12).toFixed(2)}deg) rotateX(${(-dy*12).toFixed(2)}deg)`;
+        raf=0;
+      });
+    },{passive:true});
+    wrap.addEventListener('mouseleave',()=>{
+      gsvg.style.transition='transform .5s ease';
+      gsvg.style.transform='';
+    });
+  }
+})();
+
+// ===== COMMAND PALETTE (⌘K / Ctrl+K) =====
+(function(){
+  const pages=[
+    {t:'Home',u:'/',i:'ti-home',k:'start overview'},
+    {t:'Current projects',u:'/projects/',i:'ti-flask',k:'research work'},
+    {t:'Experience',u:'/experience/',i:'ti-briefcase',k:'career positions'},
+    {t:'Skills',u:'/skills/',i:'ti-tool',k:'expertise software'},
+    {t:'Publications',u:'/publications/',i:'ti-file-text',k:'papers journals patents'},
+    {t:'Awards & honors',u:'/awards/',i:'ti-trophy',k:'recognition'},
+    {t:'AgniCycle',u:'/agnicycle/',i:'ti-bolt',k:'app battery'},
+    {t:'Teaching',u:'/teaching/',i:'ti-chalkboard',k:'courses mentoring'},
+    {t:'Research tools',u:'/tools/',i:'ti-cpu',k:'calculators software'},
+    {t:'PhD work',u:'/phd/',i:'ti-microscope',k:'thesis doctorate'},
+    {t:'Collaborate',u:'/collaborate/',i:'ti-users',k:'partnership'},
+    {t:'Miscellaneous',u:'/misc/',i:'ti-link',k:'other links'},
+    {t:'Contact',u:'/contact/',i:'ti-mail',k:'email reach'}
+  ];
+  const actions=[
+    {t:'Download CV',i:'ti-download',k:'resume pdf',run:()=>{location.href='/Dhananjay_Kumar_CV.pdf';}},
+    {t:'Toggle dark / light theme',i:'ti-contrast',k:'mode appearance',run:()=>{document.getElementById('theme')?.click();}},
+    {t:'Toggle Hindi / English',i:'ti-language',k:'hindi hinglish translate',run:()=>{window.toggleHindi&&window.toggleHindi();}}
+  ];
+
+  // Build overlay
+  const ov=document.createElement('div');
+  ov.id='cmdk-overlay';
+  ov.innerHTML=
+    '<div id="cmdk" role="dialog" aria-modal="true" aria-label="Command palette">'+
+      '<div class="cmdk-search"><i class="ti ti-search"></i>'+
+        '<input id="cmdk-input" type="text" placeholder="Jump to a page or run a command…" autocomplete="off" spellcheck="false"/></div>'+
+      '<div id="cmdk-list"></div>'+
+      '<div id="cmdk-foot"><span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> open</span><span><kbd>esc</kbd> close</span></div>'+
+    '</div>';
+  document.body.appendChild(ov);
+  const input=ov.querySelector('#cmdk-input');
+  const list=ov.querySelector('#cmdk-list');
+  let items=[],sel=0;
+
+  function build(term){
+    term=term.toLowerCase().trim();
+    const match=o=>!term||(o.t+' '+(o.k||'')).toLowerCase().includes(term);
+    const pg=pages.filter(match),ac=actions.filter(match);
+    items=[...pg,...ac];sel=0;
+    let html='';
+    if(pg.length){
+      html+='<div class="cmdk-group">Pages</div>';
+      pg.forEach((o,i)=>{html+=row(o,i);});
+    }
+    if(ac.length){
+      html+='<div class="cmdk-group">Actions</div>';
+      ac.forEach((o,i)=>{html+=row(o,pg.length+i);});
+    }
+    if(!items.length)html='<div class="cmdk-empty">No matches</div>';
+    list.innerHTML=html;
+    paint();
+    list.querySelectorAll('.cmdk-item').forEach(el=>{
+      el.addEventListener('click',()=>{sel=+el.dataset.idx;go();});
+      el.addEventListener('mousemove',()=>{sel=+el.dataset.idx;paint();});
+    });
+  }
+  function row(o,i){
+    return '<div class="cmdk-item" data-idx="'+i+'"><i class="ti '+o.i+'"></i><span>'+o.t+'</span>'+
+      (o.u?'<span class="cmdk-sub">'+o.u+'</span>':'')+'<i class="ti ti-corner-down-left cmdk-arrow"></i></div>';
+  }
+  function paint(){
+    list.querySelectorAll('.cmdk-item').forEach(el=>{
+      const on=+el.dataset.idx===sel;
+      el.classList.toggle('sel',on);
+      if(on)el.scrollIntoView({block:'nearest'});
+    });
+  }
+  function go(){
+    const o=items[sel];if(!o)return;
+    close();
+    if(o.run)o.run();else if(o.u)location.href=o.u;
+  }
+  function open(){
+    build('');input.value='';
+    ov.classList.add('open');
+    document.body.style.overflow='hidden';
+    setTimeout(()=>input.focus(),30);
+  }
+  function close(){
+    ov.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  function isOpen(){return ov.classList.contains('open');}
+
+  input.addEventListener('input',()=>build(input.value));
+  ov.addEventListener('click',e=>{if(e.target===ov)close();});
+  document.addEventListener('keydown',e=>{
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();isOpen()?close():open();return;}
+    if(!isOpen())return;
+    if(e.key==='Escape'){e.preventDefault();close();}
+    else if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(sel+1,items.length-1);paint();}
+    else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(sel-1,0);paint();}
+    else if(e.key==='Enter'){e.preventDefault();go();}
+  });
+
+  // Inject discoverable trigger into the topbar
+  const tr=document.querySelector('.topbar-right');
+  if(tr){
+    const btn=document.createElement('button');
+    btn.className='cmdk-trigger';
+    btn.title='Quick navigation (⌘K)';
+    const mac=/Mac|iPhone|iPad/.test(navigator.platform);
+    btn.innerHTML='<i class="ti ti-search"></i><span>Search</span><kbd>'+(mac?'⌘':'Ctrl')+' K</kbd>';
+    btn.addEventListener('click',open);
+    tr.insertBefore(btn,tr.firstChild);
+  }
+})();
+
