@@ -123,7 +123,7 @@ b{font-weight:600}
 .card p{font-size:13px;color:var(--muted);line-height:1.75}
 
 /* ===== HOME PAGE ===== */
-.home-hero{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:20px;display:flex;gap:32px;align-items:flex-start;box-shadow:var(--shadow-sm);border-top:3px solid var(--accent)}
+.home-hero{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:20px;display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start;box-shadow:var(--shadow-sm);border-top:3px solid var(--accent)}
 .home-hero-text h1{font-family:'Sora';font-size:28px;font-weight:700;letter-spacing:-.03em;margin-bottom:5px}
 .home-hero-text .role{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em}
 .home-hero-text .inst{font-size:13px;color:var(--muted);margin-bottom:18px}
@@ -361,8 +361,8 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   .stats-row,.pub-metrics{grid-template-columns:repeat(4,1fr)}
   .card-grid.col2{grid-template-columns:repeat(2,1fr)}
   .card-grid.col3{grid-template-columns:repeat(2,1fr)}
-  .home-hero{flex-direction:column;align-items:center;gap:20px}
-  .home-hero-text{max-width:100%}
+  .home-hero{grid-template-columns:1fr;justify-items:center;gap:20px}
+  .home-hero-text{max-width:100%;width:100%}
   .home-hero-text p{max-width:100%;line-height:1.7;text-align:left}
   #research-graph{width:340px;height:auto}
   .graph-info{width:300px}
@@ -436,7 +436,7 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   .stats-row,.pub-metrics{grid-template-columns:1fr 1fr}
   .card-grid.col2,.card-grid.col3,.contact-grid,.service-row,.music-row,.app-cards,.agni-features{grid-template-columns:1fr}
   .main{padding:20px 18px;padding-bottom:calc(18px + 68px)}
-  .home-hero{flex-direction:column;align-items:center;gap:16px}
+  .home-hero{grid-template-columns:1fr;justify-items:center;gap:16px}
   .home-hero-text{width:100%}
   .home-hero-text p{max-width:100%;hyphens:none;line-height:1.65;text-align:left}
   #research-graph{width:280px;height:auto}
