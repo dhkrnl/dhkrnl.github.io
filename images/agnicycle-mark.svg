@@ -1,0 +1,31 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fg" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#e03611"/>
+      <stop offset="30%" stop-color="#f06b1e"/>
+      <stop offset="65%" stop-color="#f5a800"/>
+      <stop offset="100%" stop-color="#fde040"/>
+    </linearGradient>
+    <clipPath id="sq"><rect width="200" height="200" rx="42"/></clipPath>
+  </defs>
+  <!-- Background -->
+  <rect width="200" height="200" rx="42" fill="#0c1828"/>
+  <!-- Teal circle ring -->
+  <circle cx="100" cy="115" r="76" fill="#1d7e8e" stroke="#2aabb8" stroke-width="2.5"/>
+  <!-- Main flame body -->
+  <path fill="url(#fg)" d="
+    M 100 16
+    C 124 32, 158 68, 158 108
+    C 158 152, 128 184, 100 192
+    C 72 184, 42 152, 42 108
+    C 42 68, 76 32, 100 16 Z
+  "/>
+  <!-- Inner curl cutout — C-shaped notch on lower-left (shows teal circle underneath) -->
+  <path fill="#1d7e8e" d="
+    M 56 160
+    C 48 130, 60 100, 82 90
+    C 98 82, 118 90, 122 108
+    C 126 128, 112 150, 90 160
+    C 76 166, 58 166, 56 160 Z
+  "/>
+</svg>
