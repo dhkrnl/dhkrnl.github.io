@@ -624,3 +624,68 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 @media(max-width:768px){.cmdk-trigger span,.cmdk-trigger kbd{display:none}.cmdk-trigger{padding:0;width:36px;justify-content:center}}
 @media(prefers-reduced-motion:reduce){#cmdk-overlay,#cmdk{transition:none}}
 
+/* ════════════════════ POLISH & ANIMATION LAYER ════════════════════ */
+
+/* — Subtle dot-grid texture in dark mode — */
+[data-theme="dark"] body{background-image:radial-gradient(rgba(59,130,246,.045) 1px,transparent 1px);background-size:28px 28px}
+
+/* — Page-section tag: line draws in — */
+@keyframes tagLineIn{from{width:0}to{width:16px}}
+.page-tag::before{width:0;animation:tagLineIn .38s cubic-bezier(.4,0,.2,1) .08s both}
+
+/* — Keyboard focus ring — */
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+@media(prefers-reduced-motion:no-preference){
+
+  /* — Richer h1 blue→teal shimmer in dark mode — */
+  [data-theme="dark"] .home-hero-text h1,[data-theme="dark"] .page-hd h1{
+    background:linear-gradient(105deg,#c8dff5 0%,#c8dff5 34%,#93c5fd 43%,#6ee7b7 52%,#c8dff5 60%,#c8dff5 100%);
+    background-size:280% 100%;background-position:220% 0;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    animation:nameSheen 6s ease-in-out 1.4s infinite;
+  }
+  [data-theme="dark"] .home-hero-text h1{animation:heroIn .5s .05s ease both,nameSheen 6s ease-in-out 1.6s infinite}
+
+  /* — Dark mode: glowing card borders on hover — */
+  [data-theme="dark"] .card:hover,[data-theme="dark"] .phd-card:hover,
+  [data-theme="dark"] .music-card:hover,[data-theme="dark"] .lcard:hover,
+  [data-theme="dark"] .award-item:hover,[data-theme="dark"] .teach-item:hover,
+  [data-theme="dark"] .contact-item:hover{
+    border-color:rgba(59,130,246,.4);
+    box-shadow:0 0 0 1px rgba(59,130,246,.12),var(--shadow-hover);
+  }
+  [data-theme="dark"] .proj:hover{border-color:rgba(59,130,246,.38);box-shadow:var(--shadow-hover)}
+  [data-theme="dark"] .pub-item:hover{border-color:rgba(59,130,246,.35)}
+
+  /* — Dark mode: stat & metric numbers glow — */
+  [data-theme="dark"] .stat .n,[data-theme="dark"] .stat-n,[data-theme="dark"] .pub-metric .n{
+    animation:numGlow 3.5s ease-in-out infinite;
+  }
+  @keyframes numGlow{0%,100%{text-shadow:0 0 16px rgba(59,130,246,.32)}55%{text-shadow:0 0 28px rgba(59,130,246,.62),0 0 50px rgba(59,130,246,.14)}}
+
+  /* — Topbar elevated on scroll — */
+  .topbar{transition:box-shadow .25s ease,background .25s ease}
+  .topbar.scrolled{box-shadow:0 2px 18px rgba(0,0,0,.1)}
+  [data-theme="dark"] .topbar.scrolled{background:rgba(7,12,24,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 2px 20px rgba(0,0,0,.42),0 1px 0 rgba(59,130,246,.18)}
+
+  /* — Click ripple on primary buttons — */
+  .btn-ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.24);pointer-events:none;transform:scale(0);animation:rippleExpand .52s ease-out both}
+  @keyframes rippleExpand{to{transform:scale(4.5);opacity:0}}
+
+  /* — Skill tag pro: glow on hover — */
+  .stag{transition:.18s transform,.18s box-shadow}
+  .stag.pro:hover{transform:translateY(-2px);box-shadow:0 0 0 1.5px var(--accent),0 3px 10px rgba(26,138,96,.2)}
+  [data-theme="dark"] .stag.pro:hover{box-shadow:0 0 0 1.5px rgba(59,130,246,.7),0 3px 12px rgba(59,130,246,.22)}
+
+  /* — Bottom nav active icon bounce — */
+  @keyframes navIconBounce{0%{transform:scale(1)}30%{transform:scale(.82)}65%{transform:scale(1.22)}100%{transform:scale(1.15)}}
+  .bnav.active i{animation:navIconBounce .3s ease both}
+
+  /* — Social btn: bigger lift on hover — */
+  .soc-btn:hover{transform:translateY(-3px) scale(1.1)}
+
+  /* — Hero card: accent glow in dark mode — */
+  [data-theme="dark"] .home-hero{border-color:rgba(59,130,246,.2);box-shadow:var(--shadow-sm),0 0 40px rgba(59,130,246,.05)}
+
+}

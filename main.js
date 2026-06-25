@@ -512,3 +512,31 @@ setTimeout(function(){
   });
 })();
 
+// ===== TOPBAR SCROLL ELEVATION =====
+(function(){
+  const bar=document.querySelector('.topbar');
+  if(!bar)return;
+  let ticking=false;
+  function update(){bar.classList.toggle('scrolled',window.scrollY>24);ticking=false;}
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+  update();
+})();
+
+// ===== CLICK RIPPLE on primary buttons =====
+(function(){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  document.querySelectorAll('.btn-primary,.agni-launch').forEach(function(el){
+    el.style.position='relative';
+    el.style.overflow='hidden';
+    el.addEventListener('click',function(e){
+      const r=el.getBoundingClientRect();
+      const sz=Math.max(r.width,r.height);
+      const dot=document.createElement('span');
+      dot.className='btn-ripple';
+      dot.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(e.clientX-r.left-sz/2)+'px;top:'+(e.clientY-r.top-sz/2)+'px';
+      el.appendChild(dot);
+      dot.addEventListener('animationend',function(){dot.remove();});
+    });
+  });
+})();
+
