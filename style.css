@@ -690,6 +690,53 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
 
 }
 
+/* ════════════════════ LIGHT MODE POLISH ════════════════════ */
+
+/* Sage dot texture — mirrors dark mode grid */
+html:not([data-theme="dark"]) body{background-image:radial-gradient(rgba(26,138,96,.055) 1px,transparent 1px);background-size:28px 28px}
+
+/* Hero card: warm gradient + ambient glow */
+html:not([data-theme="dark"]) .home-hero{background:linear-gradient(140deg,#ffffff 0%,#f2faf7 100%);box-shadow:var(--shadow-sm),0 0 0 1px rgba(26,138,96,.06),0 0 36px rgba(26,138,96,.05)}
+
+/* Profile card: richer gradient */
+html:not([data-theme="dark"]) .profile-card{background:linear-gradient(162deg,rgba(26,138,96,.16) 0%,rgba(26,138,96,.06) 55%,transparent 100%)}
+
+/* Green-tinted card shadows */
+html:not([data-theme="dark"]) .card,html:not([data-theme="dark"]) .stat,html:not([data-theme="dark"]) .pub-metric,
+html:not([data-theme="dark"]) .teach-item,html:not([data-theme="dark"]) .award-item,
+html:not([data-theme="dark"]) .phd-card,html:not([data-theme="dark"]) .music-card,
+html:not([data-theme="dark"]) .contact-item{box-shadow:0 1px 3px rgba(0,0,0,.04),0 4px 14px rgba(26,138,96,.055)}
+
+/* PhD images: neutral light bg in light mode (was near-black) */
+html:not([data-theme="dark"]) .phd-img{background:#ebebeb}
+
+@media(prefers-reduced-motion:no-preference){
+  /* Frosted topbar on scroll */
+  html:not([data-theme="dark"]) .topbar.scrolled{background:rgba(238,240,235,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 2px 14px rgba(26,138,96,.08),0 1px 0 rgba(26,138,96,.12)}
+
+  /* Green card hover glow — mirrors dark mode blue glow */
+  html:not([data-theme="dark"]) .card:hover,html:not([data-theme="dark"]) .phd-card:hover,
+  html:not([data-theme="dark"]) .music-card:hover,html:not([data-theme="dark"]) .lcard:hover,
+  html:not([data-theme="dark"]) .award-item:hover,html:not([data-theme="dark"]) .teach-item:hover,
+  html:not([data-theme="dark"]) .contact-item:hover{border-color:rgba(26,138,96,.3);box-shadow:0 0 0 1px rgba(26,138,96,.1),0 4px 16px rgba(26,138,96,.08),0 16px 36px rgba(0,0,0,.05)}
+  html:not([data-theme="dark"]) .proj:hover{border-color:var(--accent);box-shadow:0 4px 14px rgba(26,138,96,.1),0 14px 36px rgba(0,0,0,.05)}
+  html:not([data-theme="dark"]) .pub-item:hover{border-color:rgba(26,138,96,.4);box-shadow:0 2px 8px rgba(26,138,96,.1),0 8px 20px rgba(0,0,0,.04)}
+
+  /* Green h1 shimmer — mirrors dark mode nameSheen */
+  html:not([data-theme="dark"]) .home-hero-text h1,html:not([data-theme="dark"]) .page-hd h1{
+    background:linear-gradient(105deg,#0e1510 0%,#0e1510 33%,#1a8a60 42%,#0f6647 51%,#0e1510 57%,#0e1510 100%);
+    background-size:280% 100%;background-position:220% 0;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    animation:nameSheenGreen 7s ease-in-out 1.8s infinite;
+  }
+  @keyframes nameSheenGreen{0%,100%{background-position:220% 0}50%{background-position:-60% 0}}
+
+  /* Stat & metric number green glow — mirrors dark mode numGlow */
+  html:not([data-theme="dark"]) .stat .n,html:not([data-theme="dark"]) .stat-n,
+  html:not([data-theme="dark"]) .pub-metric .n{animation:numGlowGreen 4s ease-in-out infinite}
+  @keyframes numGlowGreen{0%,100%{text-shadow:none}55%{text-shadow:0 0 14px rgba(26,138,96,.45)}}
+}
+
 /* ════════════════════ VIEW TRANSITIONS (cross-page fade) ════════════════════ */
 @view-transition{navigation:auto}
 ::view-transition-old(root){animation:vtOut .18s ease both}
