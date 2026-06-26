@@ -181,6 +181,8 @@ function closeApp() {
     'publications':'works_count'
   };
   function applyMetrics(vals,skeleton){
+    const inlineCt=document.getElementById('pub-count-inline');
+    if(inlineCt&&!skeleton&&vals.works_count!=null)inlineCt.textContent=vals.works_count+'+';
     document.querySelectorAll('.stat-mini,.stat,.pub-metric').forEach(el=>{
       const labelEl=el.querySelector('.stat-l,.label,.l');
       const valEl=el.querySelector('.stat-n,.n');
@@ -217,6 +219,8 @@ function closeApp() {
       works_count:d.works_count
     };
     applyMetrics(vals,false);
+    const inlineCt=document.getElementById('pub-count-inline');
+    if(inlineCt&&vals.works_count!=null)inlineCt.textContent=vals.works_count+'+';
     try{localStorage.setItem(CACHE_KEY,JSON.stringify({ts:Date.now(),vals}));}catch(e){}
   }).catch(()=>document.querySelectorAll('.sk-loading').forEach(el=>el.classList.remove('sk-loading')));
 })();
