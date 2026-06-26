@@ -689,3 +689,11 @@ a.pub-item:hover .pub-arr{color:var(--accent)}
   [data-theme="dark"] .home-hero{border-color:rgba(59,130,246,.2);box-shadow:var(--shadow-sm),0 0 40px rgba(59,130,246,.05)}
 
 }
+
+/* ════════════════════ VIEW TRANSITIONS (cross-page fade) ════════════════════ */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vtOut .18s ease both}
+::view-transition-new(root){animation:vtIn  .22s ease both}
+@keyframes vtOut{to{opacity:0;transform:translateY(-4px)}}
+@keyframes vtIn {from{opacity:0;transform:translateY(4px)}}
+
