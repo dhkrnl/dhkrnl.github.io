@@ -154,7 +154,7 @@
       </div>
       <div class="cf-group"><label>Subject</label><input type="text" name="subject" placeholder="Collaboration, research discussion, speaking invitation…" required/></div>
       <div class="cf-group"><label>Message</label><textarea name="message" placeholder="Your message…" required></textarea></div>
-      <button type="submit" class="cf-send" id="cf-btn"><i class="ti ti-send"></i> Send message</button>
+      <button type="submit" class="cf-send" id="cf-btn" disabled><i class="ti ti-send"></i> Send message</button>
       <div class="cf-success" id="cf-success"><i class="ti ti-circle-check"></i> Message sent — I'll get back to you soon!</div>
       <div class="cf-error" id="cf-error"><i class="ti ti-alert-circle"></i> Something went wrong. Please email me directly at <a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a>.</div>
     </form>
@@ -216,21 +216,29 @@
 
 <script src="/main.js?v=202606300232"></script>
 <script>
-document.getElementById('contact-form').addEventListener('submit',async function(e){
-  e.preventDefault();
+(function(){
+  const form=document.getElementById('contact-form');
   const btn=document.getElementById('cf-btn');
-  const ok=document.getElementById('cf-success');
-  const err=document.getElementById('cf-error');
-  ok.style.display='none'; err.style.display='none';
-  btn.disabled=true; btn.innerHTML='<i class="ti ti-loader-2" style="animation:spin 1s linear infinite"></i> Sending…';
-  try{
-    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target)});
-    const json=await res.json();
-    if(json.success){ok.style.display='flex';e.target.reset();}
-    else throw new Error();
-  }catch{err.style.display='flex';}
-  btn.disabled=false; btn.innerHTML='<i class="ti ti-send"></i> Send message';
-});
+  const fields=form.querySelectorAll('input[required],textarea[required]');
+  function checkFields(){
+    btn.disabled=[...fields].some(f=>!f.value.trim());
+  }
+  fields.forEach(f=>f.addEventListener('input',checkFields));
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const ok=document.getElementById('cf-success');
+    const err=document.getElementById('cf-error');
+    ok.style.display='none'; err.style.display='none';
+    btn.disabled=true; btn.innerHTML='<i class="ti ti-loader-2" style="animation:spin 1s linear infinite"></i> Sending…';
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target)});
+      const json=await res.json();
+      if(json.success){ok.style.display='flex';e.target.reset();btn.disabled=true;}
+      else throw new Error();
+    }catch{err.style.display='flex';btn.disabled=false;}
+    btn.innerHTML='<i class="ti ti-send"></i> Send message';
+  });
+})();
 </script>
 </body>
 </html>
