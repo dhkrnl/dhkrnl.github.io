@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.44.0/dist/tabler-icons.min.css"/>
-<link rel="stylesheet" href="/style.css?v=202606300158"/>
+<link rel="stylesheet" href="/style.css?v=202606300232"/>
 <script>(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('dk-theme')||'dark');})();</script>
 </head>
 <body>
@@ -144,15 +144,20 @@
 
   <div class="contact-form">
     <h3><i class="ti ti-send" style="color:var(--accent)"></i> Send a message</h3>
-    <div class="cf-row">
-      <div class="cf-group"><label>Name</label><input type="text" id="cf-name" placeholder="Your name" autocomplete="name"/></div>
-      <div class="cf-group"><label>Email</label><input type="email" id="cf-email" placeholder="your@email.com" autocomplete="email"/></div>
-    </div>
-    <div class="cf-group"><label>Subject</label><input type="text" id="cf-subject" placeholder="Collaboration, research discussion, speaking invitation…"/></div>
-    <div class="cf-group"><label>Message</label><textarea id="cf-msg" placeholder="Your message…"></textarea></div>
-    <button class="cf-send" onclick="cfSend()"><i class="ti ti-mail-forward"></i> Send via email</button>
-    <div class="cf-note">Opens your email client with the message pre-filled.</div>
-    <div class="cf-success" id="cf-success"><i class="ti ti-circle-check"></i> Email client opened — thanks for reaching out!</div>
+    <form id="contact-form" novalidate>
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY"/>
+      <input type="hidden" name="from_name" value="dhkrnl.github.io"/>
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
+      <div class="cf-row">
+        <div class="cf-group"><label>Name</label><input type="text" name="name" placeholder="Your name" autocomplete="name" required/></div>
+        <div class="cf-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" autocomplete="email" required/></div>
+      </div>
+      <div class="cf-group"><label>Subject</label><input type="text" name="subject" placeholder="Collaboration, research discussion, speaking invitation…" required/></div>
+      <div class="cf-group"><label>Message</label><textarea name="message" placeholder="Your message…" required></textarea></div>
+      <button type="submit" class="cf-send" id="cf-btn"><i class="ti ti-send"></i> Send message</button>
+      <div class="cf-success" id="cf-success"><i class="ti ti-circle-check"></i> Message sent — I'll get back to you soon!</div>
+      <div class="cf-error" id="cf-error"><i class="ti ti-alert-circle"></i> Something went wrong. Please email me directly at <a href="mailto:dkumar39@wisc.edu">dkumar39@wisc.edu</a>.</div>
+    </form>
   </div>
 
   <div class="contact-grid">
@@ -209,20 +214,23 @@
   <button class="bnav" id="bnav-more"><i class="ti ti-menu-2"></i><span>More</span></button>
 </nav>
 
-<script src="/main.js?v=202606300158"></script>
+<script src="/main.js?v=202606300232"></script>
 <script>
-function cfSend(){
-  const name=document.getElementById('cf-name').value.trim();
-  const email=document.getElementById('cf-email').value.trim();
-  const subj=document.getElementById('cf-subject').value.trim();
-  const msg=document.getElementById('cf-msg').value.trim();
-  if(!name||!email||!subj||!msg){alert('Please fill in all fields.');return;}
-  const body='From: '+name+' ('+email+')\n\n'+msg;
-  window.location.href='mailto:dkumar39@wisc.edu?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
-  const s=document.getElementById('cf-success');
-  s.style.display='flex';
-  setTimeout(()=>s.style.display='none',5000);
-}
+document.getElementById('contact-form').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('cf-btn');
+  const ok=document.getElementById('cf-success');
+  const err=document.getElementById('cf-error');
+  ok.style.display='none'; err.style.display='none';
+  btn.disabled=true; btn.innerHTML='<i class="ti ti-loader-2" style="animation:spin 1s linear infinite"></i> Sending…';
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target)});
+    const json=await res.json();
+    if(json.success){ok.style.display='flex';e.target.reset();}
+    else throw new Error();
+  }catch{err.style.display='flex';}
+  btn.disabled=false; btn.innerHTML='<i class="ti ti-send"></i> Send message';
+});
 </script>
 </body>
 </html>
