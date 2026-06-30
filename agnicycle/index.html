@@ -143,60 +143,63 @@
       <img src="/images/01_primary_icon.svg" alt="AgniCycle" style="width:52px;height:52px;border-radius:14px;flex-shrink:0;box-shadow:0 4px 20px rgba(234,88,12,.4);display:block"/>
       <div>
         <h1>AgniCycle</h1>
-        <div class="agni-tagline" data-hi="Research के लिए Engine Cycle Simulation">Engine Cycle Simulation for Research</div>
+        <div class="agni-tagline" data-hi="Combustion Research के लिए Browser-native Platform">Browser-native Combustion Research Platform</div>
       </div>
     </div>
-    <p class="agni-desc" data-hi="AgniCycle एक web-based, research-grade thermodynamic engine cycle simulator है — जो researchers, students, और engineers को IC engine combustion cycles model करने, performance parameters analyze करने, और अलग-अलग fuels के effects study करने में मदद करता है, सीधे browser से, बिना किसी installation के।">AgniCycle is a web-based, research-grade thermodynamic engine cycle simulator — built to help researchers, students, and engineers model IC engine combustion cycles, analyze performance parameters, and study the effect of different fuels, all from a browser with no installation required.</p>
+    <p class="agni-desc" data-hi="AgniCycle एक free, browser-based research platform है — जो engine thermodynamics, fuel spray dynamics, और EV battery modelling के लिए research-grade tools provide करता है। कोई installation नहीं, कोई license fees नहीं — सिर्फ browser खोलो और research शुरू करो।">AgniCycle is a free, browser-native platform for combustion and EV research — providing research-grade tools for engine thermodynamics, fuel spray dynamics, and EV battery modelling. No installation, no license fees, no sign-in required.</p>
     <div class="agni-cta-row">
       <a class="agni-launch btn btn-primary" href="https://www.agnicycle.com/" target="_blank" rel="noopener noreferrer" data-hi='<i class="ti ti-external-link"></i> agnicycle.com पर जाएं'><i class="ti ti-external-link"></i> Visit agnicycle.com</a>
-      <a href="/tools/" class="btn" data-hi='<i class="ti ti-cpu"></i> सभी Research Tools'><i class="ti ti-cpu"></i> All research tools</a>
     </div>
     <div style="margin-top:10px;font-size:12px;color:var(--faint)"><i class="ti ti-world" style="font-size:13px;vertical-align:-2px"></i> <a href="https://www.agnicycle.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">www.agnicycle.com</a> — opens in a new tab</div>
   </div>
 
-  <!-- Features -->
-  <div class="section-title" style="margin-bottom:14px" data-hi="AgniCycle क्या करता है">What AgniCycle does</div>
-  <div class="agni-features">
-    <div class="agni-feat">
-      <div class="agni-feat-icon"><i class="ti ti-chart-line"></i></div>
-      <h4 data-hi="Thermodynamic Cycle Modelling">Thermodynamic cycle modelling</h4>
-      <p data-hi="Adjustable compression ratios, heat addition, और cutoff ratios के साथ Otto, Diesel, और Dual combustion cycles simulate करें — ideal engine behaviour समझने के लिए।">Simulate Otto, Diesel, and Dual combustion cycles with adjustable compression ratios, heat addition, and cutoff ratios to study ideal engine behaviour.</p>
+  <!-- Tools -->
+  <div class="section-title" style="margin-bottom:14px" data-hi="Platform के Tools">Platform tools</div>
+  <div class="card-grid col2" style="margin-bottom:22px">
+
+    <div class="card">
+      <h3><i class="ti ti-engine"></i>Engine Simulator <span style="font-size:10px;font-weight:700;background:var(--accent-bg);color:var(--accent);padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle">v1.3 · Live</span></h3>
+      <p>Zero-dimensional transient solver with 0.25° crank-angle resolution. Supports 12+ fuels — H₂, NH₃, gasoline, diesel, methanol, CNG, DME, and custom blends. Knock prediction, NOₓ estimation, and P-V diagrams included.</p>
     </div>
-    <div class="agni-feat">
-      <div class="agni-feat-icon"><i class="ti ti-flame"></i></div>
-      <h4 data-hi="Multi-fuel Analysis">Multi-fuel analysis</h4>
-      <p data-hi="Conventional और alternative fuels — hydrogen, CNG, HCNG blends, methanol, ethanol — की performance compare करें, fuel substitution effects study करने के लिए।">Compare performance across conventional and alternative fuels — hydrogen, CNG, HCNG blends, methanol, and ethanol — to study fuel substitution effects.</p>
+
+    <div class="card">
+      <h3><i class="ti ti-droplet"></i>Fuel Spray Calculator <span style="font-size:10px;font-weight:700;background:rgba(96,165,250,.12);color:var(--blue);padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle">Beta</span></h3>
+      <p>Droplet SMD, spray penetration, cone angle, and D² evaporation modelling. Export results as CSV or SVG for publication-ready figures.</p>
     </div>
-    <div class="agni-feat">
-      <div class="agni-feat-icon"><i class="ti ti-gauge"></i></div>
-      <h4 data-hi="Performance Parameters">Performance parameters</h4>
-      <p data-hi="Thermal efficiency, specific work output, MEP, और key engine performance indicators instantly compute करें, interactive parameter sweeps के साथ।">Compute thermal efficiency, specific work output, MEP, and other key engine performance indicators instantly with interactive parameter sweeps.</p>
+
+    <div class="card">
+      <h3><i class="ti ti-battery-charging"></i>EV Battery Suite <span style="font-size:10px;font-weight:700;background:rgba(96,165,250,.12);color:var(--blue);padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle">Beta</span></h3>
+      <p>Equivalent Circuit Model simulations for 6+ chemistries — NMC-811, LFP, NCA, LCO, and more. SOC/SOH estimation, thermal coupling, CC-CV charging, and degradation analysis.</p>
     </div>
-    <div class="agni-feat">
-      <div class="agni-feat-icon"><i class="ti ti-device-desktop"></i></div>
-      <h4 data-hi="Zero-install, Browser-based">Zero-install, browser-based</h4>
-      <p data-hi="पूरी तरह web-based — कोई Python नहीं, कोई MATLAB नहीं, कोई setup नहीं। Browser खोलो, simulation चलाओ, results share करो। Teaching और rapid prototyping के लिए बनाया।">Fully web-based — no Python, no MATLAB, no setup. Open the browser, run a simulation, share results. Built for teaching and rapid prototyping.</p>
+
+    <div class="card">
+      <h3><i class="ti ti-math"></i>CFD Calculators <span style="font-size:10px;font-weight:700;background:var(--accent-bg);color:var(--accent);padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle">Live</span></h3>
+      <p>Four browser-based tools for Reynolds numbers, y⁺ estimation, turbulence properties, and non-dimensional numbers — instantly accessible without any setup.</p>
     </div>
+
+    <div class="card" style="grid-column:1/-1">
+      <h3><i class="ti ti-school"></i>CFD Training &amp; Consulting <span style="font-size:10px;font-weight:700;background:rgba(251,191,36,.15);color:var(--amber);padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle">Booking Open</span></h3>
+      <p>1-on-1 sessions with an active combustion researcher covering CONVERGE, GT-Power, and HPC workflows — tailored for graduate students and engineers transitioning into CFD.</p>
+    </div>
+
   </div>
 
   <!-- Why AgniCycle -->
   <div class="card" style="margin-bottom:22px">
     <h3 data-hi='<i class="ti ti-bulb"></i> प्रेरणा'><i class="ti ti-bulb"></i> The motivation</h3>
-    <p style="margin-top:8px" data-hi='Engine cycle simulators या तो महंगे commercial software (GT-Power, Ricardo WAVE) में बंद हैं, या local Python/MATLAB setup की ज़रूरत है जो configure करने में घंटों लगते हैं। AgniCycle इसे बदलने के लिए बना — free, instant, किसी भी researcher या student के लिए। <em style="color:var(--accent)">"Agni"</em> Sanskrit में fire है — combustion research और IIT की परंपरा को नमन।'>Engine cycle simulators are either locked behind expensive commercial software (GT-Power, Ricardo WAVE) or require local Python/MATLAB setups that take hours to configure. AgniCycle was built to change that — free, instant, accessible to any researcher or student anywhere. <em style="color:var(--accent)">"Agni"</em> is Sanskrit for fire, a nod to combustion research and the IIT tradition.</p>
+    <p style="margin-top:8px" data-hi='Research-grade simulation tools या तो महंगे commercial software (GT-Power, Ricardo WAVE, CONVERGE) में बंद हैं, या complex local setups की ज़रूरत है। AgniCycle इस gap को close करने के लिए बना — एक free, browser-native platform जो combustion और EV battery research के लिए peer-validated tools provide करता है, किसी भी researcher या student के लिए। <em style="color:var(--accent)">"Agni"</em> Sanskrit में fire है — combustion research और IIT की परंपरा को नमन।'>Research-grade simulation is typically locked behind expensive institutional licenses (GT-Power, Ricardo WAVE, CONVERGE) or complex local setups. AgniCycle was built to close that gap — a free, browser-native platform delivering peer-validated tools for combustion and EV battery research, accessible to any researcher or student anywhere. <em style="color:var(--accent)">"Agni"</em> is Sanskrit for fire, a nod to combustion research and the IIT tradition.</p>
   </div>
 
   <!-- Tech stack -->
-  <div class="section-title" style="margin-bottom:10px" data-hi="Tech Stack और Deployment">Tech stack &amp; deployment</div>
+  <div class="section-title" style="margin-bottom:10px" data-hi="Tech Stack">Tech stack</div>
   <div class="agni-tech" style="margin-bottom:6px">
     <span style="font-size:13px;font-weight:500;color:var(--muted)">Built with:</span>
-    <span class="agni-tech-tag">Python</span>
-    <span class="agni-tech-tag">Streamlit</span>
-    <span class="agni-tech-tag">NumPy · SciPy</span>
-    <span class="agni-tech-tag">Plotly</span>
-    <span class="agni-tech-tag">Google Cloud Run</span>
-    <span class="agni-tech-tag">Docker</span>
+    <span class="agni-tech-tag">TypeScript</span>
+    <span class="agni-tech-tag">WebAssembly</span>
+    <span class="agni-tech-tag">Client-side only</span>
+    <span class="agni-tech-tag">Chrome · Firefox · Safari · Edge</span>
   </div>
-  <p style="font-size:12px;color:var(--faint);margin-top:8px">Containerized and deployed on Google Cloud Run · Auto-scales to zero · CI/CD managed by the developer</p>
+  <p style="font-size:12px;color:var(--faint);margin-top:8px">Runs entirely in the browser — no server, no data sent, no sign-in required · Free for all users</p>
 
 <footer class="site-footer">
   <div>© <span id="footer-year"></span> Dhananjay Kumar · Engine Research Center, University of Wisconsin–Madison</div>
