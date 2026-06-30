@@ -97,7 +97,7 @@ sb.querySelectorAll('.slink').forEach(b=>b.addEventListener('click',()=>sb.class
 
 // App launcher — fullscreen overlay, URL never exposed
 const appData = {
-  agni:  { url:'https://agnicycle-865384871824.us-west2.run.app/',       name:'AgniCycle' },
+  agni:  { url:'https://www.agnicycle.com/',                             name:'AgniCycle' },
   spray: { url:'https://spray-calculator-865384871824.us-west2.run.app', name:'Spray Calculator' }
 };
 function launchApp(id) {
