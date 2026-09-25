@@ -28,9 +28,10 @@
 <meta name="twitter:image" content="https://dhkrnl.github.io/images/og-card.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.44.0/dist/tabler-icons.min.css"/>
-<link rel="stylesheet" href="/style.css?v=202609250216"/>
+<link rel="stylesheet" href="/style.css?v=202609250220"/>
 <script>(function(){var t='dark';try{t=localStorage.getItem('dk-theme')||'dark';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 <body>
@@ -38,7 +39,7 @@
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-brand">
-    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit">
+    <a href="/" class="brand-link">
       <div class="brand-mark">DK</div>
       <span class="brand-name">Dhananjay Kumar</span>
     </a>
@@ -95,7 +96,7 @@
     <a class="slink" href="/skills/" data-page="skills" data-hi='<i class="ti ti-tool"></i> Skills'><i class="ti ti-tool"></i> Skills</a>
     <a class="slink" href="/publications/" data-page="publications" data-hi='<i class="ti ti-file-text"></i> Publications'><i class="ti ti-file-text"></i> Publications</a>
     <a class="slink" href="/awards/" data-page="awards" data-hi='<i class="ti ti-trophy"></i> पुरस्कार और सम्मान'><i class="ti ti-trophy"></i> Awards &amp; honors</a>
-    <a class="slink slink-agni" href="/agnicycle/" data-page="agnicycle"><img src="/images/01_primary_icon.svg" style="width:16px;height:16px;border-radius:4px;vertical-align:-3px;margin-right:2px"/> AgniCycle <span style="font-size:9px;font-weight:700;background:#22c55e;color:#fff;padding:1px 6px;border-radius:10px;margin-left:auto">App</span></a>
+    <a class="slink slink-agni" href="/agnicycle/" data-page="agnicycle"><img src="/images/01_primary_icon.svg" class="agni-ico" alt=""/> AgniCycle <span class="agni-badge">App</span></a>
     <a class="slink" href="/teaching/" data-page="teaching" data-hi='<i class="ti ti-chalkboard"></i> शिक्षण'><i class="ti ti-chalkboard"></i> Teaching</a>
     <a class="slink" href="/tools/" data-page="tools" data-hi='<i class="ti ti-cpu"></i> Research Tools'><i class="ti ti-cpu"></i> Research tools</a>
     <a class="slink" href="/phd/" data-page="phd" data-hi='<i class="ti ti-microscope"></i> PhD Work'><i class="ti ti-microscope"></i> PhD work</a>
@@ -127,10 +128,10 @@
   <div class="sidebar-section">
     <div class="sidebar-label" data-hi="Research Metrics">Research metrics</div>
     <div class="stats-mini">
-      <div class="stat-mini"><span class="stat-n">403</span><span class="stat-l">Citations</span></div>
+      <div class="stat-mini"><span class="stat-n">432</span><span class="stat-l">Citations</span></div>
       <div class="stat-mini"><span class="stat-n">11</span><span class="stat-l">h-index</span></div>
-      <div class="stat-mini"><span class="stat-n">12</span><span class="stat-l">i10</span></div>
-      <div class="stat-mini"><span class="stat-n">40+</span><span class="stat-l">Papers</span></div>
+      <div class="stat-mini"><span class="stat-n">13</span><span class="stat-l">i10</span></div>
+      <div class="stat-mini"><span class="stat-n">27</span><span class="stat-l">Papers</span></div>
     </div>
   </div>
 </aside>
@@ -160,12 +161,12 @@
 </div><!-- end shell -->
 
 <!-- FULLSCREEN APP OVERLAY -->
-<div id="app-fullscreen" style="display:none;position:fixed;inset:0;z-index:500;background:var(--bg);flex-direction:column">
-  <div style="display:flex;align-items:center;gap:12px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0">
-    <span id="app-fs-name" style="font-weight:600;font-size:14px;color:var(--text);flex:1"></span>
-    <button onclick="closeApp()" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid var(--border2);background:var(--surface2);color:var(--text);cursor:pointer"><i class="ti ti-x"></i> Close</button>
+<div id="app-fullscreen" class="app-fs">
+  <div class="app-fs-bar">
+    <span id="app-fs-name" class="app-fs-name"></span>
+    <button onclick="closeApp()" class="app-fs-close"><i class="ti ti-x"></i> Close</button>
   </div>
-  <iframe id="app-frame" src="" title="" allow="fullscreen" style="flex:1;border:none;display:block;width:100%"></iframe>
+  <iframe id="app-frame" class="app-fs-frame" src="" title="App preview" allow="fullscreen"></iframe>
 </div>
 
 <!-- BOTTOM NAV (mobile) -->
@@ -177,6 +178,6 @@
   <button class="bnav" id="bnav-more"><i class="ti ti-menu-2"></i><span>More</span></button>
 </nav>
 
-<script src="/main.js?v=202609250216"></script>
+<script src="/main.js?v=202609250220"></script>
 </body>
 </html>

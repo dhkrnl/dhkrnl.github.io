@@ -28,9 +28,10 @@
 <meta name="twitter:image" content="https://dhkrnl.github.io/images/og-card.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.44.0/dist/tabler-icons.min.css"/>
-<link rel="stylesheet" href="/style.css?v=202609250216"/>
+<link rel="stylesheet" href="/style.css?v=202609250220"/>
 <script>(function(){var t='dark';try{t=localStorage.getItem('dk-theme')||'dark';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
 <script type="application/ld+json">
 {
@@ -74,7 +75,7 @@
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-brand">
-    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit">
+    <a href="/" class="brand-link">
       <div class="brand-mark">DK</div>
       <span class="brand-name">Dhananjay Kumar</span>
     </a>
@@ -131,7 +132,7 @@
     <a class="slink" href="/skills/" data-page="skills" data-hi='<i class="ti ti-tool"></i> Skills'><i class="ti ti-tool"></i> Skills</a>
     <a class="slink" href="/publications/" data-page="publications" data-hi='<i class="ti ti-file-text"></i> Publications'><i class="ti ti-file-text"></i> Publications</a>
     <a class="slink" href="/awards/" data-page="awards" data-hi='<i class="ti ti-trophy"></i> पुरस्कार और सम्मान'><i class="ti ti-trophy"></i> Awards &amp; honors</a>
-    <a class="slink slink-agni" href="/agnicycle/" data-page="agnicycle"><img src="/images/01_primary_icon.svg" style="width:16px;height:16px;border-radius:4px;vertical-align:-3px;margin-right:2px"/> AgniCycle <span style="font-size:9px;font-weight:700;background:#22c55e;color:#fff;padding:1px 6px;border-radius:10px;margin-left:auto">App</span></a>
+    <a class="slink slink-agni" href="/agnicycle/" data-page="agnicycle"><img src="/images/01_primary_icon.svg" class="agni-ico" alt=""/> AgniCycle <span class="agni-badge">App</span></a>
     <a class="slink" href="/teaching/" data-page="teaching" data-hi='<i class="ti ti-chalkboard"></i> शिक्षण'><i class="ti ti-chalkboard"></i> Teaching</a>
     <a class="slink" href="/tools/" data-page="tools" data-hi='<i class="ti ti-cpu"></i> Research Tools'><i class="ti ti-cpu"></i> Research tools</a>
     <a class="slink" href="/phd/" data-page="phd" data-hi='<i class="ti ti-microscope"></i> PhD Work'><i class="ti ti-microscope"></i> PhD work</a>
@@ -163,10 +164,10 @@
   <div class="sidebar-section">
     <div class="sidebar-label" data-hi="Research Metrics">Research metrics</div>
     <div class="stats-mini">
-      <div class="stat-mini"><span class="stat-n">408</span><span class="stat-l">Citations</span></div>
+      <div class="stat-mini"><span class="stat-n">432</span><span class="stat-l">Citations</span></div>
       <div class="stat-mini"><span class="stat-n">11</span><span class="stat-l">h-index</span></div>
-      <div class="stat-mini"><span class="stat-n">12</span><span class="stat-l">i10</span></div>
-      <div class="stat-mini"><span class="stat-n">40+</span><span class="stat-l">Papers</span></div>
+      <div class="stat-mini"><span class="stat-n">13</span><span class="stat-l">i10</span></div>
+      <div class="stat-mini"><span class="stat-n">27</span><span class="stat-l">Papers</span></div>
     </div>
   </div>
 </aside>
@@ -255,16 +256,16 @@
         <text id="dk-core-t" x="190" y="187" text-anchor="middle" font-family="Sora,Inter,sans-serif" font-size="20" fill="#60a5fa" font-weight="700" style="cursor:pointer">DK</text>
       </svg>
       <div id="graph-info" class="graph-info">
-        <span style="opacity:.4;font-style:italic;font-size:11px">hover a node to explore</span>
+        <span class="graph-hint">hover a node to explore</span>
       </div>
     </div>
   </div>
 
   <div class="stats-row">
-    <div class="stat"><div class="n">408</div><div class="l">Citations</div></div>
+    <div class="stat"><div class="n">432</div><div class="l">Citations</div></div>
     <div class="stat"><div class="n">11</div><div class="l">h-index</div></div>
-    <div class="stat"><div class="n">12</div><div class="l">i10-index</div></div>
-    <div class="stat"><div class="n">40+</div><div class="l">Publications</div></div>
+    <div class="stat"><div class="n">13</div><div class="l">i10-index</div></div>
+    <div class="stat"><div class="n">27</div><div class="l">Publications</div></div>
   </div>
 
   <div class="section-title" data-hi="Research क्षेत्र">Research areas</div>
@@ -301,12 +302,12 @@
 </div><!-- end shell -->
 
 <!-- FULLSCREEN APP OVERLAY -->
-<div id="app-fullscreen" style="display:none;position:fixed;inset:0;z-index:500;background:var(--bg);flex-direction:column">
-  <div style="display:flex;align-items:center;gap:12px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0">
-    <span id="app-fs-name" style="font-weight:600;font-size:14px;color:var(--text);flex:1"></span>
-    <button onclick="closeApp()" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid var(--border2);background:var(--surface2);color:var(--text);cursor:pointer"><i class="ti ti-x"></i> Close</button>
+<div id="app-fullscreen" class="app-fs">
+  <div class="app-fs-bar">
+    <span id="app-fs-name" class="app-fs-name"></span>
+    <button onclick="closeApp()" class="app-fs-close"><i class="ti ti-x"></i> Close</button>
   </div>
-  <iframe id="app-frame" src="" title="" allow="fullscreen" style="flex:1;border:none;display:block;width:100%"></iframe>
+  <iframe id="app-frame" class="app-fs-frame" src="" title="App preview" allow="fullscreen"></iframe>
 </div>
 
 <!-- BOTTOM NAV (mobile) -->
@@ -318,107 +319,7 @@
   <button class="bnav" id="bnav-more"><i class="ti ti-menu-2"></i><span>More</span></button>
 </nav>
 
-<script src="/main.js?v=202609250216"></script>
-<script>
-// Research graph interaction (home page only) — mouse + touch
-(function(){
-  const svg=document.getElementById('research-graph');
-  if(!svg)return;
-  const gnodes=svg.querySelectorAll('.gnode');
-  const glines=svg.querySelectorAll('.gline');
-  const ginfo=document.getElementById('graph-info');
-  const isTouch=()=>'ontouchstart' in window||navigator.maxTouchPoints>0;
-  const navMap={h2:'/publications/',spray:'/tools/',cfd:'/skills/',battery:'/projects/',laser:'/phd/',altfuel:'/publications/'};
-  function getDflt(){
-    const hi=document.documentElement.dataset.lang==='hi';
-    if(isTouch())return hi?`<span style="opacity:.4;font-style:italic;font-size:10.5px">किसी node पर tap करें</span>`:`<span style="opacity:.4;font-style:italic;font-size:10.5px">tap a node to explore</span>`;
-    return hi?`<span style="opacity:.4;font-style:italic;font-size:10.5px">node पर hover करें · खोलने के लिए click करें</span>`:`<span style="opacity:.4;font-style:italic;font-size:10.5px">hover a node · click to open</span>`;
-  }
-  const descHi={h2:'HCNG blends, laser और spark ignition, CVCCs में flame kernel propagation',spray:'Schlieren और Mie-scattering imaging से macroscopic spray characterization',cfd:'CONVERGE CFD से 3D combustion, spray और thermal runaway की numerical modelling',battery:'EV और hybrid vehicles के लिए Li-ion cell thermal runaway modelling',laser:'Laser ignition, LIBS spectroscopy, high-speed optical engine diagnostics',altfuel:'Methanol, ethanol, HCNG — low-carbon IC engine fuels की combustion characterization'};
-
-  // Entrance stagger: lines then nodes
-  glines.forEach((l,i)=>{l.style.animation=`lineIn .4s ${.12+i*.05}s ease both`;});
-  gnodes.forEach((nd,i)=>{nd.style.animation=`nodeIn .38s ${.28+i*.07}s ease both`;});
-
-  let activeNode=null;
-
-  function activate(nd){
-    const id=nd.dataset.id,col=nd.dataset.color,desc=nd.dataset.desc,name=nd.dataset.name;
-    const ring=nd.querySelector('.gnode-ring'),circ=nd.querySelector('.gnode-circle');
-    gnodes.forEach(n=>n.style.opacity='0.3');
-    nd.style.opacity='1';
-    circ.style.filter=`drop-shadow(0 0 9px ${col})`;
-    ring.style.opacity='0.85';
-    ring.setAttribute('stroke-width','1.8');
-    glines.forEach(l=>{
-      const m=l.dataset.node===id;
-      l.setAttribute('stroke',m?col:'rgba(59,130,246,.06)');
-      l.setAttribute('stroke-width',m?'2.5':'1');
-      l.style.opacity=m?'1':'0.4';
-    });
-    const dispDesc=document.documentElement.dataset.lang==='hi'?(descHi[id]||desc):desc;
-    const openHint=(!isTouch()&&navMap[id])?` <span style="color:${col};font-weight:600;white-space:nowrap">↗ open</span>`:'';
-    ginfo.innerHTML=`<b style="color:${col}">${name}</b> — ${dispDesc}${openHint}`;
-    activeNode=nd;
-  }
-
-  function reset(){
-    gnodes.forEach(n=>{
-      n.style.opacity='1';
-      const c=n.querySelector('.gnode-circle'),r=n.querySelector('.gnode-ring');
-      if(c)c.style.filter='';
-      if(r){r.style.opacity='0.35';r.setAttribute('stroke-width','1');}
-    });
-    glines.forEach(l=>{
-      l.setAttribute('stroke','rgba(59,130,246,.15)');
-      l.setAttribute('stroke-width','1.2');
-      l.style.opacity='1';
-    });
-    ginfo.innerHTML=getDflt();
-    activeNode=null;
-  }
-
-  gnodes.forEach(nd=>{
-    // Mouse
-    nd.addEventListener('mouseenter',()=>activate(nd));
-    nd.addEventListener('mouseleave',reset);
-    // Click navigates to related page (touch preventDefault below suppresses this on tap)
-    nd.addEventListener('click',()=>{const u=navMap[nd.dataset.id];if(u)location.href=u;});
-    // Touch — tap to toggle; tap same node again to deactivate
-    nd.addEventListener('touchstart',e=>{
-      e.preventDefault();
-      if(activeNode===nd){reset();}else{activate(nd);}
-    },{passive:false});
-    // Keyboard — focus previews, Enter/Space opens
-    nd.setAttribute('tabindex','0');
-    nd.setAttribute('role','link');
-    nd.setAttribute('aria-label',nd.dataset.name+' — '+nd.dataset.desc);
-    nd.addEventListener('focus',()=>activate(nd));
-    nd.addEventListener('blur',reset);
-    nd.addEventListener('keydown',e=>{
-      if(e.key==='Enter'||e.key===' '){e.preventDefault();const u=navMap[nd.dataset.id];if(u)location.href=u;}
-    });
-    nd.style.cursor='pointer';
-  });
-
-  // Center DK node → projects overview
-  ['dk-core','dk-core-t'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el)el.addEventListener('click',()=>{location.href='/projects/';});
-  });
-
-  // Tap on SVG background resets
-  svg.addEventListener('touchstart',e=>{
-    if(!e.target.closest('.gnode'))reset();
-  },{passive:true});
-
-  // Update hint text on first touch
-  svg.addEventListener('touchstart',()=>{
-    if(ginfo.innerHTML===getDflt())ginfo.innerHTML=getDflt();
-  },{passive:true,once:true});
-
-  ginfo.innerHTML=getDflt();
-})();
-</script>
+<script src="/main.js?v=202609250220"></script>
+<script src="/home.js?v=202609250220"></script>
 </body>
 </html>
