@@ -35,7 +35,7 @@ python3 update-metrics.py --check    # dry run
 python3 update-metrics.py 432 11 13  # manual values if Scholar blocks the request
 ```
 
-**Add a publication:** add a `pub-item` link inside the matching `pub-section` (`data-type` = journal / conference / book / patent) in `publications/index.html`, then run `update-metrics.py` so the count updates everywhere.
+**Add a publication:** add a `pub-item` link inside the matching `pub-section` (`data-type` = journal / conference / thesis / book / patent) in `publications/index.html`, then run `update-metrics.py` so the count updates everywhere.
 
 **Deploy**
 ```bash

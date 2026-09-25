@@ -57,7 +57,7 @@ for f in glob.glob('**/*.html', recursive=True):
                        lambda m: f'{m.group(1)}{val}{m.group(2)}', s)
     # publications page: inline count + meta descriptions
     s = re.sub(r"(pub-count-inline['\"]>)[^<]*", lambda m: f'{m.group(1)}{papers}', s)
-    s = re.sub(r'(content=")(?:\d+\+?) (peer-reviewed journals)', lambda m: f'{m.group(1)}{papers} {m.group(2)}', s)
+    s = re.sub(r'(content=")(?:\d+\+?) (journal articles)', lambda m: f'{m.group(1)}{papers} {m.group(2)}', s)
     if s != orig:
         changed += 1
         print('  updated', f)
