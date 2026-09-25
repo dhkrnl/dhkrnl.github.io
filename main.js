@@ -219,61 +219,6 @@ function closeApp() {
   }));
 })();
 
-// Live publications list from OpenAlex
-(function(){
-  const ORCID='0000-0003-1167-9672';
-  const ME_ORCID='https://orcid.org/'+ORCID;
-
-  function fmtName(n){
-    const p=n.trim().split(/\s+/);
-    if(p.length===1)return p[0];
-    return p.slice(0,-1).map(x=>x[0]).join(' ')+' '+p[p.length-1];
-  }
-
-  function fmtAuthors(auths){
-    function isMe(a){return a.author.orcid===ME_ORCID||a.author.display_name==='Dhananjay Kumar';}
-    if(auths.length<=5){
-      return auths.map(a=>{const n=fmtName(a.author.display_name);return isMe(a)?`<b>${n}</b>`:n;}).join(', ');
-    }
-    const mi=auths.findIndex(isMe);
-    if(mi<=2){
-      const s=auths.slice(0,3).map(a=>{const n=fmtName(a.author.display_name);return isMe(a)?`<b>${n}</b>`:n;});
-      return s.join(', ')+', et al.';
-    }
-    return fmtName(auths[0].author.display_name)+', …, <b>'+fmtName(auths[mi].author.display_name)+'</b>, et al.';
-  }
-
-  function pubHTML(w,extraClass){
-    const title=w.title||'';
-    const year=w.publication_year||'';
-    const journal=w.primary_location?.source?.display_name||'';
-    const url=w.primary_location?.landing_page_url||(w.doi?'https://doi.org/'+w.doi.replace('https://doi.org/',''):'#');
-    const authors=fmtAuthors(w.authorships||[]);
-    const jPart=journal?`<em>${journal}</em>`:'';
-    const meta=[authors,jPart,year].filter(Boolean).join(' · ');
-    return `<a href="${url}" class="pub-item${extraClass?' '+extraClass:''}" target="_blank" rel="noopener noreferrer"><div class="pub-ico j"><i class="ti ti-file-text"></i></div><div><div class="pub-title">${title}</div><div class="pub-meta">${meta}</div></div><i class="ti ti-arrow-up-right pub-arr"></i></a>`;
-  }
-
-  fetch('https://api.openalex.org/works?filter=author.orcid:'+ORCID+'&sort=publication_date:desc&per_page=50&select=title,publication_year,primary_location,authorships,doi,type',
-    {headers:{'User-Agent':'dhananjay-website/1.0 (mailto:dhkrnl37@gmail.com)'}}
-  ).then(r=>r.ok?r.json():null).then(data=>{
-    if(!data||!data.results)return;
-    const journals=data.results.filter(w=>w.type==='journal-article');
-
-    // Update home page recent list (top 3)
-    const homeList=document.getElementById('home-pubs-list');
-    if(homeList&&journals.length){
-      homeList.innerHTML=journals.slice(0,3).map(w=>pubHTML(w)).join('');
-    }
-
-    // Update publications page full international journals list
-    const intlList=document.getElementById('intl-journals-list');
-    if(intlList&&journals.length){
-      intlList.innerHTML=journals.map(w=>pubHTML(w)).join('');
-    }
-  }).catch(()=>{});
-})();
-
 // Bottom nav — sync active state on page load
 setTimeout(function(){
   const bnavMore=document.getElementById('bnav-more');
