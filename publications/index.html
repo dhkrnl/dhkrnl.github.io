@@ -24,15 +24,17 @@
 <meta property="og:image:alt" content="Dhananjay Kumar — Postdoctoral Research Associate at the Engine Research Center, UW–Madison"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Publications · Dhananjay Kumar"/>
+<meta name="twitter:description" content="40+ peer-reviewed journals, conference papers, book chapters, and patents by Dhananjay Kumar."/>
 <meta name="twitter:image" content="https://dhkrnl.github.io/images/og-card.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.44.0/dist/tabler-icons.min.css"/>
-<link rel="stylesheet" href="/style.css?v=202607011428"/>
-<script>(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('dk-theme')||'dark');})();</script>
+<link rel="stylesheet" href="/style.css?v=202609250216"/>
+<script>(function(){var t='dark';try{t=localStorage.getItem('dk-theme')||'dark';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-brand">
@@ -59,15 +61,15 @@
     </nav>
   </div>
   <div class="topbar-right">
-    <button class="icon-btn" id="lang-btn" title="हिंदी / English" onclick="toggleHindi()"><span id="lang-label">हिं</span></button>
-    <button class="icon-btn" id="theme" title="Toggle dark mode">
+    <button class="icon-btn" id="lang-btn" title="हिंदी / English" aria-label="Switch language: English / Hindi" onclick="toggleHindi()"><span id="lang-label">हिं</span></button>
+    <button class="icon-btn" id="theme" title="Toggle dark mode" aria-label="Toggle dark mode">
       <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
-    <button class="icon-btn" id="fs-btn" title="Fullscreen (F)">
+    <button class="icon-btn" id="fs-btn" title="Fullscreen (F)" aria-label="Toggle fullscreen">
       <svg id="fs-icon-enter" viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
       <svg id="fs-icon-exit" viewBox="0 0 24 24" style="display:none"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/></svg>
     </button>
-    <button class="icon-btn menu-btn" id="menu" title="Navigation menu">
+    <button class="icon-btn menu-btn" id="menu" title="Navigation menu" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
       <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
@@ -105,12 +107,12 @@
   <div class="sidebar-section">
     <div class="sidebar-label" data-hi="Profiles">Profiles</div>
     <div class="socials-row">
-      <a class="soc-btn" href="https://scholar.google.com/citations?user=kYDGsMAAAAAJ" title="Google Scholar"><i class="ti ti-school"></i></a>
-      <a class="soc-btn" href="https://www.researchgate.net/profile/Dhananjay-Kumar-10" title="ResearchGate"><i class="ti ti-atom"></i></a>
-      <a class="soc-btn" href="https://www.scopus.com/authid/detail.uri?authorId=57218117181" title="Scopus"><i class="ti ti-file-text"></i></a>
-      <a class="soc-btn" href="https://orcid.org/0000-0003-1167-9672" title="ORCID"><i class="ti ti-fingerprint"></i></a>
-      <a class="soc-btn" href="https://www.linkedin.com/in/dhkrnl" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
-      <a class="soc-btn" href="https://erc.wisc.edu/staff/kumar-dhananjay/" title="ERC profile"><i class="ti ti-building-bank"></i></a>
+      <a class="soc-btn" href="https://scholar.google.com/citations?user=kYDGsMAAAAAJ" title="Google Scholar" aria-label="Google Scholar"><i class="ti ti-school"></i></a>
+      <a class="soc-btn" href="https://www.researchgate.net/profile/Dhananjay-Kumar-10" title="ResearchGate" aria-label="ResearchGate"><i class="ti ti-atom"></i></a>
+      <a class="soc-btn" href="https://www.scopus.com/authid/detail.uri?authorId=57218117181" title="Scopus" aria-label="Scopus"><i class="ti ti-file-text"></i></a>
+      <a class="soc-btn" href="https://orcid.org/0000-0003-1167-9672" title="ORCID" aria-label="ORCID"><i class="ti ti-fingerprint"></i></a>
+      <a class="soc-btn" href="https://www.linkedin.com/in/dhkrnl" title="LinkedIn" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+      <a class="soc-btn" href="https://erc.wisc.edu/staff/kumar-dhananjay/" title="ERC profile" aria-label="ERC profile"><i class="ti ti-building-bank"></i></a>
     </div>
   </div>
   <div class="divider"></div>
@@ -134,7 +136,7 @@
 </aside>
 
 <!-- MAIN -->
-<main class="main">
+<main class="main" id="main-content" tabindex="-1">
 
   <div class="page-hd">
     <div class="page-tag" data-hi="Research प्रकाशन">Research output</div>
@@ -246,6 +248,6 @@
   <button class="bnav" id="bnav-more"><i class="ti ti-menu-2"></i><span>More</span></button>
 </nav>
 
-<script src="/main.js?v=202607011428"></script>
+<script src="/main.js?v=202609250216"></script>
 </body>
 </html>

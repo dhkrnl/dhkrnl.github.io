@@ -748,3 +748,10 @@ html:not([data-theme="dark"]) .phd-img{background:#ebebeb}
 @keyframes vtOut{to{opacity:0;transform:translateY(-4px)}}
 @keyframes vtIn {from{opacity:0;transform:translateY(4px)}}
 
+
+/* Skip link (visible on keyboard focus only) */
+.skip-link{position:absolute;left:12px;top:-48px;z-index:1000;padding:10px 16px;border-radius:8px;background:var(--accent);color:#fff;font-weight:600;font-size:14px;text-decoration:none;transition:top .15s}
+.skip-link:focus{top:12px}
+#main-content:focus{outline:none}
+.gnode:focus-visible{outline:none}
+.gnode:focus-visible .gnode-circle{stroke-width:3.5}
