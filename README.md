@@ -23,7 +23,7 @@ The sidebar, top bar and footer are repeated in every HTML file (there is no tem
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
-**After changing `style.css`, `main.js` or `home.js`**, cache-bust the references on every page:
+**Before every deploy**, run this. It cache-busts `style.css` / `main.js` / `home.js` (required after changing them) and sets the footer "Last updated" date on every page to today:
 ```bash
 python3 bump-version.py
 ```

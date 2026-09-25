@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Cache-bust main.js, home.js and style.css across all HTML pages.
+"""Cache-bust main.js, home.js and style.css across all HTML pages, and stamp
+the footer "Last updated" date with today's date.
 
-Run this before committing a deploy that changes main.js or style.css.
-It stamps every <link>/<script> reference with a fresh ?v=<timestamp>,
+Run this before every deploy (it keeps the footer date current), and always after
+changing main.js, home.js or style.css. It stamps every <link>/<script> reference with a fresh ?v=<timestamp>,
 so browsers fetch the new file immediately instead of waiting out
 GitHub Pages' 10-minute asset cache.
 
@@ -10,7 +11,10 @@ Usage:  python3 bump-version.py
 """
 import re, glob, datetime, sys
 
-ver = datetime.datetime.now().strftime('%Y%m%d%H%M')
+now = datetime.datetime.now()
+ver = now.strftime('%Y%m%d%H%M')
+pat_time = re.compile(r'<time datetime="[^"]*">[^<]*</time>')
+time_tag = f'<time datetime="{now:%Y-%m-%d}">{now.day} {now:%b} {now.year}</time>'
 pat_css = re.compile(r'(href="/style\.css)(\?v=\d+)?(")')
 pat_js  = re.compile(r'(src="/(?:main|home)\.js)(\?v=\d+)?(")')
 
@@ -20,6 +24,7 @@ for f in glob.glob('**/*.html', recursive=True):
         s = fh.read()
     new = pat_css.sub(r'\1?v=' + ver + r'\3', s)
     new = pat_js.sub(r'\1?v=' + ver + r'\3', new)
+    new = pat_time.sub(time_tag, new)
     if new != s:
         with open(f, 'w', encoding='utf-8') as fh:
             fh.write(new)

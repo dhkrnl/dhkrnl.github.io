@@ -766,3 +766,5 @@ html:not([data-theme="dark"]) .phd-img{background:#ebebeb}
 .app-fs-close{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid var(--border2);background:var(--surface2);color:var(--text);cursor:pointer}
 .app-fs-frame{flex:1;border:none;display:block;width:100%}
 .graph-hint{opacity:.4;font-style:italic;font-size:10.5px}
+
+.site-updated{color:var(--faint)}
